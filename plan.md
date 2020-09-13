@@ -12,7 +12,18 @@ Write out a list of *all* the things you need to do to code this game. This can 
 
 ---
 
-*Write TODO list here*
+### To-Do List
+
+1. Create 9 DIV Elements for board squares
+2. Create a DIV for a restart button
+3. Position board square divs using flexbox
+4. Position reset button
+5. Create javascript function that randomly decides which player starts first
+6. Create player and computer functions that will eventually alternate and either wait for input for user or provide input if computer
+7. Add logic at the end of both the player and the computer's moves to check for a win or a draw
+8. add javascript function that looks for clicks from the user or a move choice from the computer and alters a board square's styling 
+9. Add div that indicates visually which player is X and which O
+
 
 ---
 
@@ -22,6 +33,11 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 ---
 
-*Write psuedocode here*
+### Pseudocode
 
+There are only 8 possible winning lines, so first we can make variables for them (collections of divs? i.e. div 1-div 5- div 9 would be the winning line spanning from top left to bottom right)
+
+if...if else loop through all the possibilities and see if all three squares of a winning row have the same class (class='x' or class='0')
+
+if all 9 squares have been clicked and there is no winning combination, it is a draw
 ---
