@@ -34,7 +34,7 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 ---
 
-*Write psuedocode here*
+
 
 consider that the board is represented by the array as below:
 
@@ -43,15 +43,29 @@ consider that the board is represented by the array as below:
  3, 4, 5,
  6, 7, 8]
  ```
-if the same piece is in the top row (0,1,2) OR
-if the same piece is in the second row (3,4,5)OR
-if the same piece is in the third row (6,7,8)OR
-if the same piece is in the first column (0,3,6) OR
-if the same piece is in the second column (1,4,7) OR
-if the same piece is in the third column (2,5,8) OR
-if the same piece is in the downward diagonal (0,4,8) OR
+
+ for purpose of the pseudocode assume same piece is X or O, a *nonempty* piece:
+
+if the same piece is in the top row (0,1,2) **OR**
+
+if the same piece is in the second row (3,4,5) **OR**
+
+if the same piece is in the third row (6,7,8) **OR**
+
+if the same piece is in the first column (0,3,6) **OR**
+
+if the same piece is in the second column (1,4,7) **OR**
+
+if the same piece is in the third column (2,5,8) **OR**
+
+if the same piece is in the downward diagonal (0,4,8) **OR**
+
 if the same piece is in the upward diagonal (2,4,6)
-Then the player associated with that piece wins
-else if there are no empty spaces in the grid
-it is a draw
+
+  *Then the player associated with that piece wins*
+
+otherwise if there are no empty spaces in the grid
+
+*it is a draw*
+
 ---
