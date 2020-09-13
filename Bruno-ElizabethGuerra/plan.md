@@ -37,7 +37,7 @@ Later versions can have this be a variable where users can choose the size. To s
 - "x" goes first
 
 ### If someone gets 3 in a row, they win
-If the board fills up and there is no 3 in a row, it's a tie
+- If the board fills up and there is no 3 in a row, it's a tie
 ---
 
 ### Optional Part 2: Pseudo-code your win-logic
