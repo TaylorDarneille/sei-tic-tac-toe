@@ -35,9 +35,14 @@ Each time a player makes a move, your code will check to see if there is a game-
 ---
 
 *Write psuedocode here*
+
+consider that the board is represented by the array as below:
+
+```js
 [0, 1, 2,
  3, 4, 5,
  6, 7, 8]
+ ```
 if the same piece is in the top row (0,1,2) OR
 if the same piece is in the second row (3,4,5)OR
 if the same piece is in the third row (6,7,8)OR
