@@ -50,9 +50,16 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 #### Win condition: X wins
 if the grid has 3 consecutive Xs in a straight line (horizontal, vertical, or diagonal), Player X is the winner
+    after each X move, check to see if there are 3 Xs in a row
+    starting with the most recently played square, check the contents of all adjacent squares to see if there are other Xs
+        if there are Os or the squares are blank, return
+    for each of those adjacent squares with an X, continue in the same direction to see if there is a third X
+        if there is no third X, return
+        if there is a third X, Player X wins and the game is over
 
 #### Win condition: O wins
 if the grid has 3 consecutive Os in a straight line (horizontal, vertical, or diagonal), Player O is the winner
+    follow the same logic as Win condition: X wins, but with Os
 
 #### Win condition: Tie
 if the grid contains 9 symbols (Xs or Os) and there is no consecutive 3-in-a-row as described above, the game ends in a tie
