@@ -48,4 +48,13 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 *Write psuedocode here*
 
+#### Win condition: X wins
+if the grid has 3 consecutive Xs in a straight line (horizontal, vertical, or diagonal), Player X is the winner
+
+#### Win condition: O wins
+if the grid has 3 consecutive Os in a straight line (horizontal, vertical, or diagonal), Player O is the winner
+
+#### Win condition: Tie
+if the grid contains 9 symbols (Xs or Os) and there is no consecutive 3-in-a-row as described above, the game ends in a tie
+
 ---
