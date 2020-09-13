@@ -55,7 +55,8 @@ Each time a player makes a move, your code will check to see if there is a game-
   * There is a column of three Xs or Os
   * There is a diagonal of three Xs or Os
 * It may help to number the squares to make it easier to refer to (this could be done through ID tags on the squares)
-Sample|Grid|Setup
+
+Sample | Grid | Setup
 -----|-----|-----
   1 | 2 | 3
   4 | 5 | 6
