@@ -61,3 +61,10 @@ Sample | Grid | Setup
   1 | 2 | 3
   4 | 5 | 6
   7 | 8 | 9
+
+  * Win logic could thus be as follows:
+    * IF 1-2-3 OR 4-5-6 OR 7-8-9
+    OR 1-4-7 OR 2-5-8 OR 3-6-8
+    OR 1-5-9 OR 7-5-3 are all populated with same type of piece, player with that piece wins
+    * ELSE IF all squares are populated, game is over
+    * ELSE it is the next players turn
