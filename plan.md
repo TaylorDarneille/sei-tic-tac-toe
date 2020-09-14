@@ -16,6 +16,16 @@ Write out a list of *all* the things you need to do to code this game. This can 
 
 ---
 
+1. make a 3 by 3 js array that represents the tic tac toe board
+2. make a container in my html, which represents the board
+    2a. make 9 containers in the container that was made which represent each position in the board.
+3. Make CSS for a circle class and a X class which represent the players moves.  Set background img to circle or X. 
+4. Make Listeners for all of the containers and if they're clicked make a div within the container that was clicked and then add the div with the appropriate class. 
+5. After each move check O has won or X has won.  
+    5a. check if the user has a vertical or horizontal win and then check both diagonals if someone wins end game (break loop) and alert user(s) who won
+6. If a winner prompt user if they want to play again , if yes clear js board and HTML using DOM.
+
+
 ### Optional Part 2: Pseudo-code your win-logic
 
 Each time a player makes a move, your code will check to see if there is a game-over condition (a win or a draw). Write out this logic in english/psuedocode below. When you're done, anyone should be able to read your pseudo-code and translate it line-by-line into javascript or another language.
