@@ -8,11 +8,21 @@ Fork & Clone this repo. Open this file in your text editor and fill in the secti
 
 ### Part 1: Make a To-Do list
 
-Write out a list of *all* the things you need to do to code this game. This can be as detailed or high-level, though we recommend the former. This is your first time planning an app, so just have fun and just see what you can come up with. There's no right way.
+Write out a list of _all_ the things you need to do to code this game. This can be as detailed or high-level, though we recommend the former. This is your first time planning an app, so just have fun and just see what you can come up with. There's no right way.
 
 ---
 
-*Write TODO list here*
+_Write TODO list here_
+
+-Create a grid 3 by 3
+-Pick colors for grid, make it every other color
+-Make it a two player game
+-Have X and O with the two main variables
+-Mark your Mark
+Take Turns
+Wine logic : align 3 in a row, in a column or diagonally
+declare a Tie
+The Game is then Finished
 
 ---
 
@@ -22,6 +32,28 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 ---
 
-*Write psuedocode here*
+_Write psuedocode here_
+
+- Make boilder Type in HTML
+  Link up CSS and JavaScript
+
+  Creating a Board
+  div classes in container in Javascript for the grids.
+  Create 3 by 3 grids
+  State variables, creating a function for a 3 by 3 grid
+
+  The controls to take action would also need to be created, for example, start and stop.
+
+  CSS- Everything is css would need to be created, based on color and the size of the grids.
+
+  Create conditional statement as players pick X and O, so if player 1 picks X then something would happen and if player 1 choose O then another event would happen.
+
+  Wine conditions and lose conditions need to be created, for example if a player gets 1, 2, 3 in the grids, they woud win.
+
+A function for creating a tie would also be created as that is one of the options to the game which would cause the game to restart.
+
+We need to create fucntions to check in which ways the winners are declared, horizontal, vertical or diagonal.
+
+Then create a function to declare a winner like we did in landscaper.
 
 ---
