@@ -1,10 +1,3 @@
-# Peudo-Code Tic Tac Toe
-
-Next Week, you'll be building a [tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) game from scratch. To prepare, the deliverable this week is to plan it out! You'll also get to practice writing [markdown](https://guides.github.com/features/mastering-markdown/).
-
-## The Assignment
-
-Fork & Clone this repo. Open this file in your text editor and fill in the sections below. When you're done, make a pull request!
 
 ### Part 1: Make a To-Do list
 
@@ -13,7 +6,13 @@ Write out a list of *all* the things you need to do to code this game. This can 
 ---
 
 *Write TODO list here*
-
+1. Make a 3x3 grid for the users to play the game on
+2. Make variables for X and O
+3. Give to the user the option to start with X or O
+4. Once the user chooses it, give the option onto where the user wants to place the X or O
+5. Once the first user chooses it place on the grid automatically assign the other charcter to the second user and give the current user the option to choose a spot on the grid
+6. Whichever user wins, either make an alert stating they won or make something cool on the site.
+7. Then give the option to either restart or play again
 ---
 
 ### Optional Part 2: Pseudo-code your win-logic
@@ -23,5 +22,5 @@ Each time a player makes a move, your code will check to see if there is a game-
 ---
 
 *Write psuedocode here*
-
+I think I would have to make functions for a win and a draw. Then whenever a move is made an iteration happens to determine which user won or if it is a draw.
 ---
