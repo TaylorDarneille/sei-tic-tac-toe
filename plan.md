@@ -14,6 +14,20 @@ Write out a list of *all* the things you need to do to code this game. This can 
 
 *Write TODO list here*
 
+TODO:
+-> create 3 files: index.html, styles.css, app.js
+-> set up the boiler plate of html and connect the css and javascript to it
+-> The game will have 3 pages: 
+    1) The main page
+        - title 
+        - two buttons
+    2) page to choose either X or O
+        - title
+        - four divs ( two circles and two symbols)
+    3) The page with the game
+        - 6 divs 
+        - Lines: another 6 divs
+        - button 
 ---
 
 ### Optional Part 2: Pseudo-code your win-logic
