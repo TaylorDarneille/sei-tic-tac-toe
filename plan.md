@@ -24,4 +24,11 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 *Write psuedocode here*
 
+1. make a grid that is 3X3
+2. make two variables one being X and one being O
+3. write an if statement that allows the player to place the symbol of their choosing on one of the squares in the grid 
+4. after 1 player chooses his placement allow time for the second play ot choose his placement 
+5. Write a statement that stops the game after one of the players have placed the same symbol in a row of 3
+6. alert the players who has won and who has lost
+
 ---
