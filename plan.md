@@ -13,6 +13,28 @@ Write out a list of *all* the things you need to do to code this game. This can 
 ---
 
 *Write TODO list here*
+*make board
+    *grid for the game
+    *buttons or fill in for the x and o
+    *select two player
+        *two different turns that change from x/o after each turn
+    *select one player
+        *player plays against computer that selects randomly
+    *indicate turn by changing board color 
+        *(eg. playerBackground=red / playerComputer background=blue)
+*make rules
+    *one person can fill a field at a time
+    *three in a row gives a point to the winner
+    *set game length 
+        *best 2 out of 3 
+    *when winner has won 2/3 games
+        *ask if they want to restart
+*set players
+    *choice for player 1 vs player 2
+    *choice for player 1 vs computer
+    *assign color to each player choice
+*set win condition
+    *alert winner with animation
 
 ---
 
