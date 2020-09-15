@@ -54,11 +54,7 @@ while (i < 3) {
    Alert a a win
 } else if (i === 3 and grid is full with no 3 icons in a row) {
     Alert a tie, and start a new round
-}
-
-    
-
-Else alert the next player to take their turn   
+} Else alert the next player to take their turn   
 
 
 
