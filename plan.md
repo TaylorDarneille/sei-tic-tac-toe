@@ -12,7 +12,27 @@ Write out a list of *all* the things you need to do to code this game. This can 
 
 ---
 
-*Write TODO list here*
+1. Create a 'board' that has 9 spots available - separate with lines between but not around
+    //maybe use grid or flexbox?
+2. Create a pop-up(alert) to have the user type in their name and explain the rules (on-click event listener? or load the DOM event-listener)
+3. Create two players (maybe an object, with properties for name and number of turns/pieces) - one player will be the computer and the other will have their name (each player should have at least 5 turns/pieces)
+4. Allow human player to choose between x's and o's or assign a default choice for the human player versus the computer
+5. Start the game by allowing the human player to choose which of the 9 spots to place their piece (remove that spot from the remaining available spots)
+6. Lower the human player's number of turns/pieces by 1
+
+    ///create a mechanism so that the computer's turn cannot be executed until the player has selected their piece's position
+
+7. Set the computer to make a random choice of the remaining 8 available spots (function)
+8. Lower the computer's number of turns/pieces by 1
+
+    ///create a mechanism so that the player cannot choose their next position until the computer's turn has been run
+
+9. Continue the process from steps 5-8 until the 9 spaces have been filled (DRAW function) or until the WIN function has been met
+10. Create the WIN function: If the human player places their pieces in a row of three (aligned horizontally, diagonally, or vertically) before the computer, the user wins
+11. Create the DRAW function: if neither player places their pieces in a row of three (aligned horizontally, diagonally, or vertically), there is a draw
+12. Create the LOST function: If the computer has their pieces in a row of three (aligned horizontally, diagonally, or vertically) before the human player, the computer wins
+13. Create an alert that pops up when one of the above applicable functions occurs ("You WIN!", "You lost.", "It's a draw")
+14. Create a prompt for the human player to choose if they'd like to play again
 
 ---
 
@@ -22,6 +42,6 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 ---
 
-*Write psuedocode here*
+## Didn't have enough time to get to this optional part. Hoping we can cover this in class this week
 
 ---
