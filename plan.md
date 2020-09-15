@@ -15,9 +15,9 @@ Write out a list of *all* the things you need to do to code this game. This can 
 *Write TODO list here*
 
 TODO:
--> create 3 files: index.html, styles.css, app.js
--> set up the boiler plate of html and connect the css and javascript to it
--> The game will have 3 pages: 
+-create 3 files: index.html, styles.css, app.js
+-set up the boiler plate of html and connect the css and javascript to it
+-The game will have 3 pages: 
     1) The main page
         - title 
         - two buttons
