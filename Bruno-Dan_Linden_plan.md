@@ -14,6 +14,14 @@ Write out a list of *all* the things you need to do to code this game. This can 
 
 *Write TODO list here*
 
+* Create objects representing the two players
+* Create containers representing each square on the playing grid
+* Style the visible area of the game, i.e. the playing grid and surrounding space
+* Create or acquire image files to be used as the markers, i.e. X and O
+* Create event listeners to place a marker on a square when it is selected by a player
+* Create a conditional wherein a square on the grid can no longer be interacted with by a player once a marker has been placed
+* Create a conditional that will end the game once win conditions are met
+* Create a condtional that will end and/or reset the game when no more moves can be made
 ---
 
 ### Optional Part 2: Pseudo-code your win-logic
