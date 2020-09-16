@@ -13,9 +13,12 @@ Write out a list of *all* the things you need to do to code this game. This can 
 ---
 
 - [ ] Make a grid of 3x3 divs - maybe class square
-- [ ] Give each div an id 0-8
+// Give each div an id 0-8
+// for loop, create an element with class square and id=i, append to the dom
 - [ ] Add event listener to each div to alert which one is clicked (to note the id of the div which is clicked)
+// select all the divs with class square. loop through the divs to add event listener
 - [ ] Modify event listener to place an "X" in the square which was clicked
+// remember event.target from the lectures which tells you which div was clicked
 - [ ] Modify code to alternate between X and O after the other was placed
 - [ ] Ensure nothing happens if "X" or "O" already placed
 - [ ] User can choose if they want to play as X or O,
