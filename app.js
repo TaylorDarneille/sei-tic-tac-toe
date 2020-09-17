@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const message = document.querySelector('.message');
   const button = document.querySelector('button');
   const squares = document.querySelectorAll('.square');
-  const wins = [
+  const arrayOfWins = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -40,16 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkWin = () => {
     let gameWon = false;
 
-    wins.forEach(winArray => {
+    let DIDITWORK = arrayOfWins.some(winArray => {
       let str = "";
       str += winArray.reduce((acc, elem) => {
         return acc + document.getElementById(elem.toString()).innerText
       }, "")
-      console.log(str === "XXX" || str === "OOO")
+      return (str === "XXX" || str === "OOO")
     })
+    console.log(DIDITWORK)
 
-
-    for (winArray of wins) {
+    for (winArray of arrayOfWins) {
       if (checkOneWin(winArray)) {
         gameWon = true;
       }
