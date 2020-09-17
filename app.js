@@ -36,11 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
     message.innerText = text
   }
 
-  // how to check if winner?
+
   const checkWin = () => {
     let gameWon = false;
-    for (winArray of wins){
-      if(checkOneWin(winArray)){
+
+    wins.forEach(winArray => {
+      let str = "";
+      str += winArray.reduce((acc, elem) => {
+        return acc + document.getElementById(elem.toString()).innerText
+      }, "")
+      console.log(str === "XXX" || str === "OOO")
+    })
+
+
+    for (winArray of wins) {
+      if (checkOneWin(winArray)) {
         gameWon = true;
       }
     }
@@ -48,11 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // check one single winArray like [0,1,2]
-  const checkOneWin = (winArray) =>{
+  const checkOneWin = (winArray) => {
     const one = document.getElementById(winArray[0]).innerText
     const two = document.getElementById(winArray[1]).innerText
     const three = document.getElementById(winArray[2]).innerText
-    if(one===two && two===three && one!==""){
+    // check if they are all equal and not blank
+    if (one === two && two === three && one !== "") {
       updateMessage(`${one} is the winner`);
       return true
     }
@@ -63,16 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkTie = () => {
     let tie = true;
     // loop through each square
-    squares.forEach(square=>{
+    squares.forEach(square => {
       // if you find a square that is empty, you know it cannot be a tie
-      if(square.innerText == ""){
+      if (square.innerText == "") {
         tie = false;
       }
     })
     // if it is a tie. update the message to say so
-    if(tie){
-        updateMessage('It is a tie')
-      }
+    if (tie) {
+      updateMessage('It is a tie')
+    }
     return tie;
   }
 
@@ -80,12 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // check game over => true if tie or win
   const checkGameOver = () => {
     // check first if there is a win
-    if(checkWin()){
+    if (checkWin()) {
       gameOver = true;
     }
     // if it's not a win, check if it is a tie;
-    if(!gameOver){
-      if(checkTie()){
+    if (!gameOver) {
+      if (checkTie()) {
         gameOver = true;
       }
     }
@@ -113,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     square.addEventListener('click', (e) => {
       placeLetter(e);
       checkGameOver();
-      if(!gameOver){
+      if (!gameOver) {
         updateMessage(`It is ${turn}'s turn`);
       }
     });
