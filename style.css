@@ -1,32 +1,27 @@
-body {
-    background: orange;
-}
-div {
-    height: 50px;
-    width: 50px;
-    border: 1px black solid;
-}
 
 #container{
     height: 200px;
     width: 200px;
-    background: red;
+    background: orangered;
 }
 
-.inside1 {
-    background: purple;
+.inside {
+    height: 50px;
+    width: 50px;
+    border: 1px black solid;
+    background: orange;
     display: inline-block;
+    cursor: pointer;
 }
 
-.inside2 {
-    background: blue;
-    display: inline-block;
-}
-
-.inside3 {
-    background: yellowgreen;
-    display: inline-block;
-}
 .row {
     display: inline-block;
+}
+
+.user {
+    background: yellow;
+}
+
+.computer {
+    background: aqua;
 }
