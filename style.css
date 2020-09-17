@@ -1,0 +1,79 @@
+body{
+    background-color: lightgreen;
+}
+h1{
+    color: rgba(0,0,0,0.5);
+    text-align: center;
+}
+.square{
+    background-color: lightgreen;
+    display: inline-block;
+    height: 90px;
+    width: 90px;
+    border: solid lightgreen;
+    margin: 0 auto;
+}
+ 
+#container{
+    width: 296px;
+    height: 296px;
+    margin:0 auto;
+    background-color: rgba(0,0,0,0.3);
+    
+} 
+
+.symbol{
+    margin: 0 auto;
+    height: 80px;
+    width:  80px;
+    
+
+}
+
+.circle{
+    border-radius:80px ;
+    border: solid 3px;
+    margin: 0 auto;
+    height: 80px;
+    width:  80px;
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .column{
+    width: 10px;
+    height: 250px;
+    margin: auto;
+ }
+.row{
+    height: 10px;
+    width: 250px;
+    margin: auto;
+} 
+
+/* ------Positioning Rows and Columns-------- */
+
+/* #container{
+    width: 300px;
+    height: 300px;
+    border: solid;
+    margin:auto;
+} */ 
