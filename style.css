@@ -1,0 +1,57 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    text-size-adjust: 75%;
+}
+
+button, input {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#reset {
+    display: block;
+    text-align: center;
+    margin: 25px auto
+}
+
+#players {
+    height: 200%;
+    margin: 2%;
+    text-align: center;
+}
+
+.name {
+    display: inline-block;
+    width: 30%;
+    height: 40px;
+    border: 1px solid black;
+    margin: 0px 30px 0px 30px;
+}
+
+#container {
+    margin: 0 auto;
+    width: 496px;
+    min-width: 100px;
+    height: 596px;
+    min-height: 100px;
+    text-align: center;
+}
+
+.board {
+    display: inline-block;
+    width: 150px;
+    min-width: 20px;
+    height: 150px;
+    min-height: 20px;
+    margin: 0;
+    border: 1px solid black;
+}
