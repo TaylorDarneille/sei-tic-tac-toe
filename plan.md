@@ -14,7 +14,13 @@ Write out a list of *all* the things you need to do to code this game. This can 
 
 *Write TODO list here*
 
----
+1. The game is played on a grid that's 3 squares by 3 squares.
+2. You are X, your friend (or the computer) is O. Or vice versa.
+3. Players take turns putting their marks in empty squares on the grids.
+4. Part of your strategy is trying to figure out how to get three Xs in a row. 5.5. The other part is trying to figure out how to stop the other player or the computer from getting three Os in a row.
+6. If the other player or computer gets two Os in a row, you have to put your next X in the last empty square in that row to stop the player or the computer from winning. 
+7. The first player to get 3 of thier marks in a row (up, down, across, or diagonally) is the winner.
+8. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
 
 ### Optional Part 2: Pseudo-code your win-logic
 
