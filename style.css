@@ -1,0 +1,48 @@
+body {
+    background-color: cornflowerblue;
+}
+
+#container {
+    /* border: 2px dashed white; */
+    height: 306px;
+    width: 306px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.gridsquare {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    display: inline-flex;
+}
+
+#top-left, #top-center, #top-right {
+    border-top: none;
+    padding-bottom: 1px;
+}
+
+#top-left, #center-left, #bottom-left {
+    border-left: none;
+}
+
+#top-right, #center-right, #bottom-right {
+    border-right: none;
+}
+
+#bottom-left, #bottom-center, #bottom-right {
+    border-bottom: none;
+    padding-top: 1px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.x-marker {
+    background-color: red
+}
+
+.o-marker {
+    background-color: green;
+}
