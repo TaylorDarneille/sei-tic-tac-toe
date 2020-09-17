@@ -1,0 +1,31 @@
+body {
+    background-color: lavenderblush;
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* margin: 50px 350px 50px 350px;
+    padding: 0px 150px 0px 150px; */
+}
+
+#row1, #row2, #row3 {
+    flex: 0 32.5%;
+    text-align: center;
+    background-color: rgba(182, 194, 212, 0.24);
+    height: 100px;
+    width: 100px;
+    margin-bottom: 1%;
+}
+
+/* .x {
+    background-image: url("https://logodix.com/logo/1075168.png")
+}
+
+.o {
+    background-image: url("https://logodix.com/logo/710909.png")
+}
+
+ */
