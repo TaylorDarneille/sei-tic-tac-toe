@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 100px;
+}
+
+#pieces {
+    position: absolute;
+    top: 200px;
+    left: 30px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "one two three"
+                         "four five six"
+                         "seven eight nine";
+    width: 360px;
+    height: 360px;
+    text-align: center;
+}
+.square {
+    border: 1px solid black;
+}
+#\31 {
+    grid-area: one;
+    border-left: none;
+    border-top: none;
+}
+#\32 {
+    grid-area: two;
+    border-top: none;
+}
+#\33 {
+    grid-area: three;
+    border-top: none;
+    border-right: none;
+}
+#\34 {
+    grid-area: four;
+    border-left: none;
+}
+#\35 {
+    grid-area: five;
+}
+#\36 {
+    grid-area: six;
+    border-right: none;
+}
+#\37 {
+    grid-area: seven;
+    border-left: none;
+    border-bottom: none;
+}
+#\38 {
+    grid-area: eight;
+    border-bottom: none;
+}
+#\39 {
+    grid-area: nine;
+    border-right: none;
+    border-bottom: none;
+}
+
+.hidden{
+    position: fixed;
+    left: -1000px;
+}
+
+.wins{
+    display: inline-block;
+}
