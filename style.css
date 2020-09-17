@@ -1,0 +1,30 @@
+.container {
+    height: 320px;
+    width: 320px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+h1{
+    text-align: center;
+}
+
+.border{
+    border-bottom: 10px solid black;
+}
+
+.row{
+    height: 100px;
+}
+
+.col{
+    height:100px;
+    width: 100px;
+    float: left;
+    font-size: 100px;
+    text-align: center;
+}
+
+.border-c{
+    border-right: 10px solid black;
+}
