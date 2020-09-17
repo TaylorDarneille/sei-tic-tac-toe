@@ -42,3 +42,44 @@ Else the round resulted in a draw.
 After this condition is checked, invoke the option for the user to play another round (invoke the function to start a new round) or reset the score (invoke the function to reset the score variable back to 0 and start a new round).
 
 ---
+
+### Notes on Planning Tic-Tac-Toe
+
+Gameboard
+- 3x3 grid of divs
+- reset button 
+
+using id and class on clickable elements will help you wire it up in JS afterwards
+
+JavaScript
+- select elements and attach functions via event listeners
+- variable to keep track of moves
+- used to indicate whether or not to draw an x or an o -- same code amal used?
+
+Requirements
+- user can click on different squares to make a move -- similar to the changing shape exercise -- using event.target
+
+- every click will alternate between marking x and o -- might be similar to amal's code? but might not need the counter++ maybe just set as 0 and 1 and have the if loop go back to if === 0 else if === 1. this would be nested in another if to test if any are in a row.
+
+- upon marking individual cell, use JS to add a class to each cell to display the separate players -- mark as x or o
+
+- a cell should not be able to be replayed once marked -- how to make it where the user can't click once a div already has a class of x or o?
+
+- once game is over, you cannot click remaining empty cells -- kill the function?
+
+- reset button will clear contents of the board -- clear and restart the game function
+
+- display message to indicate which turn is about to be played
+
+- detect draw conditions -- ties/cat's game?
+
+- detect winner: stop game and declare winner if one player ends up getting three in a row -- will need to determine a set of winning combinations. check those combinations on the board contents after every move.
+
+would it be a really nested if? can you put conditions in an array? yes... it is an option.
+https://stackoverflow.com/questions/31604252/java-script-using-array-to-store-conditions
+
+
+### PROGRESS -- to commit
+
+8/16
+set up html, css, js base to start game, reset button, and add event listeners to click O or X
