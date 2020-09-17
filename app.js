@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     [0, 4, 8],
     [2, 4, 6]
   ];
+
+
   // take an event and place the letter in the event's target
   const placeLetter = (e) => {
     // if the square is not occupied
@@ -36,12 +38,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // how to check if winner?
   const checkWin = () => {
+    let gameWon = false;
+    for (winArray of wins){
+      if(checkOneWin(winArray)){
+        gameWon = true;
+      }
+    }
+    return gameWon;
+  }
+
+  // check one single winArray like [0,1,2]
+  const checkOneWin = (winArray) =>{
+    const one = document.getElementById(winArray[0]).innerText
+    const two = document.getElementById(winArray[1]).innerText
+    const three = document.getElementById(winArray[2]).innerText
+    if(one===two && two===three && one!==""){
+      updateMessage(`${one} is the winner`);
+      return true
+    }
     return false
   }
 
   // check if board is full
   const checkTie = () => {
-    let tie = true
+    let tie = true;
     // loop through each square
     squares.forEach(square=>{
       // if you find a square that is empty, you know it cannot be a tie
@@ -52,8 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // if it is a tie. update the message to say so
     if(tie){
         updateMessage('It is a tie')
-        // set the game to be over (so user cannot click anything)
-        // gameOver = true;
       }
     return tie;
   }
@@ -62,7 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // check game over => true if tie or win
   const checkGameOver = () => {
     // check first if there is a win
-    checkWin()
+    if(checkWin()){
+      gameOver = true;
+    }
     // if it's not a win, check if it is a tie;
     if(!gameOver){
       if(checkTie()){
@@ -70,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
-
 
   // reset the game by clearing the inner text from all squares
   const resetGame = () => {
@@ -82,6 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
     turn = 'X';
     updateMessage(`It's ${turn}'s turn`)
   }
+
+
+
   // add event listener to button
   button.addEventListener('click', resetGame)
 
