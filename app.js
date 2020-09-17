@@ -111,6 +111,8 @@ const reset = () => {
     for(placement of placements){
         placement.setAttribute("class","placement");
     }
+    let turnDis = document.querySelector("#turn");
+    turnDis.setAttribute("class","Xplayer")
 }
 
 
