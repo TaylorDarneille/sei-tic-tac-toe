@@ -82,7 +82,8 @@ const playerMove = (event, currentBoard) =>{
     targetPosition = parseInt(targetPosition);
     let index1 = Math.floor(targetPosition/3);
     let index2 = targetPosition%3;
-    if(!(event.target.classList.contains("Oplayer")  || event.target.classList.contains("Xplayer"))){
+    console.log(checkIfWon(currentBoard))
+    if((!(event.target.classList.contains("Oplayer")  || event.target.classList.contains("Xplayer"))) && (checkIfWon(currentBoard) === 0) || checkIfWon(currentBoard) === undefined){
         if (isPlayerXturn){
             event.target.className += " Oplayer";
             board[index1][index2] = 1;
@@ -92,6 +93,7 @@ const playerMove = (event, currentBoard) =>{
         }
     }
     let winner = checkIfWon(currentBoard);
+    
     if (winner === 1){
         // figure out what to do
         alert("O's win");
