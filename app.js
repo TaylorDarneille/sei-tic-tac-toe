@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let gameOver = false; // gameOver is true if the game is over => all squares are full OR there is a winner
   let turn = 'X'; // keep track of who's turn it is
+  let xWins = 0;
+  let oWins = 0;
 
   // DOM selectors
   const message = document.querySelector('.message');
@@ -39,10 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const checkWin = () => {
     let gameWon = false;
-
+    // look at this beast!
+    //arrayofWins is an array of winArrays, this function returns true if any single winArray is satisfied
     let DIDITWORK = arrayOfWins.some(winArray => {
       let str = "";
-      str += winArray.reduce((acc, elem) => {
+      str = winArray.reduce((acc, elem) => {
         return acc + document.getElementById(elem.toString()).innerText
       }, "")
       return (str === "XXX" || str === "OOO")

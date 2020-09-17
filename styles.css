@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanalei&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
 .board{
   width: 400px;
   display: flex;
@@ -8,18 +12,45 @@
   width: 32%;
   border: solid black 1px;
   height: 100px;
-  font-size: 2rem;
+  font-size: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Hanalei;
+
 }
 button{
-  margin: 0 auto;
+  margin: 20px auto;
   display: block;
+  font-family: Raleway, sans-serif;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  background-color: floralwhite;
+  box-shadow: inset -2px -4px 40px #3E442B;
+}
+button:focus{
+  outline: none;
+}
+h3, p{
+  color: #3E442B;
+  font-family: Raleway;
 }
 .X{
-  color: red;
+  color: #3E442B;
 }
 .O{
-  color: blue;
+  color: #FF87AB;
+}
+body{
+  text-align: center;
+  background-color: floralwhite;
+}
+h1{
+  color: #3E442B;
+  font-family: Hanalei;
+  letter-spacing: 10px;
+  font-size: 5rem;
 }
