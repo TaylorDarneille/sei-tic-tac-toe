@@ -44,6 +44,8 @@ const markShape = (e) => {
     playerChoices.push(parseInt(e.target.id))
     console.log('playerChoices:', playerChoices)
     tileIndexes.splice(indexNum, 1)
+    // check for win
+    winCheck(playerChoices)
     //after player clicks on a tile, computer moves
     if (turnCount < 9){
      computerMove()
@@ -80,13 +82,31 @@ const computerMove = () =>  {
     let iD = tileIndexes.indexOf(tileID)
     tileIndexes.splice(iD, 1)
     turnCount++
-    // return a game over message if all tiles have been marked
+    // check for win
+    winCheck(computerChoices)
     
 }
 
 // function to test win conditions at the end of every move
-const winCheck = () => {
+const winCheck = (choicesArray) => {
     // have an array for computer and player selections, check if either array includes any of the 8 possible victory conditions
+    if (choicesArray.includes(1) && choicesArray.includes(2) && choicesArray.includes(3)) {
+        console.log('Win')
+    } else if (choicesArray.includes(4) && choicesArray.includes(5) && choicesArray.includes(6)) {
+        console.log('Win')
+    } else if (choicesArray.includes(7) && choicesArray.includes(8) && choicesArray.includes(9)) {
+        console.log('Win')
+    } else if (choicesArray.includes(1) && choicesArray.includes(4) && choicesArray.includes(7)) {
+        console.log('Win')
+    } else if (choicesArray.includes(2) && choicesArray.includes(5) && choicesArray.includes(8)) {
+        console.log('Win')
+    } else if (choicesArray.includes(3) && choicesArray.includes(6) && choicesArray.includes(9)) {
+        console.log('Win')
+    } else if (choicesArray.includes(1) && choicesArray.includes(5) && choicesArray.includes(9)) {
+        console.log('Win')
+    } else if (choicesArray.includes(3) && choicesArray.includes(5) && choicesArray.includes(7)) {
+        console.log('Win')
+    }
 }
 
 
