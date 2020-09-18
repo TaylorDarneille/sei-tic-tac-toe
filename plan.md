@@ -12,7 +12,18 @@ Write out a list of *all* the things you need to do to code this game. This can 
 
 ---
 
-*Write TODO list here*
+TODO LIST:
+Create the page HTML- header should have the game name and a nav bar with a "start new game" and an "undo" button, the left side will be a panel for Player 1 (div class= "player1"), spot for the player's name (id="name"), the player's mark (X or O)(id="mark"), a "Your-turn" message, and the score at the bottom of the section (id="score"). The middle will be the blank game board- a 3/3 grid in the center (each square should have an id of 0-8, a class of their row, and a 2nd class of their column). The right side will have a panel for Player 2 with the same elements as Player 1's panel.
+
+Javascript- 
+STARTING SETUP: There will be empty variables for Player 1 & 2's marks, their scores, arrays for their choices, an array for filled spots on the gameboard, and a pre-filled array for available spots on the gameboard which will contain all the spot id's, 0-8. The user has to select the "start new game" button to initiate gameplay. The button will have an onclick event listener so that the button text will change to "reset" after it's been clicked, as well as an event listener so the page will prompt the user to select if they want to play with a 2nd player (and have manual player 2 inputs), or against the computer (which will have randomly selected inputs by the computer). The next prompt should have Player 1 enter their name, and choose their mark. There should be another array called "markOptions" containing X & O. If player 2 is another user, they should also enter their name on a following form, and their mark will automatically be assigned as the leftover from markOptions. The user(s)'s inputs will then be pushed into their variables for namePlayer1/namePlayer2 & markPlayer1/markPlayer2. The page should populate each users info into their respective panel containers using DOM manupulation. If there is no player 2, the computer's name "Computer" will populate. scorePlayer1/scorePlayer2 is initially set to 0. When player info has populated,there will be a function that randomly chooses who will have the first turn- triggered by a user clicking a button that sets off a randomTurnAssignment function. The button will show up on the board after the last player prompt is completed, using the DOM to insert the button. 
+
+GAMEPLAY: Whoever's turn it is, the "Your-turn" signal will change display styles to block on their panel. When the first player clicks their spot on the gameboard, the DOM will insert their mark into the spot, push the spot's id into the player's choices array and the filledSpots array, remove it from the availableSpots array, 
+
+WIN CONDITION:
+
+
+CSS- On the game board, only the inner borders of the grid will be outlined in black. The display style for the "Your-turn" message will initally be set to none for both players.
 
 ---
 
