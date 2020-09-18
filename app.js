@@ -4,11 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let turn = 'X'; // keep track of who's turn it is
   let xWins = 0;
   let oWins = 0;
-
-  // DOM selectors
-  const message = document.querySelector('.message');
-  const button = document.querySelector('button');
-  const squares = document.querySelectorAll('.square');
+  const board = new Array(9).fill("") //an array which represents the board state
   const arrayOfWins = [
     [0, 1, 2],
     [3, 4, 5],
@@ -20,66 +16,70 @@ document.addEventListener('DOMContentLoaded', () => {
     [2, 4, 6]
   ];
 
+  // DOM selectors
+  const message = document.querySelector('.message');
+  const button = document.querySelector('button');
+  const squares = document.querySelectorAll('.square');
 
   // take an event and place the letter in the event's target
   const placeLetter = (e) => {
     // if the square is not occupied
+    //todo,change to use board array
     if (!gameOver && e.target.innerText === "") {
-      e.target.innerText = turn;
-      e.target.classList.add(turn)
+      // TODO update board array
+      board[e.target.id] = turn
+      renderBoard(board)
       // set the other user's turn
       turn = turn === 'X' ? 'O' : 'X'
     }
   }
-
+  //  a function that takes the board array and updates the DOM
+  const renderBoard = (board) => {
+    squares.forEach((square, index) => {
+      square.innerText = board[index];
+      if (board[index]) {
+        square.classList.add(board[index])
+      } else {
+        square.setAttribute('class', 'square')
+      }
+    })
+  }
 
   // update the message to say who's turn it is
   const updateMessage = (text) => {
     message.innerText = text
   }
 
-
-  const checkWin = () => {
+  // takes board (an array) and returns true if there is a winner
+  const checkWin = (board) => {
     let gameWon = false;
     // look at this beast!
     //arrayofWins is an array of winArrays, this function returns true if any single winArray is satisfied
-    let DIDITWORK = arrayOfWins.some(winArray => {
+    return arrayOfWins.some(winArray => {
       let str = "";
       str = winArray.reduce((acc, elem) => {
-        return acc + document.getElementById(elem.toString()).innerText
+        return acc + board[elem]
       }, "")
-      return (str === "XXX" || str === "OOO")
-    })
-    console.log(DIDITWORK)
+      if (str === "XXX" || str === "OOO"){
+        // todo factor this out so checkWin is only checking for a win
+        updateMessage(`${str[0]} is the winner`);
+        return true;
 
-    for (winArray of arrayOfWins) {
-      if (checkOneWin(winArray)) {
-        gameWon = true;
       }
-    }
-    return gameWon;
+    })
+
   }
 
-  // check one single winArray like [0,1,2]
-  const checkOneWin = (winArray) => {
-    const one = document.getElementById(winArray[0]).innerText
-    const two = document.getElementById(winArray[1]).innerText
-    const three = document.getElementById(winArray[2]).innerText
-    // check if they are all equal and not blank
-    if (one === two && two === three && one !== "") {
-      updateMessage(`${one} is the winner`);
-      return true
-    }
-    return false
-  }
+
 
   // check if board is full
+  // TODO refactor this to take a gameboard array
   const checkTie = () => {
     let tie = true;
     // loop through each square
-    squares.forEach(square => {
+    board.forEach(piece => {
       // if you find a square that is empty, you know it cannot be a tie
-      if (square.innerText == "") {
+      if (piece == "") {
         tie = false;
       }
     })
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // check game over => true if tie or win
   const checkGameOver = () => {
     // check first if there is a win
-    if (checkWin()) {
+    if (checkWin(board)) {
       gameOver = true;
     }
     // if it's not a win, check if it is a tie;
@@ -107,15 +107,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // reset the game by clearing the inner text from all squares
   const resetGame = () => {
-    squares.forEach(square => {
-      square.innerText = ""
-      square.setAttribute('class', 'square')
-    });
+    board.forEach((elem, index) => {
+      board[index] = ""
+    })
+    renderBoard(board)
     gameOver = false;
     turn = 'X';
     updateMessage(`It's ${turn}'s turn`)
   }
 
+  // handle the user input
+  const handleInput = (event) => {
+    placeLetter(event);
+    checkGameOver();
+    if (!gameOver) {
+      updateMessage(`It is ${turn}'s turn`);
+    }
+  };
 
 
   // add event listener to button
@@ -125,11 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   squares.forEach((square) => {
     // when that square is clicked, place letter
     square.addEventListener('click', (e) => {
-      placeLetter(e);
-      checkGameOver();
-      if (!gameOver) {
-        updateMessage(`It is ${turn}'s turn`);
-      }
-    });
+      handleInput(e)
+    })
   })
 })
