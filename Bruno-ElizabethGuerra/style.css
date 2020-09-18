@@ -1,8 +1,30 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+/* @import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Lalezar&display=swap'); */
+
+body {
+    background: lavender;
+}
+
+#all {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Lalezar', cursive;
+    margin: 5px;
+}
+
+#board {
+    width: 350px;
+    margin: 30px auto;
+    font-family: 'Crafty Girls', cursive;
+    font-size: 60px;
+  }
 
 .x::before {
   content: "x";
@@ -10,11 +32,6 @@
 
 .o::before {
   content: "o";
-}
-
-#board {
-  width: 350px;
-  margin: 0 auto;
 }
 
 #reset {
@@ -26,8 +43,11 @@
   height: 100px;
   width: 100px;
   display: inline-block;
-  border: 1px solid white;
+  border: 1px solid lavender;
 }
+
+
+
 
 #top-left {
   border-right: 1px solid black;
