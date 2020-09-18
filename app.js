@@ -2,8 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let gameOver = false; // gameOver is true if the game is over => all squares are full OR there is a winner
   let turn = 'X'; // keep track of who's turn it is
-  let xWins = 0;
-  let oWins = 0;
+  // keep track of number of wins for each
+  const scoreboard = {
+    "X": 0,
+    "O": 0
+  }
   const board = new Array(9).fill("") //an array which represents the board state
   const arrayOfWins = [
     [0, 1, 2],
@@ -26,11 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // if the square is not occupied
     //todo,change to use board array
     if (!gameOver && e.target.innerText === "") {
-      // TODO update board array
       board[e.target.id] = turn
       renderBoard(board)
       // set the other user's turn
-      turn = turn === 'X' ? 'O' : 'X'
+
     }
   }
   //  a function that takes the board array and updates the DOM
@@ -50,25 +52,20 @@ document.addEventListener('DOMContentLoaded', () => {
     message.innerText = text
   }
 
-  // takes board (an array) and returns true if there is a winner
-  const checkWin = (board) => {
+  // takes a player and board (an array) and returns true if that player has won
+  const checkWin = (player, board) => {
     let gameWon = false;
-    // look at this beast!
     //arrayofWins is an array of winArrays, this function returns true if any single winArray is satisfied
-    return arrayOfWins.some(winArray => {
-      let str = "";
-      str = winArray.reduce((acc, elem) => {
-        return acc + board[elem]
-      }, "")
-      if (str === "XXX" || str === "OOO"){
-        // todo factor this out so checkWin is only checking for a win
-        updateMessage(`${str[0]} is the winner`);
-        return true;
-
-      }
+    gameWon = arrayOfWins.some(winArray => {
+      // returns true if every wnining place on the board is occupied by the player i.e. board[0,1,2]==player or board[1,4,7]=player
+      return winArray.every(place => {
+        return board[place] === player
+      })
     })
-
+    return gameWon
   }
+
+
 
 
 
@@ -94,13 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // check game over => true if tie or win
   const checkGameOver = () => {
     // check first if there is a win
-    if (checkWin(board)) {
+    if (checkWin(turn,board)) {
       gameOver = true;
+      updateMessage(`${turn} is the winner`)
     }
     // if it's not a win, check if it is a tie;
     if (!gameOver) {
       if (checkTie()) {
         gameOver = true;
+        updateMessage('tie')
       }
     }
   }
@@ -118,9 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // handle the user input
   const handleInput = (event) => {
+    // TODO pass event target instead of entire event
     placeLetter(event);
     checkGameOver();
     if (!gameOver) {
+      turn = turn === 'X' ? 'O' : 'X'
       updateMessage(`It is ${turn}'s turn`);
     }
   };
@@ -136,4 +137,32 @@ document.addEventListener('DOMContentLoaded', () => {
       handleInput(e)
     })
   })
-})
+});
+
+/// testing out a new win logic
+// const checkWinner = (player, board) => {
+//   const arrayOfWins = [
+//     [0, 1, 2],
+//     [3, 4, 5],
+//     [6, 7, 8],
+//     [0, 3, 6],
+//     [1, 4, 7],
+//     [2, 5, 8],
+//     [0, 4, 8],
+//     [2, 4, 6]
+//   ];
+//   // look at this beast!
+//   //arrayofWins is an array of winArrays, this function returns true if any single winArray is satisfied
+//   return arrayOfWins.some(winArray => {
+//     return winArray.every(place => {
+//       // debugger;
+//       return board[place] === player
+//     })
+//   })
+// }
+//
+// board = ["O", "O", "O",
+//   "O", "X", "",
+//   "", "", "X"
+// ];
+// console.log(checkWinner("O", board))
