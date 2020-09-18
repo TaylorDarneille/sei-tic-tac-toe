@@ -134,14 +134,24 @@ const winCond = () => {
         leftDiag: [botLeft,centMid,topRight]
     }
     
+    const squares = document.querySelectorAll('.square')
 //Oh look, a tidy little function that does the same thing as all that other code    
 if (counter < 9) {
     for (const arr in grid) {
-        if (grid[arr].every(square => square.classList.contains('x'))) console.log('x wins!')
-        else if (grid[arr].every(square => square.classList.contains('o'))) console.log('o wins!')
+        if (grid[arr].every(square => square.classList.contains('x'))) {
+            console.log('x wins!')
+            squares.forEach(square => square.classList.add('disabled'))
+        }
+        else if (grid[arr].every(square => square.classList.contains('o'))) {
+            console.log('o wins!')
+            squares.forEach(square => square.classList.add('disabled'))
+        }
     }
 }    
-    else if (counter === 9) console.log('It\'s a tie!')
+else if (counter === 9) {
+    console.log('It\'s a tie!')
+    squares.forEach(square => square.classList.add('disabled'))
+}
 }
 
 //This function is the actual gamplay // it runs the winCond function after every turn to see if the game is over

@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-/* @import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Lalezar&display=swap'); */
 
 body {
     background: steelblue;
@@ -17,6 +16,7 @@ body {
 h1 {
     font-family: 'Lalezar', cursive;
     margin: 5px;
+    font-size: 40px;
     color: lightgreen;
 }
 
@@ -59,7 +59,10 @@ h1 {
   border: 1px solid steelblue;
 }
 
-
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
 
 
 #top-left {
