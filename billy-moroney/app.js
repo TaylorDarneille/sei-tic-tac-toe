@@ -35,21 +35,21 @@ const markShape = (e) => {
         } else {
             e.target.innerText = 'X'
         }
-    }
-    //increment turn order
-    turnCount++
-    // remove index from tileIndexes array
-    const indexNum = tileIndexes.indexOf(parseInt(e.target.id) - 1)
-    // push tile id into player choices array
-    playerChoices.push(parseInt(e.target.id))
-    console.log('playerChoices:', playerChoices)
-    tileIndexes.splice(indexNum, 1)
-    // check for win
-    winCheck(playerChoices)
-    //after player clicks on a tile, computer moves
-    if (turnCount < 9){
-     computerMove()
-    } 
+        //increment turn order
+        turnCount++
+        // remove index from tileIndexes array
+        const indexNum = tileIndexes.indexOf(parseInt(e.target.id) - 1)
+        // push tile id into player choices array
+        playerChoices.push(parseInt(e.target.id))
+        console.log('playerChoices:', playerChoices)
+        tileIndexes.splice(indexNum, 1)
+        // check for win
+        winCheck(playerChoices)
+        //after player clicks on a tile, computer moves
+        if (turnCount < 9){
+        computerMove()
+        } 
+    }  
 }
 
 // function to randomly pick shapes and whether player or computer goes first
@@ -87,25 +87,39 @@ const computerMove = () =>  {
     
 }
 
+//function to determine whether player or computer array was tested for win
+const playerCheck = (choicesArray) => {
+    if (choicesArray === playerChoices){
+        console.log('Player Wins')
+    } else {
+        console.log('Computer Wins')
+    }
+
+    //set turnCount to 9 or above to end game
+    turnCount = 10
+}
+
 // function to test win conditions at the end of every move
 const winCheck = (choicesArray) => {
     // have an array for computer and player selections, check if either array includes any of the 8 possible victory conditions
     if (choicesArray.includes(1) && choicesArray.includes(2) && choicesArray.includes(3)) {
-        console.log('Win')
+        playerCheck(choicesArray)
     } else if (choicesArray.includes(4) && choicesArray.includes(5) && choicesArray.includes(6)) {
-        console.log('Win')
+        playerCheck(choicesArray)
     } else if (choicesArray.includes(7) && choicesArray.includes(8) && choicesArray.includes(9)) {
-        console.log('Win')
+        playerCheck(choicesArray)
     } else if (choicesArray.includes(1) && choicesArray.includes(4) && choicesArray.includes(7)) {
-        console.log('Win')
+        playerCheck(choicesArray)
     } else if (choicesArray.includes(2) && choicesArray.includes(5) && choicesArray.includes(8)) {
-        console.log('Win')
+        playerCheck(choicesArray)
     } else if (choicesArray.includes(3) && choicesArray.includes(6) && choicesArray.includes(9)) {
-        console.log('Win')
+        playerCheck(choicesArray)
     } else if (choicesArray.includes(1) && choicesArray.includes(5) && choicesArray.includes(9)) {
-        console.log('Win')
+        playerCheck(choicesArray)
     } else if (choicesArray.includes(3) && choicesArray.includes(5) && choicesArray.includes(7)) {
-        console.log('Win')
+        playerCheck(choicesArray)
+    } else if (turnCount === 9){
+        console.log('Draw')
     }
 }
 
