@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const message = document.querySelector('.message');
   const button = document.querySelector('button');
   const squares = document.querySelectorAll('.square');
+  const scoreDOM = {
+    'X' : document.querySelector('#xwins'),
+    'O' : document.querySelector('#owins')
+  }
+
 
   // take an event and place the letter in the event's target
   const placeLetter = (e) => {
@@ -31,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!gameOver && e.target.innerText === "") {
       board[e.target.id] = turn
       renderBoard(board)
-      // set the other user's turn
 
     }
   }
@@ -57,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameWon = false;
     //arrayofWins is an array of winArrays, this function returns true if any single winArray is satisfied
     gameWon = arrayOfWins.some(winArray => {
-      // returns true if every wnining place on the board is occupied by the player i.e. board[0,1,2]==player or board[1,4,7]=player
+      // returns true if every winning place on the board is occupied by the player i.e. board[0,1,2]==player or board[1,4,7]=player
       return winArray.every(place => {
         return board[place] === player
       })
@@ -66,7 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-
+const updateScoreboard = (winner) =>{
+  scoreDOM[winner].innerText = scoreboard[winner];
+}
 
 
   // check if board is full
@@ -93,7 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // check first if there is a win
     if (checkWin(turn,board)) {
       gameOver = true;
+      scoreboard[turn]++
       updateMessage(`${turn} is the winner`)
+      updateScoreboard(turn);
     }
     // if it's not a win, check if it is a tie;
     if (!gameOver) {
@@ -118,8 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // handle the user input
   const handleInput = (event) => {
     // TODO pass event target instead of entire event
-    placeLetter(event);
-    checkGameOver();
+    if(!gameOver){
+      placeLetter(event);
+      checkGameOver();
+    }
     if (!gameOver) {
       turn = turn === 'X' ? 'O' : 'X'
       updateMessage(`It is ${turn}'s turn`);
