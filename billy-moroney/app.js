@@ -10,9 +10,9 @@ let tileIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 //nodeList of all .tile divs
 const tiles = document.querySelectorAll('.tile')
 // array of player choices
-const playerChoices = []
+let playerChoices = []
 // array of computer choices
-const computerChoices = []
+let computerChoices = []
 
 // create event listeners for tiles
 const initializeBoard = () => {
@@ -123,8 +123,29 @@ const winCheck = (choicesArray) => {
     }
 }
 
+// get reset button, allow button to reset game without refreshing page
+const resetButton = () => {
+    const button = document.querySelector('button')
+    button.addEventListener('click', resetGame)
+}
+
+//call back function for resetting game
+const resetGame = () => {
+    // loop through tiles to remove all innertext
+    for (let i = 0; i < 9; i++){
+        if (tiles[i].innerText !== ""){
+            tiles[i].innerText = ""
+        }
+    }
+    turnCount = 0
+    playerChoices = []
+    computerChoices = []
+    tileIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
 
 document.addEventListener('DOMContentLoaded', ()=>{
     initializeBoard()
     pickSides()
+    resetButton()
 })
