@@ -1,4 +1,4 @@
-# Peudo-Code Tic Tac Toe
+# Pseudo-Code Tic Tac Toe
 
 Next Week, you'll be building a [tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) game from scratch. To prepare, the deliverable this week is to plan it out! You'll also get to practice writing [markdown](https://guides.github.com/features/mastering-markdown/).
 
@@ -46,7 +46,7 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 ---
 
-*Write psuedocode here*
+*Write pseudocode here*
 
 #### Win condition: X wins
 if the grid has 3 consecutive Xs in a straight line (horizontal, vertical, or diagonal), Player X is the winner

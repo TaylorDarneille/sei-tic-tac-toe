@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.x::before {
+  content: "x";
+}
+
+.o::before {
+  content: "o";
+}
+
+#board {
+  width: 350px;
+  margin: 0 auto;
+}
+
+#reset {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.square {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  border: 1px solid white;
+}
+
+#top-left {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#top-mid {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#top-right {
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#cent-left {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#cent-mid {
+  border: 1px solid black;
+
+}
+
+#cent-right {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#bot-left {
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+
+#bot-mid {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+
+#bot-right {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+}
