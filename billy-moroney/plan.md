@@ -1,3 +1,22 @@
+##TO DO LIST
+make sure player can't continue to make choices after game over (disable all event listeners?)
+
+position and add functionality for 3 divs: player info, computer info, and game info
+
+once info divs are working, get rid of alert boxes
+
+add sound with html canvas?
+
+css animate winning tiles?
+
+add a timer to make the computer choice not appear immediately after player choice?
+
+are there any elite tic tac toe tactics i can give to the computer?
+
+make responsive so the page fits on the screen?
+
+
+
 # Peudo-Code Tic Tac Toe
 
 Next Week, you'll be building a [tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) game from scratch. To prepare, the deliverable this week is to plan it out! You'll also get to practice writing [markdown](https://guides.github.com/features/mastering-markdown/).

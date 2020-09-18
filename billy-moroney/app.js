@@ -16,6 +16,14 @@ let computerChoices = []
 
 // create event listeners for tiles
 const initializeBoard = () => {
+    //remove any tile styling classes
+    for (let i = 0; i < tiles.length; i++){
+        if (tiles[i].classList.contains('x')){
+            tiles[i].classList.remove('x')
+        } else if (tiles[i].classList.contains('o')){
+            tiles[i].classList.remove('o')
+        }
+    }
     //loop through tiles to create event listeners
     for (let i = 0; i<tiles.length; i++){
         tiles[i].addEventListener('click', markShape)
@@ -41,7 +49,6 @@ const markShape = (e) => {
         const indexNum = tileIndexes.indexOf(parseInt(e.target.id) - 1)
         // push tile id into player choices array
         playerChoices.push(parseInt(e.target.id))
-        console.log('playerChoices:', playerChoices)
         tileIndexes.splice(indexNum, 1)
         // check for win
         winCheck(playerChoices)
@@ -57,8 +64,13 @@ const pickSides = () => {
     let selector = Math.random()
     if (selector < 0.5){
         playerFirst = true
+        // set info on screen
+        document.querySelector('.playerInfo').innerHTML = 'Player: O'
+        document.querySelector('.computerInfo').innerText = 'Computer: X'
     }// if the player does not move first, make computer take a turn
     else {
+        document.querySelector('.playerInfo').innerText = 'Player: X'
+        document.querySelector('.computerInfo').innerText = 'Computer: O'
         computerMove()
     }
     // the player who goes first will be circle, which will be defined in markShape function
@@ -67,10 +79,11 @@ const pickSides = () => {
 // function for computer to move
 const computerMove = () =>  {
     // (9 - turnCount) allows the random number to be contained within the shrinking tile Index array
-    let randTileIndex = Math.floor(Math.random() * (9 - turnCount)) 
+    let randTileIndex = Math.floor(Math.random() * (8 - turnCount)) 
     let tileID = tileIndexes[randTileIndex]
     computerChoices.push(tileID + 1)
-    console.log('computerChoices:', computerChoices)
+    console.log('tileID:', tileID + 1)
+    console.log('tiles[tileID]:', tiles[tileID])
     //grab all tiles
     // decide what computer should mark each square based on who went first
     if (turnCount % 2 === 0){
@@ -112,35 +125,51 @@ const winLine = (a, b, c) => {
     }
 }
 
+//function to remove event listeners so that player cannot continue to play after a win condition is met
+const removeListeners = () => {
+    for (let i = 0; i < tiles.length; i++){
+        tiles[i].removeEventListener('click', markShape)
+    }
+}
+
 // function to test win conditions at the end of every move
 const winCheck = (choicesArray) => {
     // have an array for computer and player selections, check if either array includes any of the 8 possible victory conditions
     if (choicesArray.includes(1) && choicesArray.includes(2) && choicesArray.includes(3)) {
         playerCheck(choicesArray)
         winLine(1, 2, 3)
+        removeListeners()
     } else if (choicesArray.includes(4) && choicesArray.includes(5) && choicesArray.includes(6)) {
         playerCheck(choicesArray)
         winLine(4, 5, 6)
+        removeListeners()
     } else if (choicesArray.includes(7) && choicesArray.includes(8) && choicesArray.includes(9)) {
         playerCheck(choicesArray)
         winLine(7, 8, 9)
+        removeListeners()
     } else if (choicesArray.includes(1) && choicesArray.includes(4) && choicesArray.includes(7)) {
         playerCheck(choicesArray)
         winLine(1, 4, 7)
+        removeListeners()
     } else if (choicesArray.includes(2) && choicesArray.includes(5) && choicesArray.includes(8)) {
         playerCheck(choicesArray)
         winLine(2, 5, 8)
+        removeListeners()
     } else if (choicesArray.includes(3) && choicesArray.includes(6) && choicesArray.includes(9)) {
         playerCheck(choicesArray)
         winLine(3, 6, 9)
+        removeListeners()
     } else if (choicesArray.includes(1) && choicesArray.includes(5) && choicesArray.includes(9)) {
         playerCheck(choicesArray)
         winLine(1, 5, 9)
+        removeListeners()
     } else if (choicesArray.includes(3) && choicesArray.includes(5) && choicesArray.includes(7)) {
         playerCheck(choicesArray)
         winLine(3, 5, 7)
+        removeListeners()
     } else if (turnCount === 9){
         console.log('Draw')
+        removeListeners()
     }
 }
 
@@ -162,6 +191,9 @@ const resetGame = () => {
     playerChoices = []
     computerChoices = []
     tileIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    initializeBoard()
+    console.log('turn count:', turnCount)
+    console.log('tile indexes:', tileIndexes)
 }
 
 
