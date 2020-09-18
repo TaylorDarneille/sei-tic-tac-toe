@@ -36,6 +36,12 @@ Write out a list of *all* the things you need to do to code this game. This can 
 *set win condition
     *alert winner with animation
 
+*flow of page
+    * when player starts they select player X: or player Y: button
+    * the selection will indicate which to start with
+    * clicking on the squares the two variables will switch back and forth
+    * when win condiiton is met the score will update on player X or Y button
+    * the restart button will return the game to it's original state ask to select a player again
 ---
 
 ### Optional Part 2: Pseudo-code your win-logic
