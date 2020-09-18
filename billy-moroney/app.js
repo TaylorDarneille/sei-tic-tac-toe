@@ -13,6 +13,8 @@ const tiles = document.querySelectorAll('.tile')
 let playerChoices = []
 // array of computer choices
 let computerChoices = []
+// boolean that forces a player to wait until they can move
+let canMove = false
 
 // create event listeners for tiles
 const initializeBoard = () => {
@@ -24,6 +26,8 @@ const initializeBoard = () => {
             tiles[i].classList.remove('o')
         }
     }
+
+    document.querySelector('.gameInfo').innerText = ''
     //loop through tiles to create event listeners
     for (let i = 0; i<tiles.length; i++){
         tiles[i].addEventListener('click', markShape)
@@ -32,31 +36,35 @@ const initializeBoard = () => {
 
 //callback function for the event listeners on each tile that will mark shapes during each side's turn
 const markShape = (e) => {
-    // conditional to prevent tile from being changed
-    if (e.target.innerText){
-        alert('Square already marked! Try again')
-    } 
-    // if tile is unmarked, conditionals to decide what shape should be placed on tiles
-    else {
-        if (turnCount % 2 === 0){
-            e.target.innerText = 'O'
-        } else {
-            e.target.innerText = 'X'
-        }
-        //increment turn order
-        turnCount++
-        // remove index from tileIndexes array
-        const indexNum = tileIndexes.indexOf(parseInt(e.target.id) - 1)
-        // push tile id into player choices array
-        playerChoices.push(parseInt(e.target.id))
-        tileIndexes.splice(indexNum, 1)
-        // check for win
-        winCheck(playerChoices)
-        //after player clicks on a tile, computer moves
-        if (turnCount < 9){
-        computerMove()
+    //first check to make sure player can move
+    if (canMove === true){
+        // conditional to prevent tile from being changed
+        if (e.target.innerText){
+            alert('Square already marked! Try again')
         } 
-    }  
+        // if tile is unmarked, conditionals to decide what shape should be placed on tiles
+        else {
+            if (turnCount % 2 === 0){
+                e.target.innerText = 'O'
+            } else {
+                e.target.innerText = 'X'
+            }
+        canMove = false
+            //increment turn order
+            turnCount++
+            // remove index from tileIndexes array
+            const indexNum = tileIndexes.indexOf(parseInt(e.target.id) - 1)
+            // push tile id into player choices array
+            playerChoices.push(parseInt(e.target.id))
+            tileIndexes.splice(indexNum, 1)
+            // check for win
+            winCheck(playerChoices)
+            //after player clicks on a tile, computer moves
+            if (turnCount < 9){
+            computerMove()
+            } 
+        }  
+    }
 }
 
 // function to randomly pick shapes and whether player or computer goes first
@@ -64,6 +72,7 @@ const pickSides = () => {
     let selector = Math.random()
     if (selector < 0.5){
         playerFirst = true
+        canMove = true
         // set info on screen
         document.querySelector('.playerInfo').innerHTML = 'Player: O'
         document.querySelector('.computerInfo').innerText = 'Computer: X'
@@ -79,33 +88,35 @@ const pickSides = () => {
 // function for computer to move
 const computerMove = () =>  {
     // (9 - turnCount) allows the random number to be contained within the shrinking tile Index array
-    let randTileIndex = Math.floor(Math.random() * (8 - turnCount)) 
-    let tileID = tileIndexes[randTileIndex]
-    computerChoices.push(tileID + 1)
-    console.log('tileID:', tileID + 1)
-    console.log('tiles[tileID]:', tiles[tileID])
-    //grab all tiles
-    // decide what computer should mark each square based on who went first
-    if (turnCount % 2 === 0){
-        tiles[tileID].innerText = 'O'
-    } else {
-        tiles[tileID].innerText = 'X'
-    }
-    // need to randomly pick an index, than use that index to pick a tile
-    let iD = tileIndexes.indexOf(tileID)
-    tileIndexes.splice(iD, 1)
-    turnCount++
-    // check for win
-    winCheck(computerChoices)
-    
+    // use a timer to make the computer choice not appear instantly
+    setTimeout(()=> {
+        let randTileIndex = Math.floor(Math.random() * (8 - turnCount))
+        let tileID = tileIndexes[randTileIndex]
+        computerChoices.push(tileID + 1)
+        //grab all tiles
+        // decide what computer should mark each square based on who went first
+        if (turnCount % 2 === 0){
+            tiles[tileID].innerText = 'O' 
+        }
+        else {
+            tiles[tileID].innerText = 'X'
+        }
+        // need to randomly pick an index, than use that index to pick a tile
+        let iD = tileIndexes.indexOf(tileID)
+        tileIndexes.splice(iD, 1)
+        turnCount++
+        // check for win
+        winCheck(computerChoices) 
+        }, 500) 
+    canMove = true   
 }
 
 //function to determine whether player or computer array was tested for win
 const playerCheck = (choicesArray) => {
     if (choicesArray === playerChoices){
-        console.log('Player Wins')
+        document.querySelector('.gameInfo').innerText = 'Player Wins!'
     } else {
-        console.log('Computer Wins')
+        document.querySelector('.gameInfo').innerText = 'Computer Wins!'
     }
 
     //set turnCount to 9 or above to end game
@@ -131,6 +142,7 @@ const removeListeners = () => {
         tiles[i].removeEventListener('click', markShape)
     }
 }
+
 
 // function to test win conditions at the end of every move
 const winCheck = (choicesArray) => {
@@ -168,7 +180,6 @@ const winCheck = (choicesArray) => {
         winLine(3, 5, 7)
         removeListeners()
     } else if (turnCount === 9){
-        console.log('Draw')
         removeListeners()
     }
 }
@@ -192,8 +203,7 @@ const resetGame = () => {
     computerChoices = []
     tileIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     initializeBoard()
-    console.log('turn count:', turnCount)
-    console.log('tile indexes:', tileIndexes)
+    pickSides()
 }
 
 

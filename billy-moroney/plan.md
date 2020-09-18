@@ -1,19 +1,17 @@
 ##TO DO LIST
-make sure player can't continue to make choices after game over (disable all event listeners?)
 
-position and add functionality for 3 divs: player info, computer info, and game info
-
-once info divs are working, get rid of alert boxes
+is there a way to make player wait for computer turn before they can do anything?
+randomize computer turn times to make it look like it's thinking?
 
 add sound with html canvas?
 
 css animate winning tiles?
 
-add a timer to make the computer choice not appear immediately after player choice?
-
 are there any elite tic tac toe tactics i can give to the computer?
 
 make responsive so the page fits on the screen?
+
+distinguish double wins?
 
 
 
