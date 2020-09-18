@@ -99,25 +99,46 @@ const playerCheck = (choicesArray) => {
     turnCount = 10
 }
 
+//function to change style of winning line
+const winLine = (a, b, c) => {
+    if (tiles[a-1].innerText === 'X'){
+        tiles[a-1].classList.add('x')
+        tiles[b-1].classList.add('x')
+        tiles[c-1].classList.add('x')
+    } else {
+        tiles[a-1].classList.add('o')
+        tiles[b-1].classList.add('o')
+        tiles[c-1].classList.add('o')
+    }
+}
+
 // function to test win conditions at the end of every move
 const winCheck = (choicesArray) => {
     // have an array for computer and player selections, check if either array includes any of the 8 possible victory conditions
     if (choicesArray.includes(1) && choicesArray.includes(2) && choicesArray.includes(3)) {
         playerCheck(choicesArray)
+        winLine(1, 2, 3)
     } else if (choicesArray.includes(4) && choicesArray.includes(5) && choicesArray.includes(6)) {
         playerCheck(choicesArray)
+        winLine(4, 5, 6)
     } else if (choicesArray.includes(7) && choicesArray.includes(8) && choicesArray.includes(9)) {
         playerCheck(choicesArray)
+        winLine(7, 8, 9)
     } else if (choicesArray.includes(1) && choicesArray.includes(4) && choicesArray.includes(7)) {
         playerCheck(choicesArray)
+        winLine(1, 4, 7)
     } else if (choicesArray.includes(2) && choicesArray.includes(5) && choicesArray.includes(8)) {
         playerCheck(choicesArray)
+        winLine(2, 5, 8)
     } else if (choicesArray.includes(3) && choicesArray.includes(6) && choicesArray.includes(9)) {
         playerCheck(choicesArray)
+        winLine(3, 6, 9)
     } else if (choicesArray.includes(1) && choicesArray.includes(5) && choicesArray.includes(9)) {
         playerCheck(choicesArray)
+        winLine(1, 5, 9)
     } else if (choicesArray.includes(3) && choicesArray.includes(5) && choicesArray.includes(7)) {
         playerCheck(choicesArray)
+        winLine(3, 5, 7)
     } else if (turnCount === 9){
         console.log('Draw')
     }
