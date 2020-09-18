@@ -135,22 +135,26 @@ const winCond = () => {
     }
     
     const squares = document.querySelectorAll('.square')
+    const gameOver = document.querySelector('#game-over')
 //Oh look, a tidy little function that does the same thing as all that other code    
 if (counter < 9) {
     for (const arr in grid) {
         if (grid[arr].every(square => square.classList.contains('x'))) {
-            console.log('x wins!')
+         //   console.log('x wins!')
             squares.forEach(square => square.classList.add('disabled'))
+            gameOver.innerText = 'x wins!'
         }
         else if (grid[arr].every(square => square.classList.contains('o'))) {
-            console.log('o wins!')
+        //    console.log('o wins!')
             squares.forEach(square => square.classList.add('disabled'))
+            gameOver.innerText = 'o wins!'
         }
     }
 }    
 else if (counter === 9) {
-    console.log('It\'s a tie!')
+ //   console.log('It\'s a tie!')
     squares.forEach(square => square.classList.add('disabled'))
+    gameOver.innerText = 'It\'s a tie!'
 }
 }
 
@@ -161,12 +165,12 @@ const play = (e) => {
     if (counter % 2 === 0) {
         xTurn(e)
         counter++
-        console.log(counter)
+    //    console.log(counter)
         winCond()
     } else {
         oTurn(e)
         counter++
-        console.log(counter)
+    //    console.log(counter)
         winCond()
     }
 }
@@ -184,6 +188,7 @@ const ticTacToe = () => {
         squares.forEach(square => {
             square.setAttribute('class','square')
         })
+        document.querySelector('#game-over').innerText = ''
         counter = 0
     })
 }

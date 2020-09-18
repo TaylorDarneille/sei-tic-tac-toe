@@ -37,6 +37,15 @@ h1 {
 
 }
 
+#game-over {
+    font-family: 'Lalezar', cursive;
+    margin: 5px;
+    padding: 5px;
+    color: lightgreen;
+    font-size: 50px;
+    font-weight: 600;
+}
+
 #reset {
     font-family: 'Heebo', sans-serif;
     font-weight: 600;
