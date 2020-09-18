@@ -1,3 +1,4 @@
+let counter = 0
 
 //This is where I test out new ideas and archive old ones so that my code is still readable and I don't accidentally break it trying to be clever
 // I forgot to put makeGrid in the DOMContentLoaded part and so a lot of these were returning null and I didn't know why.
@@ -180,6 +181,5 @@ const ticTacToe = () => {
 
 document.addEventListener('DOMContentLoaded', ()=>{
 //    makeGrid()
-let counter = 0
     ticTacToe()
 })
