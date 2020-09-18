@@ -9,6 +9,10 @@ let gameOver = false
 let tileIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 //nodeList of all .tile divs
 const tiles = document.querySelectorAll('.tile')
+// array of player choices
+const playerChoices = []
+// array of computer choices
+const computerChoices = []
 
 // create event listeners for tiles
 const initializeBoard = () => {
@@ -36,6 +40,9 @@ const markShape = (e) => {
     turnCount++
     // remove index from tileIndexes array
     const indexNum = tileIndexes.indexOf(parseInt(e.target.id) - 1)
+    // push tile id into player choices array
+    playerChoices.push(parseInt(e.target.id))
+    console.log('playerChoices:', playerChoices)
     tileIndexes.splice(indexNum, 1)
     //after player clicks on a tile, computer moves
     if (turnCount < 9){
@@ -60,6 +67,8 @@ const computerMove = () =>  {
     // (9 - turnCount) allows the random number to be contained within the shrinking tile Index array
     let randTileIndex = Math.floor(Math.random() * (9 - turnCount)) 
     let tileID = tileIndexes[randTileIndex]
+    computerChoices.push(tileID + 1)
+    console.log('computerChoices:', computerChoices)
     //grab all tiles
     // decide what computer should mark each square based on who went first
     if (turnCount % 2 === 0){
@@ -72,9 +81,12 @@ const computerMove = () =>  {
     tileIndexes.splice(iD, 1)
     turnCount++
     // return a game over message if all tiles have been marked
-    if (turnCount === 9) {
-        alert('Game over')
-    }
+    
+}
+
+// function to test win conditions at the end of every move
+const winCheck = () => {
+    // have an array for computer and player selections, check if either array includes any of the 8 possible victory conditions
 }
 
 
