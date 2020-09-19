@@ -150,11 +150,26 @@ if (counter < 9) {
             gameOver.innerText = 'o wins!'
         }
     }
-}    
+}   
 else if (counter === 9) {
- //   console.log('It\'s a tie!')
-    squares.forEach(square => square.classList.add('disabled'))
-    gameOver.innerText = 'It\'s a tie!'
+    // Need something to check if one side has won before declaring a tie
+    for (const arr in grid) {
+        if (grid[arr].every(square => square.classList.contains('x'))) {
+         //   console.log('x wins!')
+            squares.forEach(square => square.classList.add('disabled'))
+            gameOver.innerText = 'x wins!'
+        }
+        else if (grid[arr].every(square => square.classList.contains('o'))) {
+        //    console.log('o wins!')
+            squares.forEach(square => square.classList.add('disabled'))
+            gameOver.innerText = 'o wins!'
+        }
+        else {
+        //   console.log('It\'s a tie!')
+        squares.forEach(square => square.classList.add('disabled'))
+        gameOver.innerText = 'It\'s a tie!'
+        }
+    }
 }
 }
 
