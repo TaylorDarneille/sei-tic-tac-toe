@@ -8,6 +8,7 @@ let gameOver = false
 //array of indexes to remove tiles from potential computer choices
 let tileIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
+
 //nodeList of all .tile divs
 const tiles = document.querySelectorAll('.tile')
 // array of player choices
@@ -212,6 +213,43 @@ const resetGame = () => {
     tileIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     initializeBoard()
     pickSides()
+}
+
+// Trying to incorporate min-max algorithm
+// need a way to represent game state
+const computerMove = () => {
+    //variable to keep track of best score
+    let bestScore = -Infinity
+    let move = null
+    for (let i = 0; i < 9; i++){
+        //select next available move index
+        //use that index to create a new board state
+        //pass that board state into minimax function that accepts the state, the depth, and which turn it is
+        //minimax will return a score
+        //keep track of the best move based on the best score
+        //after looping through all options, act on the best move 
+        //switch turns
+    }
+}
+
+let scores = {
+    X: 10,
+    O: -10;
+    tie: 0
+}
+
+const minimax = (board, depth, isMaximizing){
+    //first check for win
+    //if this is a winning position, return the score
+
+    //if it is the maximizing player's turn
+    //loop through all spots
+    //check for available tiles
+    //move to nearest option to create new board state
+    //call minimax recursively and pass new board state and increase depth
+    //return best score
+
+    //same implementation for the other player
 }
 
 
