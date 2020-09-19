@@ -73,6 +73,10 @@ h1 {
     opacity: 0.4;
 }
 
+.played {
+  pointer-events: none;
+}
+
 
 #top-left {
   border-right: 2px solid mintcream;
