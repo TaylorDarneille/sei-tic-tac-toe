@@ -1,4 +1,4 @@
-// all the divs 
+// all the inner divs 
 const squareOne = document.querySelector("#one")
 const squareTwo = document.querySelector("#two")
 const squareThree = document.querySelector("#three")
@@ -8,6 +8,7 @@ const squareSix = document.querySelector("#six")
 const squareSeven = document.querySelector("#seven")
 const squareEight = document.querySelector("#eight")
 const squareNine = document.querySelector("#nine")
+
 // leftScore and rightScore
 
 let leftScore = document.querySelector("#scoreLeft")

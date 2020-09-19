@@ -81,8 +81,28 @@ h1{
      box-shadow: 0px 5px 5px 0px  rgba(0,0,0,0.5) ;
   } 
 
-  h2{
+  #scoreLeft, #scoreRight{
       text-align: right;
       margin-right: 10px;
-      margin-top: 6px;
+      margin-left: 110px;
+      margin-bottom: 20px;
+      margin-top: 0px;
+      display: inline-block;
   }
+  #symbolLeft, #symbolRight {
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 6px;
+  }
+  /* #lineLeft{
+      background-color:rgba(0,0,0,0.5);
+      width: 1px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 40px;
+      display: inline-block;
+  } */
+  
