@@ -1,7 +1,11 @@
 let currentPlayer = 'X'
+let invertedPlayer
 let playerOne = ''
 let playerTwo = ''
 let turnCounter = 0
+let playerOneArray = []
+let playerTwoArray = []
+//call boardRefresh function at start of game to make grid look nicer?
 
 const addName1 = () => {
     const name1 = document.querySelector('#inputBox1')
@@ -33,23 +37,12 @@ const addName2 = () => {
 
 //try to condense buttons into one function using event listener on the button
 
-
-
-
-/*
-const counter = document.querySelector('#counter')
-counter.innerHTML = 'Number of turns: ' + turnCounter
-*/
-
-
 const displayTurn = () => {
     const turnTracker = document.querySelector('#turnTracker')
     while(turnTracker.firstChild) {
         turnTracker.removeChild(turnTracker.firstChild)
     }
     
-    //variable to create and grab h3 element
-    //conditional to determine who's name is displayed
     //combine this with addPiece function?
 }
 
@@ -67,6 +60,7 @@ const turn = () => {
 const addPiece = (event) => {
     //event in this case is click, since players are clicking on divs to place pieces
     //need to display somewhere on page whose turn it is
+    
     if(currentPlayer === 'X') {
         //displayTurn()
         
@@ -83,13 +77,19 @@ const addPiece = (event) => {
         //add one to turnCounter
         turnCounter += 1
         console.log(turnCounter)
+        const idToPush = event.target.getAttribute('id')
+        playerOneArray.push(idToPush)
+        console.log(event.target.getAttribute('id'))
+        console.log(playerOneArray)
+        
         //change player
         currentPlayer = 'O'
         //prevent changing innerHTML of target div
         event.target.removeEventListener('click',addPiece)
         //display next person's turn
-        winScenario()
+        
         turn()
+        winScenario()
     } else {
         //displayTurn()
         
@@ -103,21 +103,30 @@ const addPiece = (event) => {
         event.target.innerHTML = 'O'
         turnCounter += 1
         console.log(turnCounter)
+        const idToPush = event.target.getAttribute('id')
+        playerTwoArray.push(idToPush)
+        console.log(event.target.getAttribute('id'))
+        console.log(playerTwoArray)
+        
         currentPlayer = 'X'
         event.target.removeEventListener('click',addPiece)
-        winScenario()
+        
         turn()
+        winScenario()
     }
     //winScenario()
 }
 
 //function to reset board
 const boardReset = (event) => {
+    playerOneArray = []
+    playerTwoArray = []
+    turnCounter = 0
     const container = document.querySelector('#container')
     while(container.firstChild) {
         container.removeChild(container.firstChild)
     }
-    for(let i = 0; i < 9; i++) {
+    for(let i = 1; i < 10; i++) {
         const board = document.createElement('div')
         board.classList.add('board')
         board.setAttribute('id', i)
@@ -142,18 +151,74 @@ const addListeners = () => {
     resetButton.addEventListener('click', boardReset)
 }
 
+const invertUser = () => {
+    if(currentPlayer === 'O') {
+        invertedPlayer = 'X'
+    }
+    if(currentPlayer === 'X') {
+        invertedPlayer = 'O'
+    }
+}
+
+const disableBoard = () => {
+    //remove board class
+    const board = document.querySelectorAll('.board')
+    for(let i = 0; i < board.length; i++) {
+        //board[i].classList.add('test')
+        board[i].classList.add('hideText')
+        board[i].classList.remove('board')
+    }
+}
+
 const winScenario = () => {
     /*
     if() {
-       //if 1-2-3 OR 4-5-6 OR 7-8-9 OR 1-4-7 OR 2-5-8 OR 3-6-8 OR 1-5-9 OR 7-5-3 are all populated with same type of piece, player with that piece wins 
+       //if 1-2-3 OR 4-5-6 OR 7-8-9 OR 1-4-7 OR 2-5-8 OR 3-6-9 OR 1-5-9 OR 7-5-3 are all populated with same type of piece, player with that piece wins 
     } else if() {
         alert('The game is a draw! There are no open spaces')
     } else {
         
     }
     */
-   if(turnCounter === 9) {
-       alert('The game is a draw!')
+    //need to invert use because of way code is set up. Tried putting winScenario in different places within addPiece but couldn't get code to cun properly
+    invertUser()
+    
+    if(playerOneArray.includes('1') && playerOneArray.includes('2') &&playerOneArray.includes('3') || playerTwoArray.includes('1') && playerTwoArray.includes('2') && playerTwoArray.includes('3')) {
+        document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to keep playing.'
+        disableBoard()
+    }
+    if(playerOneArray.includes('4') && playerOneArray.includes('5') &&playerOneArray.includes('6') || playerTwoArray.includes('4') && playerTwoArray.includes('5') && playerTwoArray.includes('6')) {
+        document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to keep playing.'
+        disableBoard()
+    }
+    if(playerOneArray.includes('7') && playerOneArray.includes('8') &&playerOneArray.includes('9') || playerTwoArray.includes('7') && playerTwoArray.includes('8') && playerTwoArray.includes('9')) {
+        document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to keep playing.'
+        disableBoard()
+    }
+    if(playerOneArray.includes('1') && playerOneArray.includes('4') &&playerOneArray.includes('7') || playerTwoArray.includes('1') && playerTwoArray.includes('4') && playerTwoArray.includes('7')) {
+        document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to keep playing.'
+        disableBoard()
+    }
+    if(playerOneArray.includes('2') && playerOneArray.includes('5') &&playerOneArray.includes('8') || playerTwoArray.includes('2') && playerTwoArray.includes('5') && playerTwoArray.includes('8')) {
+        document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to keep playing.'
+        disableBoard()
+    }
+    if(playerOneArray.includes('3') && playerOneArray.includes('6') &&playerOneArray.includes('9') || playerTwoArray.includes('3') && playerTwoArray.includes('6') && playerTwoArray.includes('9')) {
+        document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to keep playing.'
+        disableBoard()
+    }
+    if(playerOneArray.includes('1') && playerOneArray.includes('5') &&playerOneArray.includes('9') || playerTwoArray.includes('1') && playerTwoArray.includes('5') && playerTwoArray.includes('9')) {
+        document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to keep playing.'
+        disableBoard()
+    }
+    if(playerOneArray.includes('3') && playerOneArray.includes('5') &&playerOneArray.includes('7') || playerTwoArray.includes('3') && playerTwoArray.includes('5') && playerTwoArray.includes('7')) {
+        document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to keep playing.'
+        disableBoard()
+    }
+    if(turnCounter === 9) {
+    //create a div or show winning text somewhere else   
+    //alert('The game is a draw!')
+        document.querySelector('#turnTracker').innerHTML ='The game is a draw. Please hit the reset button if you want to keep playing.'
    }
 }
 
