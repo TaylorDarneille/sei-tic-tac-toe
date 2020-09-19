@@ -47,7 +47,7 @@ h1{
     position: relative;
     width: 10px;
     transform: rotate(45deg);
-    margin-left: 40px;
+    margin-left: 37px;
   }
   .cross:after {
     background: black;
@@ -64,10 +64,25 @@ h1{
   .userScoreBoard, .computerScoreBoard{
       height: 40px;
       width: 200px;
-      border: solid 3px rgba(0,0,0,0.5);
+      margin: 0;
+      background: ivory;
+      border-radius: 10px;
+      /* border: solid 3px rgba(0,0,0,0.5); */
       display: inline-block;
+      
+      
   }
-
+  
+  .userScoreBoard{
+    box-shadow: 0px 5px 5px 0px  rgba(0,0,0,0.5) ;
+  }
   .computerScoreBoard{
-      margin-left: 278px;
+     margin-left: 278px; 
+     box-shadow: 0px 5px 5px 0px  rgba(0,0,0,0.5) ;
   } 
+
+  h2{
+      text-align: right;
+      margin-right: 10px;
+      margin-top: 6px;
+  }
