@@ -1,8 +1,5 @@
 ##TO DO LIST
 
-is there a way to make player wait for computer turn before they can do anything?
-randomize computer turn times to make it look like it's thinking?
-
 add sound with html canvas?
 
 css animate winning tiles?

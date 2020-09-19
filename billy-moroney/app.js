@@ -7,6 +7,7 @@ let turnCount = 0
 let gameOver = false
 //array of indexes to remove tiles from potential computer choices
 let tileIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
 //nodeList of all .tile divs
 const tiles = document.querySelectorAll('.tile')
 // array of player choices
@@ -36,9 +37,8 @@ const initializeBoard = () => {
 
 //callback function for the event listeners on each tile that will mark shapes during each side's turn
 const markShape = (e) => {
-    //first check to make sure player can move
-    if (canMove === true){
         // conditional to prevent tile from being changed
+    if (canMove === true){
         if (e.target.innerText){
             alert('Square already marked! Try again')
         } 
@@ -49,7 +49,6 @@ const markShape = (e) => {
             } else {
                 e.target.innerText = 'X'
             }
-        canMove = false
             //increment turn order
             turnCount++
             // remove index from tileIndexes array
@@ -59,6 +58,8 @@ const markShape = (e) => {
             tileIndexes.splice(indexNum, 1)
             // check for win
             winCheck(playerChoices)
+            // prevent player from moving until computer moves
+            canMove = false
             //after player clicks on a tile, computer moves
             if (turnCount < 9){
             computerMove()
@@ -90,9 +91,15 @@ const computerMove = () =>  {
     // (9 - turnCount) allows the random number to be contained within the shrinking tile Index array
     // use a timer to make the computer choice not appear instantly
     setTimeout(()=> {
+        let randTileIndex = 0
+        if (turnCount === 9){
+            let randTileIndex = 0
+        } else {
         let randTileIndex = Math.floor(Math.random() * (8 - turnCount))
+        }
         let tileID = tileIndexes[randTileIndex]
         computerChoices.push(tileID + 1)
+        console.log(computerChoices)
         //grab all tiles
         // decide what computer should mark each square based on who went first
         if (turnCount % 2 === 0){
@@ -107,8 +114,8 @@ const computerMove = () =>  {
         turnCount++
         // check for win
         winCheck(computerChoices) 
+        canMove = true  
         }, 500) 
-    canMove = true   
 }
 
 //function to determine whether player or computer array was tested for win
@@ -180,6 +187,7 @@ const winCheck = (choicesArray) => {
         winLine(3, 5, 7)
         removeListeners()
     } else if (turnCount === 9){
+        document.querySelector('')
         removeListeners()
     }
 }
