@@ -2,11 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 
+.main{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  align-items: center;
+}
 .board{
   width: 400px;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 .square{
   width: 32%;
@@ -25,9 +33,11 @@ button{
   font-family: Raleway, sans-serif;
   padding: 10px 20px;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
-  letter-spacing: 1.1px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
   background-color: floralwhite;
   box-shadow: inset -2px -4px 40px #3E442B;
 }
@@ -38,12 +48,6 @@ h3, p{
   color: #3E442B;
   font-family: Raleway;
 }
-.X{
-  color: #3E442B;
-}
-.O{
-  color: #FF87AB;
-}
 body{
   text-align: center;
   background-color: floralwhite;
@@ -53,4 +57,16 @@ h1{
   font-family: Hanalei;
   letter-spacing: 10px;
   font-size: 5rem;
+  padding: 0;
+  margin: 0 auto;
+}
+h3{
+  text-transform: uppercase;
+  letter-spacing: .35rem;
+}
+.X{
+  color: #3E442B;
+}
+.O{
+  color: #FF87AB;
 }
