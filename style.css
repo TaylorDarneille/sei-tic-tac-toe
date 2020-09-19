@@ -21,10 +21,48 @@ body{
     
 }
 
+.top{
+    display: flex;
+    justify-content: space-around;
+}
+
 .title {
+    
     text-align: center;
 }
 
+
+
+.reset {
+    background-color: silver; /* Green */
+    border: none;
+    color: red;
+    margin: 5px;
+    padding: 15px 15px 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.status {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.board {
+    width: 100vh; /*vh means viewpoint Height */
+    height: 100vh;
+
+}
+/* .x-side {
+    
+}
+
+.o-side {
+
+} */
 /* .square {
     background-color: #bada55;
     border: 5px solid black;

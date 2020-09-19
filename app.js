@@ -1,3 +1,15 @@
+const createGrid = () => {
+    for (let i = 0; i < 9; i++){
+        let cell = document.createElement('div')
+        cell.classList.add('cell')
+        document.querySelector('.board').appendChild(cell)
+    }
+}
+
+
+
+
+
 // const gameBoard = () => {
 //     let div = document.createElement('div')
 //     div.className = "board"
@@ -8,6 +20,6 @@
     
 // }
 
-// document.addEventListener("DOMContentLoaded", () => {
-    
-// })
+document.addEventListener("DOMContentLoaded", () => {
+    createGrid()
+})
