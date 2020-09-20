@@ -7,6 +7,9 @@ body {
   background-color: floralwhite;
   color: #3E442B;
   font-family: Raleway;
+  background-image: url('./bkg.png');
+  background-size: cover;
+  padding-top: 250px;
 }
 
 h1 {
