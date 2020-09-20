@@ -41,6 +41,49 @@ button:focus {
   outline: none;
 }
 
+.game-type{
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  box-sizing: border-box
+}
+
+input{
+  display: none;
+}
+
+label{
+  margin: 5px 10px;
+  box-sizing: border-box;
+  padding: 10px;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+input:checked+label{
+  color: #FF87AB;
+}
+
+label::after {
+  content: '';
+  display: block;
+  border-bottom: 3px solid #FF87AB;
+  width: 0;
+  bottom: -1px;
+  position: absolute;
+  left: 0;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+input:checked+label::after {
+  width: 100%;
+}
+
+
+
+
 .main {
   display: flex;
   flex-direction: row-reverse;
