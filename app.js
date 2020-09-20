@@ -18,7 +18,12 @@ const choices =["X","O"]
 const makePink = (event) =>{
     event.target.style.backgroundColor = "pink"
 }
-
+// const checkDiv = (event)=>{
+//     const cell = event.target
+//     if (choices.includes(cell.innerHTML)){
+//         cell.removeEventListener("click", playerMove)
+//     } 
+// }
 
 const playerMove = (event) => {
     // playerSelect()
@@ -29,6 +34,9 @@ const playerMove = (event) => {
     else {
         cell.innerHTML= choices[1]
   }
+  //remove event listener after X or O is added to div
+  cell.removeEventListener("click", playerMove)
+  //update turn by 1 
   turn = turn+1
 }
     
