@@ -1,0 +1,225 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+body {
+    background: mediumvioletred;
+}
+
+#all {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Lalezar', cursive;
+    margin: 5px;
+    font-size: 40px;
+    color: lightgreen;
+}
+
+.board {
+    margin: 30px auto;
+    font-family: 'Crafty Girls', cursive;
+    font-size: 60px;
+    color: lightgreen;
+}
+
+#board-3x3 {
+    width: 350px;   
+}
+
+#board-4x4 {
+    width: 450px;
+}
+
+#board-5x5 {
+    width: 550px;
+}
+
+.x::before {
+  content: "x";
+}
+
+.o::before {
+  content: "o";
+
+}
+
+#game-over {
+    font-family: 'Lalezar', cursive;
+    margin: 5px;
+    padding: 5px;
+    color: lightgreen;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+#reset {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600;
+    border: none;
+    color: seagreen;
+    background: mintcream;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#reset:hover {
+    background: mediumseagreen;
+    color: mintcream;
+}
+
+.grid-size-style {
+    font-family: 'Heebo', sans-serif;
+    color: mintcream;
+}
+
+.square {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  border: 1px solid mediumvioletred;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.played {
+  pointer-events: none;
+}
+
+
+#top-left {
+  border-right: 2px solid mintcream;
+  border-bottom: 2px solid mintcream;
+}
+
+#top-mid {
+  border-left: 2px solid mintcream;
+  border-right: 2px solid mintcream;
+  border-bottom: 2px solid mintcream;
+}
+
+#top-right {
+  border-left: 2px solid mintcream;
+  border-bottom: 2px solid mintcream;
+}
+
+#cent-left {
+  border-top: 2px solid mintcream;
+  border-right: 2px solid mintcream;
+  border-bottom: 2px solid mintcream;
+}
+
+#cent-mid {
+  border: 2px solid mintcream;
+
+}
+
+#cent-right {
+  border-top: 2px solid mintcream;
+  border-left: 2px solid mintcream;
+  border-bottom: 2px solid mintcream;
+}
+
+#bot-left {
+  border-right: 2px solid mintcream;
+  border-top: 2px solid mintcream;
+}
+
+#bot-mid {
+  border-left: 2px solid mintcream;
+  border-right: 2px solid mintcream;
+  border-top: 2px solid mintcream;
+}
+
+#bot-right {
+  border-left: 2px solid mintcream;
+  border-top: 2px solid mintcream;
+}
+
+
+#top-mid-left {
+    border-left: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
+#top-mid-right {
+    border-left: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
+#cen-left-top {
+    border-top: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
+#cen-mid-left-top {
+    border: 2px solid mintcream;
+}
+
+#cen-mid-right-top {
+    border: 2px solid mintcream;
+}
+
+#cen-right-top {
+    border-top: 2px solid mintcream;
+    border-left: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
+#cen-left-bot {
+    border-top: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
+#cen-mid-left-bot {
+    border: 2px solid mintcream;
+}
+
+#cen-mid-right-bot {
+    border: 2px solid mintcream;
+}
+
+#cen-right-bot {
+    border-top: 2px solid mintcream;
+    border-left: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
+#bot-mid-left {
+    border-top: 2px solid mintcream;
+    border-left: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+}
+
+#bot-mid-right {
+    border-top: 2px solid mintcream;
+    border-left: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+}
+
+#cen-mid-top {
+    border: 2px solid mintcream;
+}
+
+#cen-left-mid {
+    border: 2px solid mintcream;
+}
+
+#cen-right-mid {
+    border: 2px solid mintcream;
+}
+
+#cen-mid-bot {
+    border: 2px solid mintcream;
+}
