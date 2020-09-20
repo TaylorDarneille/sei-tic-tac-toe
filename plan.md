@@ -25,3 +25,13 @@ Each time a player makes a move, your code will check to see if there is a game-
 *Write psuedocode here*
 
 ---
+1) create a grid of 9 squares
+2) 2 player: one will be X one will be Y
+3) provide instructions on how the game is played/ add block of text to page perhaps 
+  a) each player picks between X and Y
+  b) each player gets a turn
+  c) each player can place ther chosen X or Y in an empty square
+  d) the first player to get 3 of their same token in rown either diagnal or horizontal wins
+  e) alert who won the game
+  f) give the option to restart
+
