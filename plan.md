@@ -36,7 +36,7 @@ Write out a list of *all* the things you need to do to code this game. This can 
 *set win condition
     *alert winner with animation
 
-*flow of page
+*flow of game
     * when player starts they select player X: or player Y: button
     * the selection will indicate which to start with
     * clicking on the squares the two variables will switch back and forth
@@ -50,6 +50,11 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 ---
 
-*Write psuedocode here*
+*function checkForWinner ={ 
+    if (div1 === div2 === div3 || div4 === div5 === div6 || div7 === div8 === div9){
+        alert ('${Player ?} is the winner!)
+    } else if(){
+        alert ('${Player ?} is the winner!)
+}
 
 ---
