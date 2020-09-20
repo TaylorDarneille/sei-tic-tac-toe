@@ -34,7 +34,15 @@ const playerMove = (event) => {
   checkWinner()
 }
     
-const removeListener = ()
+const removeListener = () =>{
+    const div = document.querySelectorAll(".cell")
+    for(let i = 0; i < div.length; i++) {
+        div[i].removeEventListener("click", playerMove)
+        div[i].innerText = ""
+    }
+    let turn = 1;
+    gameBoard()   
+}
 
 const gameBoard =()=> {    
     const div = document.querySelectorAll(".cell")
@@ -42,17 +50,16 @@ const gameBoard =()=> {
     for (let i=0; i<div.length; i++){
         div[i].addEventListener("click", playerMove)
     }
-     
 }
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    gameBoard()
+        gameBoard()
 
 //funciton that checks for win condition
 })
 
-const checkWinner = () =>{
+const checkWinner = () => {
     const div1 = document.querySelector("#div1").innerText
     const div2 = document.querySelector("#div2").innerText
     const div3 = document.querySelector("#div3").innerText
@@ -62,21 +69,29 @@ const checkWinner = () =>{
     const div7 = document.querySelector("#div7").innerText
     const div8 = document.querySelector("#div8").innerText
     const div9 = document.querySelector("#div9").innerText
-    if (div1 === div2 && div2 === div3){
+    if (div1 === div2 && div2 === div3 && div1 !== "" ){
         alert("Player " + div1+ " is the winner!")
-        gameBoard()
-    }else if (div4 === div5 && div5 === div6){
+        removeListener()
+    }else if (div4 === div5 && div5 === div6 && div4 !== ""){
         alert("Player " + div4+ " is the winner!")
-        gameBoard()
-    }else if (div7 === div8 && div8 === div9){
+        removeListener()
+    }else if (div7 === div8 && div8 === div9 && div7 !== ""){
         alert("Player " + div7+ " is the winner!")
-        gameBoard()
-    }else if (div1 === div5 && div5 === div9){
+        removeListener()
+    }else if (div1 === div5 && div5 === div9 && div1 !== ""){
         alert("Player " + div1+ " is the winner!")
-        gameBoard()
-    }else if (div3 === div5 && div5 === div7){
+        removeListener()
+    }else if (div3 === div5 && div5 === div7 && div3 !== ""){
         alert("Player " + div3+ " is the winner!")
-        gameBoard()
-    }
-//     const div = div.innerHTML
+        removeListener()
+    }else if (div1 === div4 && div4 === div7 && div1 !== ""){
+        alert("Player " + div1+ " is the winner!")
+        removeListener()
+    }else if (div2 === div5 && div5 === div8 && div2 !== ""){
+        alert("Player " + div2+ " is the winner!")
+        removeListener()
+    }else if (div3 === div6 && div6 === div9 && div3 !== ""){
+        alert("Player " + div3+ " is the winner!")
+        removeListener()
+    }   
 }
