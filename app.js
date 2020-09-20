@@ -1,7 +1,8 @@
 const createGrid = () => {
-    for (let i = 0; i < 9; i++){
+    for (let i = 0; i < 9; i++) {
         let square = document.createElement('div')
         square.classList.add('square')
+        square.setAttribute('id', 'box'+i)
         document.querySelector('.board').appendChild(square)
     }
 }
