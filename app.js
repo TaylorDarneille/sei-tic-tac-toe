@@ -1,9 +1,12 @@
 const createGrid = () => {
     for (let i = 0; i < 9; i++){
-        let cell = document.createElement('div')
-        cell.classList.add('cell')
-        document.querySelector('.board').appendChild(cell)
+        let square = document.createElement('div')
+        square.classList.add('square')
+        document.querySelector('.board').appendChild(square)
     }
+}
+const whoWon = () => {
+    
 }
 
 

@@ -14,10 +14,12 @@ body{
 
 .container{
     background: red;
+    position: center;
     margin: 50px;
     height: 50px;
     width: 500px;
     height: 500px;
+    border-radius: 25px;
     
 }
 
@@ -43,6 +45,7 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .status {
@@ -52,10 +55,54 @@ body{
 }
 
 .board {
-    width: 100vh; /*vh means viewpoint Height */
-    height: 100vh;
+    width: 80vw; /*vw means viewpoint width */
+    height: 50vh; /*vh means viewpoint height*/
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    
 
 }
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 5px solid black;
+}
+
+.square:first-child, 
+.square:nth-child(2),
+.square:nth-child(3){
+    border-top: none;
+}
+
+.square:first-child,
+.square:nth-child(4),
+.square:nth-child(7){
+    border-left: none;
+}
+
+.square:nth-child(3),
+.square:nth-child(6),
+.square:last-child{
+    border-right: none;
+}
+
+.square:nth-child(7),
+.square:nth-child(8),
+.square:last-child{
+    border-bottom: none;
+}
+
+.cell
+
+
+
+
 /* .x-side {
     
 }
