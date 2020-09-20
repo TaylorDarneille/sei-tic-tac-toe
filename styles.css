@@ -2,32 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 
-.main{
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  justify-content: space-evenly;
-  margin-top: 50px;
-  align-items: center;
+body {
+  text-align: center;
+  background-color: floralwhite;
+  color: #3E442B;
+  font-family: Raleway;
 }
-.board{
-  width: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  /* margin: 0 auto; */
-}
-.square{
-  width: 32%;
-  border: solid black 1px;
-  height: 100px;
-  font-size: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Hanalei;
 
+h1 {
+  font-family: Hanalei;
+  letter-spacing: 10px;
+  font-size: 5rem;
+  padding: 0;
+  margin: 0 auto;
 }
-button{
+
+h3 {
+  text-transform: uppercase;
+  letter-spacing: .35rem;
+}
+
+button {
   margin: 20px auto;
   display: block;
   font-family: Raleway, sans-serif;
@@ -39,34 +34,49 @@ button{
   letter-spacing: 1.2px;
   text-transform: uppercase;
   background-color: floralwhite;
-  box-shadow: inset -2px -4px 40px #3E442B;
+  box-shadow: inset -2px -2px 20px #3E442B;
 }
-button:focus{
+
+button:focus {
   outline: none;
 }
-h3, p{
-  color: #3E442B;
-  font-family: Raleway;
+
+.main {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  align-items: center;
+
 }
-body{
-  text-align: center;
-  background-color: floralwhite;
+
+.board {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
 }
-h1{
-  color: #3E442B;
+
+.square {
+  width: 32%;
+  height: 100px;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: Hanalei;
-  letter-spacing: 10px;
-  font-size: 5rem;
-  padding: 0;
-  margin: 0 auto;
 }
-h3{
-  text-transform: uppercase;
-  letter-spacing: .35rem;
+
+[id="1"], [id="7"], [id="4"] {
+  border-right: solid #3E442B 1px;
+  border-left: solid #3E442B 1px;
 }
-.X{
-  color: #3E442B;
+
+[id="3"], [id="4"], [id="5"] {
+  border-top: solid #3E442B 1px;
+  border-bottom: solid #3E442B 1px;
 }
-.O{
+
+.O {
   color: #FF87AB;
 }
