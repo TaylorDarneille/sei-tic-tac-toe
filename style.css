@@ -1,29 +1,70 @@
-
+body {
+    background:rgb(0, 0, 0);
+    /* font-family: Verdana,Geneva,sans-serif;  */
+    font-family: 'Fredoka One', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #container{
-    height: 700px;
-    width: 700px;
-    background: orangered;
+    /* dont need any of this after using flexbox display styling */
+    /* height: 700px;
+    width: 700px; */
+    /* background: white; */
+    /* margin: auto; */
+    display: flex;
+    flex-direction: column; /*items inside #container align from top to bottom */
+    align-content: center;
 }
 
 .inside {
     height: 200px;
     width: 200px;
     border: 1px black solid;
-    background: orange;
+    background: royalblue;
     cursor: pointer;
-    display: inline-block; 
-    float: left; 
+    /* dont need any of this after using flexbox display styling */
+    /* display: inline-block;  */
+    /* float: left;  */
 }
 
 .row {
-    display: block;
-    /* do I need this?? */
-}
+    display: flex;
+} 
 
 .user {
-    background: yellow;
+    background: rgb(155, 129, 226);
+    text-align: left;
+    justify-content: flex-end; 
+    font-size: 30px;
 }
 
 .computer {
-    background: aqua;
+    background: rgba(68, 51, 212, 0.637);
+    text-align: right;
+    font-size: 30px;
 }
+
+p {
+    font-size: 100px;
+    text-align: center; 
+    margin: auto;
+    padding-top: 35px; 
+}
+/* 
+h1 {
+    font-size: 70px;
+    color: rgb(151, 255, 250); 
+    text-align: center; 
+} */
+
+#heading {
+    font-size: 70px;
+    color: white;
+    align-self: stretch;
+    text-align: center;
+}
+
+/* .button {
+    text-align: center;  
+} */
