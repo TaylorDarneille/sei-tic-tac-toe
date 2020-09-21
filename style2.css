@@ -1,0 +1,60 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body {
+    font-family: Chalkduster, fantasy;
+    display:flex;
+    justify-content: center;
+    color: rgb(34, 24, 23);
+}
+.container {
+    background-color:rgb(30, 138, 142);
+    margin:50px;
+    padding:50px;
+    border-radius:25px;
+}
+
+.title {
+    text-align:center;
+}
+
+.title span {
+    color:white;
+}
+
+.status-action {
+    margin-top:25px;
+    font-size:25px;
+    display:flex;
+    justify-content: space-around;
+
+}
+
+.reset {
+    cursor:pointer;
+
+}
+
+.reset:hover{
+    color:white;
+}
+
+.game-grid{
+    background-color: rgba(128, 255, 0, 0.502);
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap:15px;
+    margin-top:50px
+}
+
+.game-cell {
+    height:200px;
+    width:200px;
+    background:chartreuse;
+    cursor:pointer;
+}

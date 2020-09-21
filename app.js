@@ -1,10 +1,14 @@
 // Tic Tac Toe!
 
-
-
 //1. Make a grid that is 3 by 3 
+//done with html
+
 //2. Create two different variables.
+
+
 //3. Variables should be X and O
+
+
 //4. Player 1 gets X  consistent
 //5. player 2 gets O   consistent
 //6. This must be consistant throughout the entire game!
@@ -23,7 +27,126 @@
 
 //3. I would have a score board somewhere in the page. Tic Tac Toe is a fun game & players will most likely play more than once. Make sure the scoreboard is keeping track of who is winning the game. Everytime a player wins, add +1 to the scoreboard. If it is a tie, don't add anything
 
+
 //AFTER GAME ENDS
 
 //1. Give the players an option to play again. Maybe set an alert and say, play again? I would also give them the option to choose another variable. Maybe they want to be X now instead of O.
+
+
+
+
+//////////////////////////////////////////////////////////////////
+
+function cellClicked(){
+  
+}
+
+let square= document.querySelectorAll(".square")
+  for (let i=0; i<square.length; i++){
+    square.addEventListener('click', cellClicked)
+  }
+
+    cell1.addEventListener("click", function() {
+        cell1.style.background="black"});
+
+//////////////////////////////////////////////////////
+
+
+
+
+//const squareElements= document.getElementsByClassName("square");
+const h1 = document.querySelector("h1")
+//h1.addEventListener("click", function() {
+  //  h1.style.background="black"});
+
+  function changeBackgroundH1 () {
+    //h1.style.background="black"
+    h1.classList.add("black")
+}
+h1.addEventListener("click", changeBackgroundH1)
+
+
+
+//////                       variables:
+
+let moveTracker="user"
+
+let cellDivs= document.querySelectorAll(".square")
+
+const resetButton=document.querySelector("#restartButton")
+
+const containerDiv=document.querySelector("#container")
+
+
+////          EVENT HANDLERS AKA CALLBACKS
+
+const handleReset = (e)=>{
+  console.log(e)
+}
+
+
+const makeAMove =(e)=>{
+    let chosenSquare= e.target
+    console.log(chosenSquare)// gives the HTML element of the square that's clicked
+  ​
+    let typeOfMove= document.createElement("p")
+   
+    // doesn't allow person to click in the square more than once
+    while(!chosenSquare.firstChild){
+      if (moveTracker=== "user"){
+        typeOfMove.innerText= "X"
+        moveTracker ="user2"
+      }else if( moveTracker=== "user2"){
+        typeOfMove.innerText="O"
+        moveTracker="user"
+      }
+      chosenSquare.appendChild(typeOfMove)
+      // console.log(typeOfMove.innerText)
+      }
+      // checkforWin()
+     
+    }
+
+
+const randomFunc= (e)=>{
+for (let i=0; i<cellDivs.length; i++){
+  let square= cellDivs[i]
+  square.addEventListener("click",makeAMove)
+}
+}
+ 
+
+
+document.addEventListener("DOMContentLoaded", ()=> {
+
+const cell5 = document.getElementById("cell5")
+cell5.addEventListener("click", ()=>{
+  cell5.classList.add("classofX")
+  randomFunc()
+} )
+ })
+
+
+
+
+
+
+
+
+
+
+
+// const gridGenerator = () => {
+// for (let i = 0; i < 9; i++) {
+//     let div = document.createElement('div')
+//     div.classList.add('square')
+//     //div.addEventListener('click', changeDiv)
+//    document.querySelector('#container').appendChild(div) //make div a baby of container
+// }
+// }
+
+
+// document.addEventListener("DOMContentLoaded", ()=> {
+//    gridGenerator()
+// })
 

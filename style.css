@@ -1,0 +1,136 @@
+H1 {
+   text-align:center;
+   font-size:50px;
+   color:salmon;
+   font-family: Chalkduster, fantasy;
+   margin:50px auto;
+}
+
+Body {
+    background-color:iory;
+}
+
+.square {
+   /* background-color:rgb(245, 234, 234); */
+    border:10px solid salmon;
+    display:inline-block;
+    width:200px;
+    height:200px;
+    cursor:pointer;
+    
+}
+
+#container {
+    display:grid;
+    grid-template-columns: repeat(3,auto);
+    margin:100px auto;
+    width:655px;
+}
+
+#restartButton {
+   height:30px;
+}
+
+
+#cell1 {
+    display:grid;
+    text-align:center;
+    font-size:145px;
+    align-content:center;
+}
+
+#cell2 {
+    display:grid;
+    text-align:center;
+    font-size:145px;
+    align-content:center;
+    font-family: Chalkduster, fantasy;
+    color: rgb(250, 77, 106);
+}
+
+#cell3 {
+    justify-content:center;
+    align-content:center;
+    justify-items:center;;
+}
+
+#cell4 {
+    justify-content:center;
+    align-content:center;
+    justify-items:center;
+
+}
+
+#cell5  {
+    justify-content:center;
+    align-content:center;
+    justify-items:center;
+}
+
+#cell6 {
+    justify-content:center;
+    align-content:center;
+    justify-items:center;
+}
+
+#cell7 {
+    justify-content:center;
+    align-content:center;
+    justify-items:center;
+}
+
+#cell8  {
+    justify-content:center;
+    align-content:center;
+    justify-items:center;
+}
+
+#cell9 {
+    justify-content:center;
+    align-content:center;
+    justify-items:center;
+}
+
+.winning-message {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: rgba(0,0,0,.9);
+    justify-content: center;
+    color:white;
+    align-items:center;
+    font-size:5rem;
+    flex-direction:column;
+}
+
+#restartButton {
+    font-size:20px;
+}
+
+
+.winning-message.show {
+    display: flex;
+}
+
+
+.black{
+    background-color:black;
+}
+
+
+/*.classOfX::after {
+    font-size:2rem;
+    color:red !important;
+    content:"X" !important;
+    position:absolute;
+}
+
+.classOfO::before{
+    font-size:2rem;
+    color:black;
+    content:"O"
+}
+*/
