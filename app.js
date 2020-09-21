@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const singlePlayerButton = document.querySelector("input[value=single]");
   const multiPlayerButton = document.querySelector("input[value=multi]");
 
-
+  // This is the minimax function which returns an object containing the bestMove index as a key/value pair. It recursively calls itself looking for the best move.
+  // To be honest google did most of the work on it.
   const minimax = (newBoard, player) => {
     let availSpots = getEmptyPlaces(newBoard);
     if (checkWin(huPlayer, newBoard)) {
@@ -49,27 +50,30 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     }
     let moves = [];
-
+    // loop over all the available moves left on the board
     for (let i = 0; i < availSpots.length; i++) {
-      var move = {};
+      let move = {};
       move.index = newBoard[availSpots[i]];
       // set the empty spot to the current player
       newBoard[availSpots[i]] = player;
+      // recursive callls
       if (player === aiPlayer) {
-        var result = minimax(newBoard, huPlayer);
+        let result = minimax(newBoard, huPlayer);
         move.score = result.score;
       } else {
-        var result = minimax(newBoard, aiPlayer);
+        let result = minimax(newBoard, aiPlayer);
         move.score = result.score;
       }
+      // reset the newBoard space
       newBoard[availSpots[i]] = move.index;
+      // add the move to the array of moves
       moves.push(move);
     }
     // if it is the computer's turn loop over the moves and choose the move with the highest score
-    var bestMove;
+    let bestMove;
     if (player === aiPlayer) {
-      var bestScore = -10000;
-      for (var i = 0; i < moves.length; i++) {
+      let bestScore = -10000;
+      for (let i = 0; i < moves.length; i++) {
         if (moves[i].score > bestScore) {
           bestScore = moves[i].score;
           bestMove = i;
@@ -77,8 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else {
       // else loop over the moves and choose the move with the lowest score
-      var bestScore = 10000;
-      for (var i = 0; i < moves.length; i++) {
+      let bestScore = 10000;
+      for (let i = 0; i < moves.length; i++) {
         if (moves[i].score < bestScore) {
           bestScore = moves[i].score;
           bestMove = i;
