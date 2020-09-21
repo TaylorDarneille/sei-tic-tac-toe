@@ -14,11 +14,21 @@
 //let player = document.querySelector("#currentPlayer").innerText
 let turn = 1;
 const choices =["X","O"]
+let playerScoreX = 0;
+let playerScoreO = 0;
 
-const makePink = (event) =>{
-    event.target.style.backgroundColor = "pink"
+const addScore = (winner) =>{
+    let PlayerX = document.querySelector("#playerXScore")
+    let PlayerO = document.querySelector("#playerOScore")
+    console.log(winner)
+    if (winner === "X"){
+        playerScoreX = playerScoreX+1
+        PlayerX.innerText = playerScoreX
+    } else {
+        playerScoreO = playerScoreO+1
+        PlayerO.innerText = playerScoreO
+    }
 }
-
 const playerMove = (event) => {
     let player = document.querySelector("#currentPlayer")
    const cell = event.target    
@@ -59,7 +69,6 @@ const gameBoard =()=> {
 document.addEventListener("DOMContentLoaded", ()=>{
         gameBoard()
 
-//funciton that checks for win condition
 })
 
 const checkWinner = () => {
@@ -74,27 +83,35 @@ const checkWinner = () => {
     const div9 = document.querySelector("#div9").innerText
     if (div1 === div2 && div2 === div3 && div1 !== "" ){
         alert("Player " + div1+ " is the winner!")
+        addScore(div1)
         removeListener()
     }else if (div4 === div5 && div5 === div6 && div4 !== ""){
         alert("Player " + div4+ " is the winner!")
+        addScore(div4)
         removeListener()
     }else if (div7 === div8 && div8 === div9 && div7 !== ""){
         alert("Player " + div7+ " is the winner!")
+        addScore(div7)
         removeListener()
     }else if (div1 === div5 && div5 === div9 && div1 !== ""){
         alert("Player " + div1+ " is the winner!")
+        addScore(div1)
         removeListener()
     }else if (div3 === div5 && div5 === div7 && div3 !== ""){
         alert("Player " + div3+ " is the winner!")
+        addScore(div3)
         removeListener()
     }else if (div1 === div4 && div4 === div7 && div1 !== ""){
         alert("Player " + div1+ " is the winner!")
+        addScore(div1)
         removeListener()
     }else if (div2 === div5 && div5 === div8 && div2 !== ""){
         alert("Player " + div2+ " is the winner!")
+        addScore(div2)
         removeListener()
     }else if (div3 === div6 && div6 === div9 && div3 !== ""){
         alert("Player " + div3+ " is the winner!")
+        addScore(div3)
         removeListener()
     } else if((div1==="X"||div1==="O") && (div2==="X"||div2==="O") && (div3==="X"||div3==="O") && (div4==="X"||div4==="O") && (div5==="X"||div5==="O") && (div6==="X"||div6==="O") && (div7==="X"||div7==="O") && (div8==="X"||div8==="O") && (div9==="X"||div9==="O")){
         alert("It's a tie!")
