@@ -4,6 +4,34 @@
     box-sizing: border-box;
 }
 
+/* Gameplay */
+
+.x::before {
+  content: "x";
+}
+
+.o::before {
+  content: "o";
+
+}
+
+
+/* Board Resize */
+
+#board-3x3 {
+    width: 350px;   
+}
+
+#board-4x4 {
+    width: 450px;
+}
+
+#board-5x5 {
+    width: 550px;
+}
+
+
+/* Style  */
 
 body {
     background: mediumvioletred;
@@ -27,27 +55,6 @@ h1 {
     color: lightgreen;
 }
 
-#board-3x3 {
-    width: 350px;   
-}
-
-#board-4x4 {
-    width: 450px;
-}
-
-#board-5x5 {
-    width: 550px;
-}
-
-.x::before {
-  content: "x";
-}
-
-.o::before {
-  content: "o";
-
-}
-
 #game-over {
     font-family: 'Lalezar', cursive;
     margin: 5px;
@@ -57,7 +64,7 @@ h1 {
     font-weight: 600;
 }
 
-#reset {
+#reset,#change {
     font-family: 'Heebo', sans-serif;
     font-weight: 600;
     border: none;
@@ -65,11 +72,16 @@ h1 {
     background: mintcream;
     padding: 5px 10px;
     cursor: pointer;
+    border-radius: 3px;
 }
 
-#reset:hover {
+#reset:hover,#change:hover {
     background: mediumseagreen;
     color: mintcream;
+}
+
+#change {
+    margin: 0 auto 0 10px;
 }
 
 .grid-size-style {
@@ -77,11 +89,16 @@ h1 {
     color: mintcream;
 }
 
+#x3,#x4,#x5 {
+    cursor: pointer;
+}
+
 .square {
   height: 100px;
   width: 100px;
   display: inline-block;
   border: 1px solid mediumvioletred;
+  cursor: pointer;
 }
 
 .disabled {
@@ -94,9 +111,17 @@ h1 {
 }
 
 
+/* Grid classes */
+
 #top-left {
   border-right: 2px solid mintcream;
   border-bottom: 2px solid mintcream;
+}
+
+#top-mid-left {
+    border-left: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
 }
 
 #top-mid {
@@ -105,10 +130,42 @@ h1 {
   border-bottom: 2px solid mintcream;
 }
 
+#top-mid-right {
+    border-left: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
 #top-right {
   border-left: 2px solid mintcream;
   border-bottom: 2px solid mintcream;
 }
+
+
+#cent-left-top {
+    border-top: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
+#cent-mid-left-top {
+    border: 2px solid mintcream;
+}
+
+#cent-mid-right-top {
+    border: 2px solid mintcream;
+}
+
+#cent-mid-top {
+    border: 2px solid mintcream;
+}
+
+#cent-right-top {
+    border-top: 2px solid mintcream;
+    border-left: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
 
 #cent-left {
   border-top: 2px solid mintcream;
@@ -116,9 +173,17 @@ h1 {
   border-bottom: 2px solid mintcream;
 }
 
+#cent-left-mid {
+    border: 2px solid mintcream;
+}
+
 #cent-mid {
   border: 2px solid mintcream;
 
+}
+
+#cent-right-mid {
+    border: 2px solid mintcream;
 }
 
 #cent-right {
@@ -127,73 +192,36 @@ h1 {
   border-bottom: 2px solid mintcream;
 }
 
+
+
+#cent-left-bot {
+    border-top: 2px solid mintcream;
+    border-right: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
+#cent-mid-left-bot {
+    border: 2px solid mintcream;
+}
+
+#cent-mid-bot {
+    border: 2px solid mintcream;
+}
+
+#cent-mid-right-bot {
+    border: 2px solid mintcream;
+}
+
+#cent-right-bot {
+    border-top: 2px solid mintcream;
+    border-left: 2px solid mintcream;
+    border-bottom: 2px solid mintcream;
+}
+
+
 #bot-left {
   border-right: 2px solid mintcream;
   border-top: 2px solid mintcream;
-}
-
-#bot-mid {
-  border-left: 2px solid mintcream;
-  border-right: 2px solid mintcream;
-  border-top: 2px solid mintcream;
-}
-
-#bot-right {
-  border-left: 2px solid mintcream;
-  border-top: 2px solid mintcream;
-}
-
-
-#top-mid-left {
-    border-left: 2px solid mintcream;
-    border-right: 2px solid mintcream;
-    border-bottom: 2px solid mintcream;
-}
-
-#top-mid-right {
-    border-left: 2px solid mintcream;
-    border-right: 2px solid mintcream;
-    border-bottom: 2px solid mintcream;
-}
-
-#cen-left-top {
-    border-top: 2px solid mintcream;
-    border-right: 2px solid mintcream;
-    border-bottom: 2px solid mintcream;
-}
-
-#cen-mid-left-top {
-    border: 2px solid mintcream;
-}
-
-#cen-mid-right-top {
-    border: 2px solid mintcream;
-}
-
-#cen-right-top {
-    border-top: 2px solid mintcream;
-    border-left: 2px solid mintcream;
-    border-bottom: 2px solid mintcream;
-}
-
-#cen-left-bot {
-    border-top: 2px solid mintcream;
-    border-right: 2px solid mintcream;
-    border-bottom: 2px solid mintcream;
-}
-
-#cen-mid-left-bot {
-    border: 2px solid mintcream;
-}
-
-#cen-mid-right-bot {
-    border: 2px solid mintcream;
-}
-
-#cen-right-bot {
-    border-top: 2px solid mintcream;
-    border-left: 2px solid mintcream;
-    border-bottom: 2px solid mintcream;
 }
 
 #bot-mid-left {
@@ -202,24 +230,19 @@ h1 {
     border-right: 2px solid mintcream;
 }
 
+#bot-mid {
+  border-left: 2px solid mintcream;
+  border-right: 2px solid mintcream;
+  border-top: 2px solid mintcream;
+}
+
 #bot-mid-right {
     border-top: 2px solid mintcream;
     border-left: 2px solid mintcream;
     border-right: 2px solid mintcream;
 }
 
-#cen-mid-top {
-    border: 2px solid mintcream;
-}
-
-#cen-left-mid {
-    border: 2px solid mintcream;
-}
-
-#cen-right-mid {
-    border: 2px solid mintcream;
-}
-
-#cen-mid-bot {
-    border: 2px solid mintcream;
+#bot-right {
+  border-left: 2px solid mintcream;
+  border-top: 2px solid mintcream;
 }
