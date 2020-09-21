@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <title>Tic Tac Toe</title>
+</head>
+<body>
+  <h1>Tiki Taki Toe</h1>
+  <p class="message">It's X's turn</p>
+  <div class="game-type">
+    <input type="radio" id="single" name="mode" value="single" checked>
+    <label for="single">Singleplayer</label>
+    <input type="radio" id="multi" name="mode" value="multi" >
+    <label for="multi">Multiplayer</label>
+  </div>
+  <button id="reset" type="button" name="reset">Reset</button>
+  <div class="main">
+    <div class="board">
+      <div class="square" id="0"></div>
+      <div class="square" id="1"></div>
+      <div class="square" id="2"></div>
+      <div class="square" id="3"></div>
+      <div class="square" id="4"></div>
+      <div class="square" id="5"></div>
+      <div class="square" id="6"></div>
+      <div class="square" id="7"></div>
+      <div class="square" id="8"></div>
+    </div>
+    <div class="scoreboard">
+      <h3>Scoreboard</h3>
+      <p>X wins: <span id="xwins">0</span></p>
+      <p>O wins: <span id="owins">0</span></p>
+    </div>
+  </div>
+  <script src="app.js" charset="utf-8"></script>
+</body>
+</html>

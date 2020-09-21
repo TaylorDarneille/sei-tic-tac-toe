@@ -12,8 +12,23 @@ Write out a list of *all* the things you need to do to code this game. This can 
 
 ---
 
-*Write TODO list here*
-
+- [ ] Make a grid of 3x3 divs - maybe class square
+  // Give each div an id 0-8
+  // for loop, create an element with class square and id=i, append to the dom
+- [ ] Add event listener to each div to alert which one is clicked (to note the id of the div which is clicked)
+// select all the divs with class square. loop through the divs to add event listener
+- [ ] Modify event listener to place an "X" in the square which was clicked
+  // remember event.target from the lectures which tells you which div was clicked
+- [ ] Modify code to alternate between X and O after the other was placed
+- [ ] Ensure nothing happens if "X" or "O" already placed
+- [ ] User can choose if they want to play as X or O,
+- [ ] X starts first
+- [ ] Check for a win condition or draw
+- [ ] Add ability to reset the game
+- [ ] Add computer to place randomly in an empty square (easy)
+- [ ] Add computer to place logically in an empty square (hard)
+- [ ] User can choose to play multiplayer or single player.
+- [ ] User can choose to play on easy mode (random computer moves) or hard (computer ideal move)
 ---
 
 ### Optional Part 2: Pseudo-code your win-logic
@@ -22,6 +37,38 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 ---
 
-*Write psuedocode here*
+
+
+consider that the board is represented by the array as below:
+
+```js
+[0, 1, 2,
+ 3, 4, 5,
+ 6, 7, 8]
+ ```
+
+ for purpose of the pseudocode assume same piece is X or O, a *nonempty* piece:
+
+if the same piece is in the top row (0,1,2) **OR**
+
+if the same piece is in the second row (3,4,5) **OR**
+
+if the same piece is in the third row (6,7,8) **OR**
+
+if the same piece is in the first column (0,3,6) **OR**
+
+if the same piece is in the second column (1,4,7) **OR**
+
+if the same piece is in the third column (2,5,8) **OR**
+
+if the same piece is in the downward diagonal (0,4,8) **OR**
+
+if the same piece is in the upward diagonal (2,4,6)
+
+  *Then the player associated with that piece wins*
+
+otherwise if there are no empty spaces in the grid
+
+*it is a draw*
 
 ---
