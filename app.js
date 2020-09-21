@@ -11,6 +11,7 @@
 //    }
 // const scoreX;
 // const scoreY;
+//let player = document.querySelector("#currentPlayer").innerText
 let turn = 1;
 const choices =["X","O"]
 
@@ -19,13 +20,15 @@ const makePink = (event) =>{
 }
 
 const playerMove = (event) => {
-    // playerSelect()
+    let player = document.querySelector("#currentPlayer")
    const cell = event.target    
     if (turn%2 === 0){
         cell.innerHTML = choices[0]
+        player.innerHTML = "Player O's turn"
     }
     else {
         cell.innerHTML= choices[1]
+        player.innerHTML = "Player X's turn"
   }
   //remove event listener after X or O is added to div
   cell.removeEventListener("click", playerMove)
@@ -93,5 +96,8 @@ const checkWinner = () => {
     }else if (div3 === div6 && div6 === div9 && div3 !== ""){
         alert("Player " + div3+ " is the winner!")
         removeListener()
-    }   
+    } else if((div1==="X"||div1==="O") && (div2==="X"||div2==="O") && (div3==="X"||div3==="O") && (div4==="X"||div4==="O") && (div5==="X"||div5==="O") && (div6==="X"||div6==="O") && (div7==="X"||div7==="O") && (div8==="X"||div8==="O") && (div9==="X"||div9==="O")){
+        alert("It's a tie!")
+        removeListener()
+    }
 }
