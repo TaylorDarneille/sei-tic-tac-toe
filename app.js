@@ -1,4 +1,5 @@
-console.log('god help me')
+//console.log('god help me')
+//NOTE FOR READER: I've left a lot of comments for myself because this was quite the learning experience, lots of trial and error. I also left a lot of code that I decided to trash because I want to look at it all later 
 
 //let body= document.querySelector('body');
 let moveTracker= 'user'; //initialize move tracker to start with user 
@@ -90,6 +91,8 @@ const checkWin= ()=> {
         win('O');
         //console.log('mark O, WON');
     } else if( //this long else if statement is at the end so that gameWon has a chance to change before moving to the conditional below 
+        //couldn't figure out another way to check a full board for a tie
+        //used && symbols because this means the entire board array is filled with either X or Os
         (board[0][0]=== 'X' || board[0][0]=== 'O')
         && (board[0][1]=== 'X' || board[0][1]=== 'O')
         && (board[0][2]=== 'X' || board[0][2]=== 'O')
