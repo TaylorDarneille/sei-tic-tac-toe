@@ -2,9 +2,10 @@
 // [x] User can select 3x3, 4x4, or 5x5 grid
     // [x] need to create grids in the DOM
     // [x] erase previous grid
-    // [] edit win conditons for 4x4 and 5x5
-        // maybe use classes so I don't have to rewrite everything? // 3x3 as super class and then build 4x4 and 5x5?
+    // [x] edit win conditons for 4x4 and 5x5
+// ! fix bug when player wins on last turn
 // play against AI
+// find way to use radio buttons without submit? // Or maybe just hide them when a grid is selected?
 
 
 //Turn Counter                                
@@ -12,13 +13,13 @@ let counter = 0
 //has to be 3 by default or game keeps going forever
 let gridSize = 3
 
-
 // This function runs after every turn and check for 3 win conditions: X wins, O wins, or Tie    
 const winCond = (num) => {
     let grid = {}
-    //3x3 win condtion array 
     //is there a more efficient way to do this? // Sadly I think I have to manually tell JS what "win" looks like
     //JS doesn't know TTT on its own // At least there is copy/paste
+
+    //3x3 win condtion array 
      if (num === 3) {
         const topLeft = document.querySelector('#top-left')
         const topMid = document.querySelector('#top-mid')
@@ -149,10 +150,12 @@ const winCond = (num) => {
                 gameOver.innerText = 'o wins!'
             }
         }
-    }   
+    }
+    // -----! Need something to check if one side has won before declaring a tie
+    // -----! only says "x/o wins" for last value in array - everything else still logs a tie 
+            // this isn't an issue for < length
+
     else if (counter === squares.length) {
-        // Need something to check if one side has won before declaring a tie
-        // only works for direction / - all others still say it's a tie
         for (const arr in grid) {
             if (grid[arr].every(square => square.classList.contains('x'))) {
                 //   console.log('x wins!')
@@ -166,8 +169,9 @@ const winCond = (num) => {
                 change.classList.add('disabled')
                 gameOver.innerText = 'o wins!'
             }
+        //Tie   
             else {
-                //   console.log('It\'s a tie!')
+                //  console.log('It\'s a tie!')
                 squares.forEach(square => square.classList.add('disabled'))
                 change.classList.add('disabled')
                 gameOver.innerText = 'It\'s a tie!'
@@ -183,14 +187,14 @@ const play = (e) => {
     const oTurn = (e) => e.target.classList.add('o','played')
     const gameOver = document.querySelector('#game-over')
     if (counter % 2 === 0) {
-        xTurn(e)
         counter++
+        xTurn(e)
         gameOver.innerText = 'o\'s turn!'
         // console.log(counter)
         winCond(gridSize)
     } else {
-        oTurn(e)
         counter++
+        oTurn(e)
         gameOver.innerText = 'x\'s turn!'
         // console.log(counter)
         winCond(gridSize)
