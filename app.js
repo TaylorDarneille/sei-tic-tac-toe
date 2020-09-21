@@ -51,6 +51,8 @@ const win= (winner)=> { //callback function that is passed a certain argument wh
 const checkWin= ()=> {
     //code that will check if someone won the game 
     //this block of code will be run everytime a box is clicked
+    //NOTE: possible to initialize all the column and diag variables at top and then throw the other if conditionals into the for loop 
+    //NOTE: if else statements dont have to all be together because once a game is won, marks cant be made so there cant ever be 2 winners
     //ROWS
     for(i=0; i<board.length; i++){ //use a for loop to create row(s) and check them to see if it is a win
         let row= board[i].join('');
@@ -87,7 +89,7 @@ const checkWin= ()=> {
     } else if(diag1==='OOO' || diag2=== 'OOO'){
         win('O');
         //console.log('mark O, WON');
-    } else if(
+    } else if( //this long else if statement is at the end so that gameWon has a chance to change before moving to the conditional below 
         (board[0][0]=== 'X' || board[0][0]=== 'O')
         && (board[0][1]=== 'X' || board[0][1]=== 'O')
         && (board[0][2]=== 'X' || board[0][2]=== 'O')
@@ -98,9 +100,10 @@ const checkWin= ()=> {
         && (board[2][1]=== 'X' || board[2][1]=== 'O')
         && (board[2][2]=== 'X' || board[2][2]=== 'O')
     ){
-        if(gameWon=== false){
-        heading.innerText= 'Game is a tie!';
-        heading.style.color= 'limegreen';
+        //I used a while statement instead of an if statement before and it worked but then messed it up somehow so now I am just keeping the if statement 
+        if(gameWon=== false){ //this conditional is for a game that fills the board but the last move wins the game, makes sure tie game innerText doesnt override the winner text 
+            heading.innerText= 'Game is a tie!';
+            heading.style.color= 'limegreen';
         }
     }
 }
