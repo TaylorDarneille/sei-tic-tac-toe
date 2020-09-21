@@ -98,10 +98,10 @@ const checkWin= ()=> {
         && (board[2][1]=== 'X' || board[2][1]=== 'O')
         && (board[2][2]=== 'X' || board[2][2]=== 'O')
     ){
-        //while(gameWon=== false){
+        if(gameWon=== false){
         heading.innerText= 'Game is a tie!';
         heading.style.color= 'limegreen';
-        //}
+        }
     }
 }
 
@@ -191,6 +191,3 @@ document.addEventListener('DOMContentLoaded', ()=> {
     // });
     //button.addEventListener('click', resetGame); //useful for the easy/shortcut reset 
 })
-
-//TO DO LIST:
-    //detect a tie game 
