@@ -30,7 +30,14 @@ let gameIsOn = true;
 
 
 
+//Functions
+    function handleClick(event) {
+        console.log('clicked')
+    }
 
+function clickedReset(event) {
+    console.log('clicked reset')
+}
 
 
 
@@ -43,10 +50,8 @@ gameDivs.forEach(square => {
     square.addEventListener('click', handleClick, {once: true})
 })
 
-function handleClick(event) {
-    console.log('clicked')
-}
 
+resetButton.addEventListener('click', clickedReset)
 // gameDivs.forEach(square)
 
 

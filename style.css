@@ -35,18 +35,21 @@ body{
 
 
 
-.reset { /* Green */
-    border: none;
-    margin: 5px;
+.reset {
+    position: relative;/* Green */
+    margin: 50px;
     padding: 5px 5px 5px 5px;
-    text-align: center;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     cursor: pointer;
-    font-size: 25px
+    font-size: 25px;
+    border: 5px solid black;
+    
 }
 
 .reset:hover{
-    color: white;
+    color: silver;
+    background-color: black;
 }
 
 .turn {
@@ -56,6 +59,7 @@ body{
     font-family: sans-serif;
     font-weight: bold;
     color: yellow;
+    font-size: 25px;
 }
 
 .board {
@@ -74,7 +78,7 @@ body{
 .square { 
     width: 100px;
     height: 100px;
-    background-color: red;
+    background-color: silver;
     border: 5px solid black;
     cursor: pointer;
     text-align: center;
