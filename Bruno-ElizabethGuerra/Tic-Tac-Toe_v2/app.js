@@ -132,52 +132,35 @@ const winCond = (num) => {
     const squares = document.querySelectorAll('.square')
     const gameOver = document.querySelector('#game-over')
     const change = document.querySelector('#change')
+    let winner = false
     
     //looks through arrays and determines if a player has won
-    // changed 9 to squares.length so I don't have to rewrite all this code   
-    if (counter < squares.length) {
+    // changed 9 to squares.length so I don't have to rewrite all this code
         for (const arr in grid) {
             if (grid[arr].every(square => square.classList.contains('x'))) {
-                //   console.log('x wins!')
+                // console.log('x wins!')
                 squares.forEach(square => square.classList.add('disabled'))
                 change.classList.add('disabled')
                 gameOver.innerText = 'x wins!'
+                winner = true
             }
             else if (grid[arr].every(square => square.classList.contains('o'))) {
-                //    console.log('o wins!')
+                // console.log('o wins!')
                 squares.forEach(square => square.classList.add('disabled'))
                 change.classList.add('disabled')
                 gameOver.innerText = 'o wins!'
+                winner = true
             }
         }
-    }
-    // -----! Need something to check if one side has won before declaring a tie
-    // -----! only says "x/o wins" for last value in array - everything else still logs a tie 
-            // this isn't an issue for < length
+    // Need something to check if one side has won before declaring a tie
+    // Added 'winner' variable and got rid of original if statement
 
-    else if (counter === squares.length) {
-        for (const arr in grid) {
-            if (grid[arr].every(square => square.classList.contains('x'))) {
-                //   console.log('x wins!')
-                squares.forEach(square => square.classList.add('disabled'))
-                change.classList.add('disabled')
-                gameOver.innerText = 'x wins!'
-            }
-            else if (grid[arr].every(square => square.classList.contains('o'))) {
-                //    console.log('o wins!')
-                squares.forEach(square => square.classList.add('disabled'))
-                change.classList.add('disabled')
-                gameOver.innerText = 'o wins!'
-            }
+    if(counter === squares.length && winner === false) {
         //Tie   
-            else {
-                //  console.log('It\'s a tie!')
-                squares.forEach(square => square.classList.add('disabled'))
-                change.classList.add('disabled')
-                gameOver.innerText = 'It\'s a tie!'
-            }
-        }
-    }
+            squares.forEach(square => square.classList.add('disabled'))
+            change.classList.add('disabled')
+            gameOver.innerText = 'It\'s a tie!'
+      }
 }
 
 
@@ -187,14 +170,14 @@ const play = (e) => {
     const oTurn = (e) => e.target.classList.add('o','played')
     const gameOver = document.querySelector('#game-over')
     if (counter % 2 === 0) {
-        counter++
         xTurn(e)
+        counter++
         gameOver.innerText = 'o\'s turn!'
         // console.log(counter)
         winCond(gridSize)
     } else {
-        counter++
         oTurn(e)
+        counter++
         gameOver.innerText = 'x\'s turn!'
         // console.log(counter)
         winCond(gridSize)
@@ -216,6 +199,7 @@ const ticTacToe = () => {
         document.querySelector('#change').classList.remove('disabled')
         document.querySelector('#game-over').innerText = 'Click a square to start playing!'
         counter = 0
+        winner = false
     })
 }
 
