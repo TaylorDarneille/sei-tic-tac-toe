@@ -1,21 +1,9 @@
 
-// const buttonX = document.querySelector("#X")
-// const buttonO = document.querySelector("#O")
-// const choices = ["x","o"]
-// document.querySelector("#scoreX").innerText = Xscore()
-// document.querySelector("#scoreO").innerText = Oscore()
-
-//    const playerSelect = () => {
-//        //if PlayerX button is pushed start input at Xo[0]
-//        //if PlayerY button is pushed start input as Xo[1]
-//    }
-// const scoreX;
-// const scoreY;
-//let player = document.querySelector("#currentPlayer").innerText
 let turn = 1;
 const choices =["X","O"]
 let playerScoreX = 0;
 let playerScoreO = 0;
+
 
 const addScore = (winner) =>{
     let PlayerX = document.querySelector("#playerXScore")
@@ -59,16 +47,27 @@ const removeListener = () =>{
 
 const gameBoard =()=> {    
     const div = document.querySelectorAll(".cell")
-    console.log(div)
+    const restart = document.querySelector("#tryAgain")
+    //all divs can be clicked and invoke playerMove
     for (let i=0; i<div.length; i++){
         div[i].addEventListener("click", playerMove)
     }
+    //restart button set to remove score and chg turn back to 1
+    restart.addEventListener("click", ()=>{
+        let PlayerX = document.querySelector("#playerXScore")
+        let PlayerO = document.querySelector("#playerOScore")
+        playerScoreX = 0;
+        playerScoreO = 0;
+        PlayerX.innerText = playerScoreX
+        PlayerO.innerText = playerScoreO
+        turn = 1
+    })
 }
 
+    
 
 document.addEventListener("DOMContentLoaded", ()=>{
-        gameBoard()
-
+        gameBoard() 
 })
 
 const checkWinner = () => {
