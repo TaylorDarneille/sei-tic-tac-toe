@@ -10,18 +10,22 @@
     <header>
         <h1>It's Tic-Tac-Toe Time!</h1>
     </header>
-    <div id="container">
-        <!--3x3 playing grid, so 9 divs total-->
-        <div class="gridsquare" id="top-left"></div>
-        <div class="gridsquare" id="top-center"></div>
-        <div class="gridsquare" id="top-right"></div>
-        <div class="gridsquare" id="center-left"></div>
-        <div class="gridsquare" id="true-center"></div>
-        <div class="gridsquare" id="center-right"></div>
-        <div class="gridsquare" id="bottom-left"></div>
-        <div class="gridsquare" id="bottom-center"></div>
-        <div class="gridsquare" id="bottom-right"></div>
-    </div>
+    <main>
+        <!--Container for displaying whose turn it is-->
+        <div id="turn-display"><p id="turn-caption">Press the Start Button!</p></div>
+        <div id="container">
+            <!--3x3 playing grid, so 9 divs total-->
+            <div class="gridsquare" id="top-left"></div>
+            <div class="gridsquare" id="top-center"></div>
+            <div class="gridsquare" id="top-right"></div>
+            <div class="gridsquare" id="center-left"></div>
+            <div class="gridsquare" id="true-center"></div>
+            <div class="gridsquare" id="center-right"></div>
+            <div class="gridsquare" id="bottom-left"></div>
+            <div class="gridsquare" id="bottom-center"></div>
+            <div class="gridsquare" id="bottom-right"></div>
+        </div>
+    </main>
     <button type="reset" id="reset">Start a New Game</button>
 
     <script src="./app.js"></script>
