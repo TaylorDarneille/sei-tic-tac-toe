@@ -44,10 +44,11 @@ button, input {
 .assignment {
     display: inline-block;
     width: 30%;
-    height: 20px;
+    height: 5px;
     margin: 0px 30px 0px 30px;
     padding: 8px 3px 3px 3px;
-    text-align: center; 
+    text-align: center;
+    transform: translate(0%, 50%)
 }
 
 #container {

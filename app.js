@@ -13,6 +13,7 @@ const addName1 = (event) => {
     const button1 = document.querySelector('#inputButton1')
     playerOne = name1.value
     document.querySelector('#player1').innerHTML = playerOne
+    event.target.removeEventListener('click',addName1)
     name1.remove()
     button1.remove()
 }
@@ -23,6 +24,7 @@ const addName2 = (event) => {
     const button2 = document.querySelector('#inputButton2')
     playerTwo = name2.value
     document.querySelector('#player2').innerHTML = playerTwo
+    event.target.removeEventListener('click',addName2)
     name2.remove()
     button2.remove()
 }
@@ -46,6 +48,7 @@ const turn = () => {
 }
 
 //Adding pieces to gameboard
+
 const addPiece = (event) => {
     if(currentPlayer === 'X' && activeBoard === true) {
         //adding piece to board
@@ -53,12 +56,9 @@ const addPiece = (event) => {
         event.target.innerHTML = 'X'
         //add one to turnCounter
         turnCounter += 1
-        //console.log(turnCounter)
         //each div has an id that is used to calculate win logic, so need to grab that id to store in an array that can be evaluated in win logic
         const idToPush = event.target.getAttribute('id')
         playerOneArray.push(idToPush)
-        //console.log(event.target.getAttribute('id'))
-        //console.log(playerOneArray)
         //change player
         currentPlayer = 'O'
         //prevent changing innerHTML of target div
@@ -70,11 +70,8 @@ const addPiece = (event) => {
         event.target.classList.add('o')
         event.target.innerHTML = 'O'
         turnCounter += 1
-        console.log(turnCounter)
         const idToPush = event.target.getAttribute('id')
         playerTwoArray.push(idToPush)
-        console.log(event.target.getAttribute('id'))
-        console.log(playerTwoArray)
         currentPlayer = 'X'
         event.target.removeEventListener('click',addPiece)
         turn()
@@ -135,11 +132,9 @@ const addNameListeners = () => {
 //need to invert player to display winner of game
 const invertUser = () => {
     if(currentPlayer === 'O') {
-        //invertedPlayer = 'X'
         invertedPlayer = playerOne
     }
     if(currentPlayer === 'X') {
-        //invertedPlayer = 'O'
         invertedPlayer = playerTwo
     }
 }
@@ -157,49 +152,40 @@ const winScenario = () => {
     if(playerOneArray.includes('1') && playerOneArray.includes('2') &&playerOneArray.includes('3') || playerTwoArray.includes('1') && playerTwoArray.includes('2') && playerTwoArray.includes('3')) {
         document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to start a new game.'
         disableBoard()
-        console.log(activeBoard)
     }
     if(playerOneArray.includes('4') && playerOneArray.includes('5') &&playerOneArray.includes('6') || playerTwoArray.includes('4') && playerTwoArray.includes('5') && playerTwoArray.includes('6')) {
         document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to start a new game.'
         disableBoard()
-        console.log(activeBoard)
     }
     if(playerOneArray.includes('7') && playerOneArray.includes('8') &&playerOneArray.includes('9') || playerTwoArray.includes('7') && playerTwoArray.includes('8') && playerTwoArray.includes('9')) {
         document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to start a new game.'
         disableBoard()
-        console.log(activeBoard)
     }
     if(playerOneArray.includes('1') && playerOneArray.includes('4') &&playerOneArray.includes('7') || playerTwoArray.includes('1') && playerTwoArray.includes('4') && playerTwoArray.includes('7')) {
         document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to start a new game.'
         disableBoard()
-        console.log(activeBoard)
     }
     if(playerOneArray.includes('2') && playerOneArray.includes('5') &&playerOneArray.includes('8') || playerTwoArray.includes('2') && playerTwoArray.includes('5') && playerTwoArray.includes('8')) {
         document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to start a new game.'
         disableBoard()
-        console.log(activeBoard)
     }
     if(playerOneArray.includes('3') && playerOneArray.includes('6') &&playerOneArray.includes('9') || playerTwoArray.includes('3') && playerTwoArray.includes('6') && playerTwoArray.includes('9')) {
         document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to start a new game.'
         disableBoard()
-        console.log(activeBoard)
     }
     if(playerOneArray.includes('1') && playerOneArray.includes('5') &&playerOneArray.includes('9') || playerTwoArray.includes('1') && playerTwoArray.includes('5') && playerTwoArray.includes('9')) {
         document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to start a new game.'
         disableBoard()
-        console.log(activeBoard)
     }
     if(playerOneArray.includes('3') && playerOneArray.includes('5') &&playerOneArray.includes('7') || playerTwoArray.includes('3') && playerTwoArray.includes('5') && playerTwoArray.includes('7')) {
         document.querySelector('#turnTracker').innerHTML = invertedPlayer + ' wins! Please hit the reset button if you want to start a new game.'
         disableBoard()
-        console.log(activeBoard)
     }
     if(turnCounter === 9) {
         //game is a draw
         document.querySelector('#turnTracker').innerHTML ='The game is a draw. Please hit the reset button if you want to start a new game.'
-        //Kept disableBoard function in this condition even though it doesn't really do anything because no open squares are left, but its intent is to "lock" the board
+        //Kept disableBoard function in this condition even though it doesn't really impact game because no open squares are left, but its intent is to "lock" the board
         disableBoard()
-        console.log(activeBoard)
    }
 }
 
