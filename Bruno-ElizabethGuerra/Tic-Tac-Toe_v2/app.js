@@ -3,9 +3,8 @@
     // [x] need to create grids in the DOM
     // [x] erase previous grid
     // [x] edit win conditons for 4x4 and 5x5
-// ! fix bug when player wins on last turn
+// [x] fix bug when player wins on last turn
 // play against AI
-// find way to use radio buttons without submit? // Or maybe just hide them when a grid is selected?
 
 
 //Turn Counter                                
@@ -184,6 +183,8 @@ const play = (e) => {
     }
 }
 
+
+
 //This function sets the game up by adding event listeners to all the squares and running code for the reset button
 const ticTacToe = () => {
     let squares = document.querySelectorAll('.square')
@@ -205,6 +206,8 @@ const ticTacToe = () => {
 
 //Create the playing grid with the DOM
 const makeGrid = (num) => {
+    counter = 0
+    winner = false
     const board = document.querySelector('.board')
 
     while (board.firstChild) board.removeChild(board.firstChild)
@@ -261,7 +264,7 @@ const createGrid = () => {
     document.querySelector('form').addEventListener('submit', (e)=>{
         gridSize = parseInt(document.querySelector('input[name=grid-size]:checked').value)
         makeGrid(gridSize)
-        document.querySelector('#change').classList.add('disabled')
+        //document.querySelector('#change').classList.add('disabled')
         //run the game
         ticTacToe()
         e.preventDefault()
