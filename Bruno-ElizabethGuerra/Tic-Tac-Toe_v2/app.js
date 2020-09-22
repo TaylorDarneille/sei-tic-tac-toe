@@ -4,7 +4,9 @@
     // [x] erase previous grid
     // [x] edit win conditons for 4x4 and 5x5
 // [x] fix bug when player wins on last turn
-// play against AI
+// [] play against AI
+    // [x] AI logic
+    // [] 1P/2P slider
 
 
 //Turn Counter                                
@@ -138,14 +140,20 @@ const winCond = (num) => {
         for (const arr in grid) {
             if (grid[arr].every(square => square.classList.contains('x'))) {
                 // console.log('x wins!')
-                squares.forEach(square => square.classList.add('disabled'))
+                squares.forEach(square => {
+                    square.classList.add('disabled')
+                    square.classList.remove('open')
+            })
                 change.classList.add('disabled')
                 gameOver.innerText = 'x wins!'
                 winner = true
             }
             else if (grid[arr].every(square => square.classList.contains('o'))) {
                 // console.log('o wins!')
-                squares.forEach(square => square.classList.add('disabled'))
+                squares.forEach(square => {
+                    square.classList.add('disabled')
+                    square.classList.remove('open')
+                })
                 change.classList.add('disabled')
                 gameOver.innerText = 'o wins!'
                 winner = true
@@ -156,14 +164,17 @@ const winCond = (num) => {
 
     if(counter === squares.length && winner === false) {
         //Tie   
-            squares.forEach(square => square.classList.add('disabled'))
+            squares.forEach(square => {
+                square.classList.add('disabled')
+                square.classList.remove('open')
+            })
             change.classList.add('disabled')
             gameOver.innerText = 'It\'s a tie!'
       }
 }
 
 
-//This function is the actual gamplay // it runs the winCond function after every turn to see if the game is over
+//This function is the actual gamplay // it runs the winCond function after every turn to see if the game is over // 2 players
 const play = (e) => {
     const xTurn = (e) => e.target.classList.add('x', 'played')
     const oTurn = (e) => e.target.classList.add('o','played')
@@ -183,19 +194,57 @@ const play = (e) => {
     }
 }
 
+//function to play against computer
+const onePlayer = (e) => {
+    // x logic should be the same
+    // o turn needs to become computer player // o needs to come out of event function // stick to end of xTurn!
+    // choose a random square that hasn't already been selected  // added class 'open'          
+    const gameOver = document.querySelector('#game-over')
+    
+    const xTurn = (e) => {
+        e.target.classList.add('x', 'played')
+        e.target.classList.remove('open')
+    }
 
+    const oTurn = () => {
+        const openSquares = document.querySelectorAll('.open')
+        const randIndex = Math.floor(Math.random() * openSquares.length)
+        openSquares[randIndex].classList.add('o','played')
+        openSquares[randIndex].classList.remove('open')
+        counter++
+        gameOver.innerText = 'x\'s turn!'
+        // console.log(counter)
+        winCond(gridSize)
+    }
+
+    if (counter % 2 === 0) {
+        xTurn(e)
+        counter++
+        gameOver.innerText = 'o\'s turn!'
+        // console.log(counter)
+        winCond(gridSize)
+        setTimeout(oTurn,1200)
+    }
+
+}
 
 //This function sets the game up by adding event listeners to all the squares and running code for the reset button
 const ticTacToe = () => {
     let squares = document.querySelectorAll('.square')
     for (var i = 0; i<squares.length;i++){
-        squares[i].addEventListener('click',play)
+//If function here for 1p vs 2p
+//      squares[i].addEventListener('click',play) // 2-player
+
+        document.querySelectorAll('.square')
+        squares.forEach(square => square.classList.add('open'))
+        squares[i].addEventListener('click',onePlayer)
     }  
     
     const reset = document.querySelector('#reset')
     reset.addEventListener('click', () => {
         squares.forEach(square => {
             square.setAttribute('class','square')
+            square.classList.add('open')
         })
         document.querySelector('#change').classList.remove('disabled')
         document.querySelector('#game-over').innerText = 'Click a square to start playing!'
