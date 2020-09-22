@@ -20,6 +20,7 @@ body{
     width: 500px;
     height: 500px;
     border-radius: 25px;
+    font-size: 25px;
     
 }
 
@@ -29,33 +30,36 @@ body{
 }
 
 .title {
-    
     text-align: center;
 }
 
 
 
-.reset {
-    background-color: silver; /* Green */
+.reset { /* Green */
     border: none;
-    color: red;
     margin: 5px;
-    padding: 15px 15px 15px 15px;
+    padding: 5px 5px 5px 5px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     cursor: pointer;
+    font-size: 25px
 }
 
-.status {
+.reset:hover{
+    color: white;
+}
+
+.turn {
     margin: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: yellow;
 }
 
 .board {
-    width: 80vw; /*vw means viewpoint width */
+    width: 40vw; /*vw means viewpoint width */
     height: 50vh; /*vh means viewpoint height*/
     display: grid;
     justify-content: center;
@@ -72,6 +76,10 @@ body{
     height: 100px;
     background-color: red;
     border: 5px solid black;
+    cursor: pointer;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 100px;
 }
 
 .square:first-child, 
@@ -98,20 +106,19 @@ body{
     border-bottom: none;
 }
 
-
-
-
-/* .x-side {
-    
+.square:hover{
+    background-color: black;
+    opacity: .7;
 }
 
-.o-side {
+.winner{
+    color: black;
+}
 
-} */
-/* .square {
-    background-color: #bada55;
-    border: 5px solid black;
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-} */
+
+.winner-message{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right;
+}
