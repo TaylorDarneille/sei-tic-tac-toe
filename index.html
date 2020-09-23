@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
+
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <p>Welcome to Tic Tac Toe! The object of the game is simple. Create a row of 3 (horizontally, vetically, or diagonally) before your opponent. You will take turns placing pieces on the board and cannot move a piece once it has been played. The game is a draw if there are no open squares on the board. If you want to reset the game, please press the Reset button.</p>
+    <button id = "reset">Reset</button>
+    <div>
+        <input id="inputBox1" type="text" placeholder="Player One (Xs)">
+        <button id="inputButton1">SUBMIT</button>
+    
+        <input id="inputBox2" type="text" placeholder="Player Two (Os)">
+        <button id="inputButton2">SUBMIT</button>
+    </div>
+
+    <div class = "players">
+        <div class = "assignment">Xs</div>
+        <div class = "assignment">Os</div>
+    </div>
+    <div class = "players">
+        <div class = "name" id = "player1">Xs </div>
+        <div class = "name" id = "player2">Os </div>
+    </div>
+
+    <p id = "counter"></p>
+    <div id = "turnTracker"></div>
+
+    <div id = "container">
+        <!--
+        <div class = "board" id = "1">1</div>
+        <div class = "board" id = "2">2</div>
+        <div class = "board" id = "3">3</div>
+        <div class = "board" id = "4">4</div>
+        <div class = "board" id = "5">5</div>
+        <div class = "board" id = "6">6</div>
+        <div class = "board" id = "7">7</div>
+        <div class = "board" id = "8">8</div>
+        <div class = "board" id = "9">9</div>
+        -->
+    </div>
+    
+    <script type = "text/javascript" src = "app.js"></script>
+</body>
+</html>
