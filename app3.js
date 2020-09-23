@@ -23,52 +23,114 @@ const makeAMove =(e)=>{
   //accessing the 2nd class of the html 
   ArrayofMoves(selectedIndex)
   }
-
 /////////////////////////////////////////////////////////////////
-const ArrayofMoves = (index) => {  //we need a place to store the index of clicked cells
-  let arr = []  //we start with an empty array
-  for (let i=0; i<cellDivs.length; i++){   //we need this to run through the entire grid
-    let cell=cellDivs[i]  //short way of accesing all the cells in the grid.
-  if (cell.querySelector("p")!==null){ //if the div is not empty aka has a p tag with inntertext than push that innertext into my array
-     arr.push(cell.querySelector("p").innerText)
-    }else {
-      arr.push(null) //if the celll hasnt been clicked then push null, so i can see it
-    } 
-      console.log(arr) //show me the array 
-      // [0, 1, 2],
-      // [3, 4, 5],
-      // [6, 7, 8],
-      // [0, 3, 6],
-      // [1, 4, 7],
-      // [2, 5, 8],
-      // [0, 4, 8],
-      // [2, 4, 6]
-      if (arr[0] === !null)  console.log(arr[0])
-      {
-        console.log(arr[0])
-        if (arr[0] === arr[1]) {
-          console.log(arr[1])
-          if (arr[0] === arr[2]) {
-            console.log(arr[2])
+const ArrayofMoves = (index) => {
+  //we need a place to store the index of clicked cells
+  let arr = []; //we start with an empty array
+  for (let i = 0; i < cellDivs.length; i++) {
+    //we need this to run through the entire grid
+    let cell = cellDivs[i]; //short way of accesing all the cells in the grid.
+    if (cell.querySelector("p") !== null) {
+      //if the div is not empty aka has a p tag with inntertext than push that innertext into my array
+      arr.push(cell.querySelector("p").innerText);
+    } else {
+      arr.push(null); //if the celll hasnt been clicked then push null, so i can see it
+    }
+    console.log(arr); //show me the array
+    if (arr[0] !== null) {
+      if ((arr[0] === arr[1]) == !null) {
+        //&& arr[0]==!null) {
+        if (arr[0] === arr[2]) {
           //  if (arr[0] === !null){
-            console.log("first row horizontal");
-            alert("winner!!!!!!!!");
-          }
-        } 
-      }  {
-        console.log(arr[0])
-        if (arr[0] === arr[3]) {
-          console.log(arr[3])
-          if (arr[0] === arr[6]) {
-            console.log(arr[6])
-          //  if (arr[0] === !null){
-            console.log("first row horizontal");
-            alert("winner!!!!!!!!");
-          }
-        } 
+          console.log("first row");
+          alert("winner!!!!!!!!");
+        }
       }
     }
+  }
+  if (arr[3] !== null) {
+    if ((arr[3] === arr[4]) == !null) {
+      //&& arr[0]==!null) {
+      if (arr[3] === arr[5]) {
+        //  if (arr[0] === !null){
+        console.log("middle row");
+        alert("winner!!!!!!!!");
+      }
+    }
+  }
+  if (arr[6] !== null) {
+    if ((arr[6] === arr[7]) == !null) {
+      //&& arr[0]==!null) {
+      if (arr[6] === arr[8]) {
+        //  if (arr[0] === !null){
+        console.log("bottom row");
+        alert("winner!!!!!!!!");
+      }
+    }
+  }
+  if (arr[2] !== null) {
+    if ((arr[2] === arr[5]) == !null) {
+      //&& arr[0]==!null) {
+      if (arr[2] === arr[8]) {
+        //  if (arr[0] === !null){
+        console.log("last column ");
+        alert("winner!!!!!!!!");
+      }
+    }
+  } if (arr[1] !== null) {
+    if ((arr[1] === arr[4]) == !null) {
+      //&& arr[0]==!null) {
+      if (arr[1] === arr[7]) {
+        //  if (arr[0] === !null){
+        console.log("middle column ");
+        alert("winner!!!!!!!!");
+      }
+    }
+  } if (arr[0] !== null) {
+    if ((arr[0] === arr[3]) == !null) {
+      //&& arr[0]==!null) {
+      if (arr[0] === arr[6]) {
+        //  if (arr[0] === !null){
+        console.log("first column ");
+        alert("winner!!!!!!!!");
+      }
+    }
+  }if (arr[0] !== null) {
+    if ((arr[0] === arr[4]) == !null) {
+      //&& arr[0]==!null) {
+      if (arr[0] === arr[8]) {
+        //  if (arr[0] === !null){
+        console.log("left diagnal ");
+        alert("winner!!!!!!!!");
+      }
+    }
+  }if (arr[2] !== null) {
+    if ((arr[2] === arr[4]) == !null) {
+      //&& arr[0]==!null) {
+      if (arr[2] === arr[6]) {
+        //  if (arr[0] === !null){
+        console.log("right diagnal ");
+        alert("winner!!!!!!!!");
+      }
+    }
+  }
 }
+
+
+
+/////////////////// second winning method ////////////////////////////////////////
+
+
+
+      // [0, 1, 2], done
+      // [3, 4, 5], done
+      // [6, 7, 8], done
+      // [0, 3, 6], done
+      // [1, 4, 7],done
+      // [2, 5, 8], done 
+      // [0, 4, 8], done
+      // [2, 4, 6], done 
+
 // } else if (index===0){ 
 //   }if(arr[index]===arr[3]){
 //       if (arr[index]===arr[6]){ 
@@ -116,4 +178,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let square= cellDivs[i]
     square.addEventListener("click",makeAMove)
   }
+//   for (let i=0; i<cellDivs.length; i++){
+//     let square= cellDivs[i]
+//     square.addEventListener("click",makeAMove2)
+//  }
 })
