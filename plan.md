@@ -11,7 +11,16 @@ Fork & Clone this repo. Open this file in your text editor and fill in the secti
 Write out a list of *all* the things you need to do to code this game. This can be as detailed or high-level, though we recommend the former. This is your first time planning an app, so just have fun and just see what you can come up with. There's no right way.
 
 ---
-
+###ToDo List 
+- A 3x3 div board(so nine divs total).
+- Each div will have an event listener for a click event.
+- Each div will have a .square class in html
+- Each div will also have an id 
+- a double click event changes the div to a circle, a single click event changes the div to a triangle 
+- each div event will trigger a setTimeout timer for each player's turn 
+- a reset button will return the board as was before the player 
+- the reset button will use remove attribute method triggered after the reset button is clicked 
+- 
 *Write TODO list here*
 
 ---
