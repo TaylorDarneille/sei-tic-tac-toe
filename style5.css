@@ -1,0 +1,45 @@
+body {
+    font-family: Chalkduster, fantasy;
+}
+section {
+    text-align: center;
+}
+.game--container { /* this is saying give me a container thats 3 by 3 */
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 306px;
+    margin: 50px auto;
+    color:rgb(172, 86, 76);
+}
+.cell {
+    font-family: Chalkduster, fantasy;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 0 1px #333333;
+    border: 1px solid #333333;
+    cursor: pointer; /* make the cell clickable by using a cursor:pointer */
+line-height: 100px;
+    font-size: 60px;
+}
+
+.game--title{
+    color:salmon;
+}
+
+
+#image{
+    display:none; /* i dont want my image to  be visible yet, i have a settimeout on it */
+}
+
+.game--status{
+    color:salmon
+}
+
+
+.black{
+    background-color: black;
+}
+
+.xClass {
+    background-color:red;
+}
