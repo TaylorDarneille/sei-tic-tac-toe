@@ -2,7 +2,35 @@
 let moveTracker= "user"
 let cellDivs= document.querySelectorAll(".square")
 const resetButton= document.querySelector("#restartButton")
-const containerDiv= document.querySelector("#container")
+let containerDiv= document.querySelector("#container")
+
+
+
+
+// const deleteAll= () =>{
+//   let containerDiv= document.querySelector("#container")
+//   while(containerDiv.firstChild){
+//     containerDiv.firstChild.remove()
+//   }
+// }
+
+
+// const remakeAll = () =>{
+//   let containerDiv= document.querySelector("#container")
+//   let newDiv1= document.createElement("div")
+//   containerDiv.appendChild(newDiv1)
+// } 
+
+
+// const newGame= (deleteAll, remakeAll) => {
+// deleteAll()
+// remakeAll()
+// }
+
+ //resetButton.addEventListener("click", startAgain)
+
+
+
 //       EVENT HANDLERS/ CALLBACK FUNCTIONS
 const makeAMove =(e)=>{   
   let chosenSquare= e.target //show me the cell that was triggered  by the event
@@ -123,17 +151,52 @@ const ArrayofMoves = (index) => {
                 if (arr[7] !==null){
                   if (arr[8] !==null){
                     console.log("this is a tie");
-                    alert("this is a tie")
+                   const userInput= prompt("this is a tie, do you want to play again?", "yes or no");
+                      if(userInput==="yes"){
+                        console.log("we made it this far")
+                            alert("Yay")
+                          }
+                          else if(userInput==="no"){
+                            alert("game over")
+                          } 
+                         } 
+                      }
+                      }
+                    }
                   }
                   }
                 }
               }
             }
           }
+        
+
+
+          function startAgain(){
+            moveTracker= "user";
+            arr=[];
+            let cellDivs= document.querySelectorAll(".square")
+            while(cellDivs.firstChild){
+            cellDivs.firstChild.remove()
+          }
         }
-      }
-    }
-  }
+          
+           resetButton.addEventListener("click", startAgain)
+  
+ //resetButton.addEventListener("click", startAgain)
+
+
+
+
+// const startAgain = () => {
+//  while(containerDiv.firstChild){
+//    containerDiv.firstChild.remove()
+//  }
+// }
+// const resetButton= ()=>
+// arr.splice(0, arr.length)
+
+// resetButton.addEventListener("click", startAgain)
 
 
 
