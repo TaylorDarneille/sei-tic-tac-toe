@@ -12,7 +12,16 @@ Write out a list of *all* the things you need to do to code this game. This can 
 
 ---
 
-*Write TODO list here*
+<!-- 
+Create player 1 and player 2 or have the user play against a computer
+Create the grid in a 3x3
+Be able to differenciate who won, lost or if there was a tie
+Create the X's and O's
+Give the user the ability to click on any square they want and have either an X or O appear
+Assign a shape to a player
+Have a system where it says how many times a player has won between rounds
+ -->
+
 
 ---
 
