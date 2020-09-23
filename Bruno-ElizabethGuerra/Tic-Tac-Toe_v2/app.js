@@ -234,7 +234,7 @@ const onePlayer = (e) => {
     }
 
 }
-
+// -- So important it got its own function -- //
 const reset = () => {
     let squares = document.querySelectorAll('.square')
     squares.forEach(square => {
@@ -250,15 +250,22 @@ const reset = () => {
 //This function sets the game up by adding event listeners to all the squares and running code for the reset button
 const ticTacToe = () => {
     reset()
-    //If function here for 1p vs 2p
     let squares = document.querySelectorAll('.square')
     let playerToggle = document.querySelector('#player-toggle')
-    //Default //2-player 3x3
+
+    // If user loads game or resets
     if (playerToggle.checked) {
         for (var i = 0; i<squares.length;i++){
-        squares[i].addEventListener('click',twoPlayer)
+            squares[i].addEventListener('click',twoPlayer)
+        }
+    } else { // 1-player
+        for (var i = 0; i<squares.length;i++){
+            squares[i].removeEventListener('click',twoPlayer)  
+            squares[i].addEventListener('click',onePlayer)
         }
     }
+    
+   // When user toggles
     playerToggle.addEventListener('change',(e) => {
         reset()
         if (playerToggle.checked) { // 2-player
@@ -280,8 +287,7 @@ const ticTacToe = () => {
 
 //Create the playing grid with the DOM
 const makeGrid = (num) => {
-    counter = 0
-    winner = false
+    reset()
     const board = document.querySelector('.board')
 
     while (board.firstChild) board.removeChild(board.firstChild)
@@ -329,19 +335,18 @@ const makeGrid = (num) => {
 
     }
 
+    //run the game
+    ticTacToe()
 }
 
 //creates the grid from the radio button value
 
 const createGrid = () => {
-    //Is there a way to make this load without needing a Submit button? Radio buttons are so fussy
     document.querySelector('form').addEventListener('submit', (e)=>{
         gridSize = parseInt(document.querySelector('input[name=grid-size]:checked').value)
         makeGrid(gridSize)
         // reset()
         //document.querySelector('#change').classList.add('disabled')
-        //run the game
-        ticTacToe()
         e.preventDefault()
     })
 }
