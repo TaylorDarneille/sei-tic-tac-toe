@@ -9,12 +9,10 @@
 // }
 
 //HTML Elements
-const whoTurn = document.querySelector('.turn');
+let whoTurn = document.querySelector('.turn');
 const resetButton = document.querySelector('.reset');
 const gameDivs = document.querySelectorAll('[data-cell]')//used data-cell to pull them for js
-const XLETTER = 'X'
-const OLETTER = 'O'
-let oTurn
+let xTurn = 1;
 
 const playerWins = [ //ways to win the game
     [0, 1, 2],
@@ -24,27 +22,34 @@ const playerWins = [ //ways to win the game
     [2, 4, 6],
     [2, 5, 8],
     [3, 4, 5],
-    [6, 7, 8],
+    [6, 7, 8]
     
 ];
 
 //game variables
-let xTurn = true;
+//let xTurn = true;
 let gameIsOn = true;
 
 
 
 //Functions
 function handleClicks(event) {
-    
-    let square = event.target //click on certain divs
-    console.log(square.classList[1]) //grasp individual div
-
-    //const currentClass = oTurn ? OLETTER : XLETTER //if O turn get Oletter if not get Xletter
-    //placeLetter(square, currentClass)
-    //check for win 
-    //check for draw
-    //switch turns
+    let mySquare = event.target //click on certain divs
+    console.log(mySquare.classList[1]) //grasp individual div
+    if (xTurn = 1) {
+        mySquare.innerText = "X"
+        whoTurn.innerText = 'O Turn'
+        xTurn -= 1
+    } if(xTurn < 1) {
+        mySquare.innerText = "O"
+        xTurn.innerText = 'X Turn'
+        xTurn += 1
+    }
+        //const currentClass = oTurn ? OLETTER : XLETTER //if O turn get Oletter if not get Xletter
+        //placeLetter(square, currentClass)
+        //check for win 
+        //check for draw
+        //switch turns
 }
 
 function placeLetter(square, currentClass) {
@@ -71,18 +76,18 @@ function startGame() {
 //     square.removeEventListener('click', handleClicks)
 // })
 
-resetButton.addEventListener('click', clickedReset)
 
 
 
-///////////////////////////////////////////////////////
+//////EventListeners
 document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < gameDivs.length; i++) {
         let square = gameDivs[i];
-        square.addEventListener("click", handleClicks, { once:true});
+        square.addEventListener("click", handleClicks, { once: true });
     }
 });
 
+resetButton.addEventListener('click', clickedReset)
 
 
 

@@ -84,6 +84,7 @@ body{
     text-align: center;
     font-family: sans-serif;
     font-size: 100px;
+    font-weight: bold;
 }
 
 .square:first-child, 
@@ -111,8 +112,8 @@ body{
 }
 
 .square:hover{
-    background-color: black;
-    opacity: .1;
+    background-color: white;
+    opacity: .75;
 }
 
 .winner{
