@@ -58,7 +58,7 @@ body{
     justify-content: center;
     font-family: sans-serif;
     font-weight: bold;
-    color: yellow;
+    color: black;
     font-size: 25px;
 }
 
@@ -112,7 +112,7 @@ body{
 
 .square:hover{
     background-color: black;
-    opacity: .7;
+    opacity: .1;
 }
 
 .winner{
@@ -124,5 +124,4 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    right;
 }
