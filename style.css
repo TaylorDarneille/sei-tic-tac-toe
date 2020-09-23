@@ -75,6 +75,15 @@ h5{
     background-color: rgba(0,0,0,0.3);
     
 } 
+.btn{
+
+    margin: auto;
+    background-color: lightgreen;
+    border: rgba(0,0,0,0.3) 2px solid;
+    margin-top: 50px;
+    width: 200px;
+    color: rgba(0,0,0,0.3);
+}
 /* ----------symbols-------------- */
 .symbol{
     margin: 0 auto;

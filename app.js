@@ -26,6 +26,7 @@ firstScreen = () => {
     let x = document.querySelector("#x");
     x.addEventListener("click", () => {
       console.log("running");
+      document.querySelector(".btn").style.display = "block";
       document.querySelector("h5").style.display = "none";
       document.querySelector("#o").style.display = "none";
       document.querySelector("#x").style.display = "none";
@@ -37,6 +38,7 @@ firstScreen = () => {
     let o = document.querySelector("#o");
     o.addEventListener("click", () => {
       console.log("running");
+      document.querySelector(".btn").style.display = "block";
       document.querySelector("h5").style.display = "none";
       document.querySelector("#o").style.display = "none";
       document.querySelector("#x").style.display = "none";
@@ -89,8 +91,29 @@ const game = () =>{
     }
   }
 }
-
+const restart = () =>{
+  let restartButton = document.querySelector(".btn")
+  restartButton.addEventListener("mouseover", ()=>{
+    restartButton.style.color = "white";
+    restartButton.style.border = "solid 2px white";
+  })
+  restartButton.addEventListener("mouseout", ()=>{
+    restartButton.style.color = "rgba(0,0,0,0.3)";
+    restartButton.style.border = "rgba(0,0,0,0.3) 2px solid";
+  })
+  restartButton.addEventListener("click",()=>{
+    let circles = document.querySelectorAll(".circle")
+    let cross = document.querySelectorAll(".cross")
+    for(div of circles){
+      div.setAttribute("class","symbol")
+    }
+    for(div of cross){
+      div.setAttribute("class","symbol")
+    }
+  })
+}
 document.addEventListener("DOMContentLoaded", () => {
     firstScreen();
     game()
+    restart()
   });
