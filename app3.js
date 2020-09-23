@@ -113,8 +113,28 @@ const ArrayofMoves = (index) => {
         alert("winner!!!!!!!!");
       }
     }
+  } if (arr[0] !==null){
+    if (arr[1] !==null){
+      if (arr[2] !==null){
+        if (arr[3] !==null) {
+          if (arr[4] !==null){
+            if (arr[5] !== null){
+              if (arr[6] !==null){
+                if (arr[7] !==null){
+                  if (arr[8] !==null){
+                    console.log("this is a tie");
+                    alert("this is a tie")
+                  }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
-}
+
 
 
 
