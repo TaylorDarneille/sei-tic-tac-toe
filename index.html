@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- score boards -->
+    <div class ="scoreBoards">
+        <div class = "userScoreBoard" style="display:none">
+            <h2 id = "symbolLeft">0</h2>
+            <h2 id = "scoreLeft"> 0 </h2>
+         </div>
+    
+        <div class="computerScoreBoard" style="display:none">
+             <h2 id = "symbolRight">X</h2>
+            <h2 id = "scoreRight"> 0 </h2>
+        </div>
+    </div>
+    <h1>Tic Tac Toe</h1>
+    
+    <!-- initial screen -->
+    <div class ="initialContainer">
+        <h5>Choose Your Character</h5> 
+       <form>
+            <div id ="o"></div>
+            <div id ="x"></div>
+        </form>
+      </form>
+    </div>
+    
+    <!-- tic-tac-toe board -->
+    <div id="container" style="display:none">
+        <div class="square">
+            <div class="symbol" id = "one"></div>
+        </div>
+        <div class="square">
+            <div class="symbol" id = "two"></div>
+        </div>
+        <div class="square">
+            <div class="symbol" id = "three"></div>
+        </div>
+        <div class="square" >
+            <div class="symbol" id = "four"></div>
+        </div>
+        <div class="square" >
+            <div class="symbol" id = "five"></div>
+        </div>
+        <div class="square">
+            <div class="symbol" id = "six"></div>
+        </div>
+        <div class="square" >
+            <div class="symbol" id = "seven"></div>
+        </div>
+        <div class="square">
+            <div class="symbol" id = "eight"></div>
+        </div>
+        <div class="square" >
+            <div class="symbol" id = "nine"></div>
+        </div>
+    </div>
+    <!-- reset button  -->
+    <button class="btn" style="display: none;">Restart</button> 
+    <script src="app.js"></script>
+</body>
+</html>

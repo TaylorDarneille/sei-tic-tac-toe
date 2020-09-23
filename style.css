@@ -1,0 +1,167 @@
+body{
+    background-color: lightgreen;
+}
+h1{
+    color: rgba(0,0,0,0.5);
+    text-align: center;
+}
+/* --------initial screen-------- */
+#o{
+    border-radius:80px ;
+    border: solid 9px rgba(0,0,0,0.5) ;
+    margin-right: 0 auto;
+    height: 80px;
+    width:  80px;
+    display: inline-block;
+    
+    
+}
+#x{
+    /* background:black;
+    height: 150px;
+    position: relative;
+    width: 10px;
+    transform: rotate(45deg);
+    margin-left: 37px;
+    display: inline-block; */
+
+    background:rgba(255, 255, 240, 0.568);
+    height: 100px;
+    position: relative;
+    width: 10px;
+    transform: rotate(45deg);
+    display: inline-block;
+    margin-left:90px ;
+  }
+  #x:after {
+    /* background: black;
+    content: " ";
+    height: 10px;
+    left: -55px;
+    position: absolute;
+    top: 60px;
+    width: 150px; */
+
+    background: rgba(255, 255, 240, 0.568);
+    content: " ";
+    height: 10px;
+    left: -40px;
+    position: absolute;
+    top: 40px;
+    width: 100px;
+  }
+h5{
+    text-align: center;
+    color: rgba(0,0,0,0.5);
+}
+.initialContainer{
+    margin:0 auto;
+    width: 250px;
+}
+/*------- board --------*/
+.square{
+    background-color:lightgreen;
+    display: inline-block;
+    height: 90px;
+    width: 90px;
+    border: solid lightgreen;
+    margin: 0 auto;
+}
+ 
+#container{
+    width: 296px;
+    height: 296px;
+    margin:0 auto;
+    background-color: rgba(0,0,0,0.3);
+    
+} 
+.btn{
+
+    margin: auto;
+    background-color: lightgreen;
+    border: rgba(0,0,0,0.3) 2px solid;
+    margin-top: 50px;
+    width: 200px;
+    color: rgba(0,0,0,0.3);
+}
+/* ----------symbols-------------- */
+.symbol{
+    margin: 0 auto;
+    height: 80px;
+    width:  80px;
+    
+
+}
+
+.circle{
+    border-radius:80px ;
+    border: solid 6px rgba(0,0,0,0.5);
+    margin: 0 auto;
+    height: 80px;
+    width:  80px;
+    
+
+}
+
+/* I rotated the cross from this website :https://css-tricks.com/the-shapes-of-css/#cross-shape-via-kaya-basharan*/
+ .cross {
+    background:rgba(255, 255, 240, 0.568);
+    height: 100px;
+    position: relative;
+    width: 10px;
+    transform: rotate(45deg);
+    margin-left: 37px;
+  }
+  .cross:after {
+    background: rgba(255, 255, 240, 0.568);;
+    content: " ";
+    height: 10px;
+    left: -40px;
+    position: absolute;
+    top: 40px;
+    width: 100px;
+  }
+ 
+  /* ------------scoreboards----------- */
+
+  .userScoreBoard, .computerScoreBoard{
+      height: 40px;
+      width: 200px;
+      background: ivory;
+      border-radius: 10px;
+      /* border: solid 3px rgba(0,0,0,0.5); */
+      display: inline-block;
+      
+      
+  }
+  
+  .userScoreBoard{
+    box-shadow: 0px 5px 5px 0px  rgba(0,0,0,0.5) ;
+  }
+  .computerScoreBoard{
+     margin-left:196px ;  
+     box-shadow: 0px 5px 5px 0px  rgba(0,0,0,0.5) ;
+  } 
+
+  #scoreLeft, #scoreRight{
+      text-align: right;
+      margin-right: 10px;
+      margin-left: 110px;
+      margin-bottom: 20px;
+      margin-top: 0px;
+      display: inline-block;
+  }
+  #symbolLeft, #symbolRight {
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 6px;
+  }
+  .scoreBoards{
+      margin: 0 auto;
+      width: 600px;
+  }
+ 
+  
