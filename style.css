@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.body {
+    color: green;
+    display: flex;
+    font-fanily: sans-serif;
+    justfity-content: center;
+}
+
+.container {
+    background-color: red;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+.title {
+    text-align: center;
+}
+
+.title span {
+    color: blue;
+}
+
+.status-action {
+    display: flex;
+    margin-top: 25px;
+    font-size: 25px;
+    justify-content: space-around;
+    height: 30px;
+}
+
+.status span {
+    color: pink;
+}
+
+.reset {
+    cursor: pointer;
+}
+
+.reset:hover {
+    color: pink;
+}
+
+.game-grid {
+    background: red;
+    display: grid;
+    /* The '1fr' unit equally divides the avaliable space into equal spaces. */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* The 'grid-gap' command makes a gap between each of the cells that were created. */
+    grid-gap: 15px;
+    margin-top: 50px;
+}
+
+.game-cell {
+    background: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+
+.x, .o {
+    cursor: default;
+}
+
+.X::after {
+    content: 'X';
+    font-size: 200px;
+}
+
+.O::after {
+    content: 'O';
+    font-size: 200px;
+}
+
+.won::after {
+    color: blue;
+}
+
+@media only screen and (max-width: 1920px) {
+    .game-grid: {
+        margin-top: 25px;
+        grid-gap: 10px;
+    }
+
+    .game-cell {
+        height:  150px;
+        width: 150px;
+    }
+
+    .x::after {
+        font-size: 150px;
+    }
+
+    .o::after {
+        font-size: 175px;
+    }
+}
