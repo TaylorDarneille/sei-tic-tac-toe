@@ -1,0 +1,80 @@
+ body {
+     background-image: url(https://suicideorsurvive.ie/wp-content/uploads/2020/07/emo-happiness.jpg);
+     background-size: cover;
+     background-attachment: fixed;    
+    }
+    
+    h1 {
+        font-size: 40px;
+        color: rgb(54, 202, 24);
+        text-align: center;
+        -webkit-animation: h1 0.5s ease-in-out infinite alternate;
+        -moz-animation: h1 0.5s ease-in-out infinite alternate;
+        animation: h1 0.5s ease-in-out infinite alternate;
+    }
+    
+    @-webkit-keyframes h1 {
+        from {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+        }
+        to {
+            text-shadow: 0 0 20px #fff, 0 0 30px #af4dff, 0 0 40px #e14dff, 0 0 50px #e14dff, 0 0 60px #ac4dff, 0 0 70px #d84dff, 0 0 80px #f64dff;
+        }
+    }
+    
+    
+    
+    .container-out {
+        font-family: "Fira Sans", sans-serif;
+        padding: 15px 0;
+    }
+    
+    .container-in {
+        width: 97%;
+        margin: 0 auto;
+    }
+    .table-container {
+        margin: 10 auto;
+        text-align: center;
+    }
+    
+    .cat {
+        min-width: 80px;
+        min-height: 80px;
+        background: #ebecde;
+        text-align: center;
+        vertical-align: center;
+        font-size: 50px;
+        font-weight: 900;
+        cursor: pointer;
+        border-radius: 1rem;
+    }
+    
+    .cat:hover {
+        background-color: rgb(147, 238, 144);
+    }
+    
+    .table-container h2 {
+        color: #0d8b70;
+        display: none;
+    }
+    
+    .table-container button {
+        border: none;
+        background: #13838b;
+        color: white;
+        border-radius: 3px;
+        padding: 5px 7px;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 15px;
+    }
+    
+    .table-container button:hover {
+        opacity: 0.7;
+    }
+    
+    .table-container button:focus {
+        outline: none;
+    }
+    
