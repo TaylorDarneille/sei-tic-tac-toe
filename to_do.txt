@@ -1,0 +1,53 @@
+-----------------TO DO: TIC TAC TOE----------------
+-construct the gameboard
+-Make a 3x3 grid (of divs), and at minimum a reset button. 
+    -Use `id` and `class` on clickable elements to manipulate using JS
+-figure out how to use CSS to create my X's and O's
+-JavaScript (MVP)
+    -Select elements and attach functions via event listeners
+            -the event listeners should be looking for clicks  
+            -when a click is detected it should add an element that displays an x or an o within the cell
+    -There should be a variable that keeps track of moves
+            -This variable is an array  
+            -The variable will indicate whether or not an X or an O should appear
+                -there should be a conditional here
+                    -every odd numbered move is x (i%2 !== 0)
+                    -every even numbered move is o (i%2 === 0)
+            -add a class to each cell to display the separate players.
+        -if a cell is clicked, it cannot be re-clicked(re-played)
+            -when the game is over empty cells should not be clickable
+    -The reset button should:
+        -clear the gameboard without - refreshing the whole page (stretch)
+    -Display a message to indicate which turn is about to be played.
+    -GAME LOGIC:
+        -there should be a variable for each player which starts off as an empty array
+                -the number of the cell that was clicked (via id) should be pushed to the array
+                -if the array matches one of the winning combinations the game ends and that player wins (display message)
+        -Detect draw conditions (ties/cat's game) 
+            - if none of the player's arrays match a winning combination after all cells are filled
+        -Detect winner: Stop game and declare the winner if one player ends up getting three in a row. 
+            -Determine a set of winning combinations. Check those combinations on the board contents after every move.
+                -there should be about 8 combinations
+                    -[1,2,3], [3,2,1]
+                    -[4,5,6], [6,5,4]
+                    -[7,8,9], [9,8,7]
+                    -[1,4,7], [7,4,1]
+                    -[2,5,8], [8,5,2]
+                    -[3,6,9], [9,6,3]
+                    -[1,5,9], [9,5,1]
+                    -[3,5,7], [7,5,3]
+
+
+
+
+STRETCH GOALS
+    * Implement your reset button without refreshing the whole page(T-1ST)
+    * Track player's wins over time(T-2ND)
+    * Add a simple AI to support one player vs computer mode. In this case, "simple" just means having the computer pick a random empty square.
+    * Make your computer seem more human by adding a short time delay between your turn and the computer's turn.(3RD)
+    * Style it up! Get creative, or even make a theme!(2ND MOST IMPORTANT)
+    * Add an AI that can beat you every time with the mini-max algorithm.(MOST IMPORTANT)
+        
+    
+    
+ 
