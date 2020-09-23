@@ -27,14 +27,15 @@ const winningCombos = [
     [2, 4, 6]
     ];
 
-const randomColorRGB = ()=>{
-    const red = Math.floor(Math.random()*256)
-    const green = Math.floor(Math.random()*256)
-    const blue = Math.floor(Math.random()*256)
-   return `rgb(${red},${green},${blue})`
-};
+
 
 const createGameboard = () => {
+    const randomColorRGB = ()=>{
+        const red = Math.floor(Math.random()*256)
+        const green = Math.floor(Math.random()*256)
+        const blue = Math.floor(Math.random()*256)
+       return `rgb(${red},${green},${blue})`
+    };
     const gameboard = document.querySelector("main .gameboard");
     gameboard.style.justifyContent= "center";
     gameboard.style.flexWrap= "wrap";
@@ -153,6 +154,19 @@ const checkWin = (currentPlayer) => {
     if (tallyHits >= 3){
         currentPlayer.gameWinner = true;
         currentPlayer.score += 1;
+        if (player1.gameWinner===true) {
+            let winnerTag = document.querySelector(".player1#turn");
+            winnerTag.innerText="WINNER!";
+            winnerTag.style.backgroundColor= "rgb(255, 218, 7)";
+            winnerTag.style.opacity = 1;
+            document.querySelector(".player2#turn").style.opacity=0;
+        } else if (player2.gameWinner===true) {
+            let winnerTag = document.querySelector(".player2#turn");
+            winnerTag.innerText="WINNER!";
+            winnerTag.style.backgroundColor= "rgb(255, 218, 7)";
+            winnerTag.style.opacity = 1;
+            document.querySelector(".player1#turn").style.opacity=0;
+        }
         highlightWin(combo);
         unclickable();
 
@@ -196,6 +210,8 @@ while (filledSpots.length>0) {
     };
         
     resetP1();
+    
+
     document.querySelector(".player1#score").innerText = player1.score;
     document.querySelector(".player2#score").innerText = player2.score;
 };
@@ -208,6 +224,8 @@ const resetP1 = () => {
         j++
     }
     player1.gameWinner=null;
+    document.querySelector(".player1#turn").innerText = "Your Turn!";
+    document.querySelector(".player1#turn").style.backgroundColor="rgb(79, 177, 120)";
     resetP2()
 };
 
@@ -217,7 +235,9 @@ const resetP2 = () => {
         player2.choices.splice(0,1);
         k++
     }
-    player2.gameWinner = null
+    player2.gameWinner = null;
+    document.querySelector(".player2#turn").innerText = "Your Turn!";
+    document.querySelector(".player2#turn").style.backgroundColor="rgb(79, 177, 120)";
 };
     
 
