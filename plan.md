@@ -83,3 +83,8 @@ https://stackoverflow.com/questions/31604252/java-script-using-array-to-store-co
 
 8/16
 set up html, css, js base to start game, reset button, and add event listeners to click O or X
+
+8/19
+redoing the grid container
+data-cell-index
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes

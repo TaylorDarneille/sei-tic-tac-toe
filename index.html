@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tic-tac-toe</title>
-    <link rel="stylesheet" href="style.css">
+    <title>tic-tac-toe practice #2</title>
+    <link rel="stylesheet" href="style.css"></link>
 </head>
-
 <body>
-    <header><h1>tic-tac-toe</h1></header>
 
-    <div id="gameboard">
-        <div id="grid-container">
-            <!-- <div class="grid-item">x</div>
-            <div class="grid-item">x</div>
-            <div class="grid-item">x</div>
-            <div class="grid-item">x</div>
-            <div class="grid-item">x</div>
-            <div class="grid-item">x</div>
-            <div class="grid-item">x</div>
-            <div class="grid-item">x</div>
-            <div class="grid-item">x</div> -->
-        </div>
-        <button id="reset">reset</button>
+    <h1>x or o?</h1>
+
+    <div class="container" id="gameboard">
+        <span id="turn">press any square to play</span>
+        <!-- show X or O on div click -->
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="box3"></div>
+        <div class="box" id="box4"></div>
+        <div class="box" id="box5"></div>
+        <div class="box" id="box6"></div>
+        <div class="box" id="box7"></div>
+        <div class="box" id="box8"></div>
+        <div class="box" id="box9"></div>
     </div>
-
+    <!-- play again and reset all info - this can be reset button -->
+    <button id="replay">reset</button>
+    <!-- <button id="reset">reset</button> -->
     <script src="app.js"></script>
 </body>
 </html>
