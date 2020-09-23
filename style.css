@@ -52,7 +52,7 @@ body{
     background-color: black;
 }
 
-.turn {
+#turn {
     margin: 20px;
     display: flex;
     justify-content: center;

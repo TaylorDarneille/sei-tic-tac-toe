@@ -15,7 +15,6 @@ let whoTurn = document.querySelector('.turn');
 const resetButton = document.querySelector('.reset');
 const gameDivs = document.querySelectorAll('[data-cell]')//used data-cell to pull them for js
 let oTurn
-
 const playerWins = [ //ways to win the game
     [0, 1, 2],
     [0, 4, 8],
@@ -25,22 +24,26 @@ const playerWins = [ //ways to win the game
     [2, 5, 8],
     [3, 4, 5],
     [6, 7, 8]
-    
 ];
 
-//game variables
-//let xTurn = true;
-let gameIsOn = true;
+
+
 
 
 
 //Functions
 function handleClicks(event) {
+    whoTurn.innerText= "X Turn"
     let square = event.target //click on certain divs
     const currentClass = oTurn ? O_LETTER : X_LETTER
     placeLetter(square, currentClass)
-    switchTurns()
-    
+    if (winnerWinner(currentClass)) {
+        endGame(false)
+    } else if (isDraw()) {
+        endGame(true)
+    } else {
+        switchTurns()
+    }
     //}
     // console.log(mySquare.classList[1]) //grasp individual div
     // if (xTurn = 1) {
@@ -62,12 +65,19 @@ function handleClicks(event) {
         //switch turns
 }
 
+function isDraw() {
+    return [...gameDivs].every((square) => {
+    return ( square.classList.contains(X_LETTER) || square.classList.contains(O_LETTER));
+    });
+}
+
 function placeLetter(square, currentClass) {
     square.classList.add(currentClass)
 }
 
 function switchTurns() {
     oTurn = !oTurn
+    whoTurn.innerText = 'O Turn'
 }
 
 function clickedReset(event) {
@@ -78,6 +88,22 @@ function startGame() {
     reload = location.reload()
 }
 
+function winnerWinner(currentClass) {
+  return playerWins.some((combination) => {
+    return combination.every((index) => {
+      return gameDivs[index].classList.contains(currentClass);
+    });
+  });
+}
+
+function endGame(draw) {
+    if (draw) {
+    alert("its a draw")
+    } else {
+    alert(`${oTurn ? "O's" : "X's"} Wins!`);
+    }
+clickedReset()
+}
 //event Listeners
 // document.addEventListener("DOMContentLoaded", () => {
 //     createId() //creates id for my square divs
