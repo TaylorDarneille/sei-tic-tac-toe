@@ -6,11 +6,25 @@ const turnDisplay = document.querySelector('#turn-display')
 const turnCaption = document.querySelector('#turn-caption')
 
 
+
+
 const declareWinner = () =>{
     if (turns % 2 === 0) { 
-        alert('Player Two wins!\nPlay again?')
+        var modal = document.querySelector("#o-win-modal");
+        var span = document.getElementsByClassName("close")[2];
+        modal.style.display = "block"
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        // alert('Player Two wins!\nPlay again?')
     }else {
-        alert('Player One wins!\nPlay again?')
+        var modal = document.querySelector("#x-win-modal");
+        var span = document.getElementsByClassName("close")[1];
+        modal.style.display = "block"
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        // alert('Player One wins!\nPlay again?')
     }
     setGameBoard()
 }
@@ -62,7 +76,12 @@ const declareTie = () => {
         }
     }
     if (markedSquaresArr.length === 9) {
-        alert('No more moves. Nobody wins. That\'s just life sometimes.\nPlay again?') 
+        var modal = document.querySelector("#tie-game-modal");
+        var span = document.getElementsByClassName("close")[0];
+        modal.style.display = "block"
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
         setGameBoard()  
     }
     markedSquaresArr.length = 0;
@@ -74,7 +93,6 @@ const declareTie = () => {
 
 const placeMarker = (e) => {
     turns++
-    console.log(turns)
     //conditional for determining which marker to place
     if (turns % 2 === 0) { 
         e.target.classList.add('o-marker')
@@ -105,7 +123,6 @@ const setGameBoard = () => {
 }
 
 const displayPlayer = () => {
-    console.log(turnDisplay.classList)
     if (turns % 2 === 0) { 
         turnDisplay.classList.remove('o-marker')
         turnDisplay.classList.add('x-marker')
@@ -123,8 +140,6 @@ const displayPlayer = () => {
 document.addEventListener('DOMContentLoaded', ()=>{
     reset.addEventListener('click', () => {
             setGameBoard();
-                  
-
     })
 })
 

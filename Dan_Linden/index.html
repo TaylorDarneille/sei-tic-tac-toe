@@ -7,12 +7,37 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <!-- Modal box code modified from https://www.w3schools.com/howto/howto_css_modals.asp -->
+    <!--Tie game modal box-->
+<div id="tie-game-modal" class="modal">
+    <div class="modal-content">
+      <p>No more moves. Nobody wins. <br>That's just life sometimes.<br><br>Play again?</p>
+      <span class="close">OK</span>
+    </div>
+  </div>
+  <!--Player 1 win modal box-->
+  <div id="x-win-modal" class="modal">
+    <div class="modal-content">
+      <p>Player 1 wins!<br><br>Play again?</p>
+      <span class="close">OK</span>
+    </div>
+  </div>
+   <!--Player 2 win modal box-->
+  <div id="o-win-modal" class="modal">
+    <div class="modal-content">
+      <p>Player 2 wins!<br><br>Play again?</p>
+      <span class="close">OK</span>
+    </div>
+  </div>
     <header>
         <h1>It's Tic-Tac-Toe Time!</h1>
     </header>
     <main>
         <!--Container for displaying whose turn it is-->
-        <div id="turn-display"><p id="turn-caption">Press the Start Button!</p></div>
+        <div id="turn-display">
+            <h4 id="turn-header">Current player:</h4>
+            <p id="turn-caption">Press the Start Button!</p>
+        </div>
         <div id="container">
             <!--3x3 playing grid, so 9 divs total-->
             <div class="gridsquare" id="top-left"></div>
