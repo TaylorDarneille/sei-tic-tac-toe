@@ -25,28 +25,28 @@ Each time a player makes a move, your code will check to see if there is a game-
 *Write psuedocode here*
 
 ### Part 1: To Do List
-1. Create 3X3 grid (which will be 9 divs)
-2. Need to have icons X and O 
-3. Create a tally space for wins (a scoreboard) 
-4. The computer/other player is automatically assigned the other icon 
-5. Allow player to choose X or O as their icon by clicking on it
-6. If possible, a way to randomize who goes first (you or other player)
-7. If the player clicks on an empty square, their icon should appear in that space
-8. The computer should automatically play/appear in a random space
-9. Check for a win after every turn (like an if/else if during a while loop it sounds like)
-10. Repeat turns until a win or tie condition is met
-11. When three Xs or Os are in a row (in a win scenario) a line will appear connecting the three spaces
-12. The winner of the game will win a round, not the whole game. (Something like best out of 5 or so rounds win)
-13. Alert with who won the game
+1. Create 3X3 grid (which will be 9 divs) -Done
+2. Need to have icons X and O -Done
+3. Create a tally space for wins (a scoreboard) -Not Done
+4. The computer/other player is automatically assigned the other icon -Not Done
+5. Allow player to choose X or O as their icon by clicking on it -Not Done
+6. If possible, a way to randomize who goes first (you or other player) -Not done
+7. If the player clicks on an empty square, their icon should appear in that space -Done
+8. The computer should automatically play/appear in a random space -Done
+9. Check for a win after every turn (like an if/else if during a while loop it sounds like) -Done
+10. Repeat turns until a win or tie condition is met -Done
+11. When three Xs or Os are in a row (in a win scenario) a line will appear connecting the three spaces -Not Done
+12. The winner of the game will win a round, not the whole game. (Something like best out of 5 or so rounds win) -Not Done
+13. Alert with who won the game -Done
 14. Should probably have a code of some sort somewhere that doesn't allow the opposite player to pick a square
-that the other player has already chosen.
+that the other player has already chosen. -Done
 
 
 ### Part 2: Win scenario
-A line connecting the three spaces of the X or O winner (not even sure how to do that yet but it's a thought)
+A line connecting the three spaces of the X or O winner (not even sure how to do that yet but it's a thought) -Not Done
 
 In theory, maybe something like:
-given that i is equial to number of squares occupied by X or O
+given that i is equal to number of squares occupied by X or O
 
 while (i < 3) {
  The game continues

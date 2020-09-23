@@ -1,0 +1,63 @@
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Permanent Marker', cursive;
+    background-image: url('https://lh3.googleusercontent.com/Y0GeWOyazhTBBmroSeFatXDv6ezxMK9lZQn-36d_s-Prgk6DNW83mZJ8M3xnIGeXIag');
+    background-size: cover;
+} 
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+} 
+
+h1, h3 {
+    background: black;
+    color: rgb(184, 61, 184);
+    font-size: 50px;
+}
+
+.mainhead {
+    margin: auto;
+    width: 300px;
+}
+
+#board {
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+    display: grid;
+}
+
+.status {
+    font-size: 35px;
+    color: rgb(184, 61, 184);
+}
+
+.box {
+    border: 4px solid black;
+    display: flex;
+    font-size: 150px;
+    background:purple;
+    align-items: center;
+    justify-content: center;
+}
+
+#button {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 30px;
+    color: rgb(184, 61, 184);
+    background: black;
+    border-color: black;
+    width: 300px;
+    margin: auto;
+}
+
+#button:hover {
+    color: white;
+    background: rgb(184, 61, 184);
+}
+

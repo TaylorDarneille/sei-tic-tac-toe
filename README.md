@@ -19,15 +19,15 @@ We will be making a Tic Tac Toe game using all of these concepts.
   * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
 
 ## Requirements
-* A user should be able to click on different squares to make a move.
-* Every click will alternate between marking an `X` and `O`
+* A user should be able to click on different squares to make a move. -Done
+* Every click will alternate between marking an `X` and `O` -Done
 * Upon marking of an individual cell, use JavaScript to add a class to each cell to display the separate players.
-* A cell should not be able to be replayed once marked.
-* You should not be able to click remaining empty cells after the game is over.
-* Add a reset button that will clear the contents of the board.
-* Display a message to indicate which turn is about to be played.
-* Detect draw conditions (ties/cat's game) 
-* Detect winner: Stop game and declare the winner if one player ends up getting three in a row. 
+* A cell should not be able to be replayed once marked. -Done
+* You should not be able to click remaining empty cells after the game is over. -Done (in player or CPU win, but not tie)
+* Add a reset button that will clear the contents of the board. -Done
+* Display a message to indicate which turn is about to be played. -Done
+* Detect draw conditions (ties/cat's game) -Done
+* Detect winner: Stop game and declare the winner if one player ends up getting three in a row. -Done
   * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
 
 **Have Fun** - The best way to learn is by playing with code. Let creativity guide you and try some experiments with JS and CSS and see what you can do.
