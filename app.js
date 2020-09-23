@@ -1,18 +1,24 @@
 let turn = true
 let xWinCount = 0
 let oWinCount = 0
+//sets so X is ready to take first turn
 document.querySelector("#ohh").style.opacity = 0.3
 document.querySelector("#ohh").setAttribute('draggable', false)
+//function to turn square yellow when hovering with piece
 const highlight = (e) => {
-    e.target.style.backgroundColor = 'yellow'
+    if(e.target.innerText === "") {
+        e.target.style.backgroundColor = 'yellow'
+    }
 }
+//function to turn square back to white once no longer dragging piece over
 const unlight = (e) => {
     e.target.style.backgroundColor = ''
 }
+//carries info about node being dragged
 const drag = (e) => {
     e.dataTransfer.setData("text", e.target.id)
 }
-
+//function to place a piece if dropped in an appropriate place
 const move = (e) => {
     e.preventDefault()
     
@@ -34,6 +40,7 @@ const move = (e) => {
 }
 let xCheck = []
 let oCheck = []
+//function to add moves to tracker to be checked for wins
 const addPiece = (e) => {
     if(turn){
         xCheck[e.target.id] = true
@@ -43,6 +50,7 @@ const addPiece = (e) => {
         check(e, oCheck, xCheck)
     }
 }
+//function to check if there is a win after each move
 const check = (e, arr, arr2) => {
     let winner = false
     if(arr[1] && arr[2] && arr[3]){
@@ -86,7 +94,6 @@ const check = (e, arr, arr2) => {
         document.getElementById('7').style.color = 'red'
         winner = true
     } else {
-        console.log("reee")
         let counter = 0
         for(let i = 1; i < 10; i++){
             if(arr[i] || arr2[i]){
@@ -107,7 +114,7 @@ const check = (e, arr, arr2) => {
         document.querySelector('#reset').classList.toggle('hidden')
     } 
 }
-
+//changes to next player after valid move is made
 const switchTurn = () => {
     turn = !turn
     if(turn){
@@ -122,7 +129,7 @@ const switchTurn = () => {
         document.querySelector("#exe").setAttribute('draggable', false)
     }
 }
-
+//resets game board for next game once button is clicked following a win or draw
 const resetGame = () => {
     let board = document.querySelectorAll('.square')
     let boardArr = Array.from(board)
