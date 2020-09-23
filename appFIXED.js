@@ -4,6 +4,8 @@ let divs = document.querySelectorAll('.box')
 const divsArray = Array.from(divs)
 let currentPlayer = "User"
 let turns = 0
+let userWins = 0
+let compWins = 0
 //Create an array with the options to win
 const winningOptions = [
     [0, 1, 2],
@@ -24,21 +26,22 @@ const winningOptions = [
 const boxClick = (event) => {
     //grab the index of the div that was clicked (target)
     const playerTurn = divsArray.indexOf(event.target)
+    console.log(playerTurn)
     //Check if the box has already been clicked - prevent this from happening again
     // If no....
     if (divsArray[playerTurn].getAttribute('class') === 'box') {
         divsArray[playerTurn].innerText = 'X'
         divsArray[playerTurn].setAttribute('class', 'red')
         // If yes....   
-    } else if (divs[playerTurn].innerText === 'X' || divs[playerTurn].innerText === 'O') {
+    } else if (divsArray[playerTurn].innerText !== ''){
+        console.log(divsArray[playerTurn])
         alert('Try again. You cannot select a spot that has already been filled.')
         boxClick()
     }
     //update the divsArray to remove the current index and replace it with the new that has a new class assigned
     divsArray.splice(playerTurn, 1, divsArray[playerTurn])
-	console.log(divsArray[playerTurn])
-	turns++
-	console.log(turns)
+    console.log(divsArray[playerTurn])
+    turns++
     //change the user
     currentPlayer = "Computer"
     //change the status of the game
@@ -61,10 +64,9 @@ const computerTurn = () => {
         //If no....
     } else if (boxNumber.innerText === '') {
         boxNumber.innerText = 'O'
-		boxNumber.setAttribute('class', 'blue')
-		turns++
-		console.log(turns)
+        boxNumber.setAttribute('class', 'blue')
         console.log(divsArray[computerSlot])
+		turns++
         //update the divsArray to remove the current index and replace it with the new that has a new class assigned
         divsArray.splice(computerSlot, 1, boxNumber)
         //change the user
@@ -90,37 +92,28 @@ const checkStatus = () => {
 		let div2 = divsArray[index2].getAttribute('class')
         //If the classes of each index is red (user), change the status to reflect the winner  
         if ((div0 === 'red') && (div1 === 'red') && (div2 === 'red')){
-			status.innerText = 'Congratulations! You have won the game!'
+            status.innerText = 'Congratulations! You have won the game!'
+            userWins++
+            console.log(userWins)
         	document.querySelectorAll('.box').forEach(box => box.removeEventListener('click', boxClick))
         	restar()
         	break
         //If the classes of each index is blue (computer), change the status to reflect the winner    
         } else if ((div0 === 'blue') && (div1 === 'blue') && (div2 === 'blue')) {
-			status.innerText = 'The computer has won the game. Try again.'
+            status.innerText = 'The computer has won the game. Try again.'
+            compWins++
+            console.log(compWins)
 			document.querySelectorAll('.box').forEach(box => box.removeEventListener('click', boxClick))
 			restar()
 			break
-        } else if (turns===9){
-			console.log('WOOOOOOOOOOOO BITTCHHHHHHHHHH')
+        } else if ((turns===9) && (userWins !==0)){
 			status.innerText = 'It\'s a tie! Play again.'
-			// document.querySelectorAll('.box').forEach(box => box.removeEventListener('click', boxClick))
-			// restar()
-			// break
+			document.querySelectorAll('.box').forEach(box => box.removeEventListener('click', boxClick))
+			restar()
+			break
 		}
 	}
 }
-////============4.CHECK FOR TIE============////
-// const tieGame = () => {
-//     for(divs of divsArray){
-//         let divClass = divs.getAttribute('class')
-//         let divText = divs.innerText
-//         if((divClass !== 'box') && (divText !== '')){
-//             status.innerText = 'It\'s a tie! Play Again.'
-//         } else {
-//             checkStatus()
-//         }
-//     }
-// } 
    
 // ////============5.RESTART============////
 const restart = (event) => {
