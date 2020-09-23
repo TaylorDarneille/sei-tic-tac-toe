@@ -1,3 +1,9 @@
+//i need to set the variables for the game
+//How will i select the squares
+//figure out the condition to determine a winner
+
+
+
 //Gets all the squares
 const cats = document.getElementsByClassName("cat");
 //Variable for X
@@ -122,4 +128,4 @@ document.getElementById("single").addEventListener("click", () => {
     }
 })   
 // i couldn't figure out the conditional. 
-//i wanted to create a new array to generate a choice from but i keep getting a bug  
+//i wanted to create a new array to generate a choice but i keep getting a bug  
