@@ -33,7 +33,6 @@ const playerWins = [ //ways to win the game
 
 //Functions
 function handleClicks(event) {
-    whoTurn.innerText= "X Turn"
     let square = event.target //click on certain divs
     const currentClass = oTurn ? O_LETTER : X_LETTER
     placeLetter(square, currentClass)
@@ -42,6 +41,7 @@ function handleClicks(event) {
     } else if (isDraw()) {
         endGame(true)
     } else {
+        togglePlayers()
         switchTurns()
     }
     //}
@@ -77,7 +77,6 @@ function placeLetter(square, currentClass) {
 
 function switchTurns() {
     oTurn = !oTurn
-    whoTurn.innerText = 'O Turn'
 }
 
 function clickedReset(event) {
@@ -103,6 +102,15 @@ function endGame(draw) {
     alert(`${oTurn ? "O's" : "X's"} Wins!`);
     }
 clickedReset()
+}
+
+function togglePlayers() {
+    var player = document.getElementById("turn");
+    if (player.innerHTML === "X Turn") {
+    player.innerHTML = "O Turn";
+    } else {
+    player.innerHTML = "X Turn";
+    }
 }
 //event Listeners
 // document.addEventListener("DOMContentLoaded", () => {
