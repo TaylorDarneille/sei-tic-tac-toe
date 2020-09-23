@@ -1,0 +1,41 @@
+.square {
+  background-color:pink;
+  border:10px solid gray;
+  display:inline-block;
+  width:200px;
+  height:200px;
+}
+#container {
+  display:grid;
+  grid-template-columns: repeat(3,auto);
+  margin:100px auto;
+  width:655px;
+  justify-content: center;
+  align-content: center;
+}
+body {
+  margin: 0;
+} 
+.square:first-child,
+.square:nth-child(2),
+.square:nth-child(3){
+  border-top: none;
+}
+.square:nth-child(3n + 1){
+  border-left: none;
+}
+.square:nth-child(3n + 3){
+  border-right: none;
+}
+.square:last-child,
+.square:nth-child(8),
+.square:nth-child(7){
+  border-bottom: none;
+}
+h1{
+  text-align: center;
+}
+p {
+  text-align: center;
+  font-size:70px ;
+}
