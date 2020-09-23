@@ -13,6 +13,8 @@
 let counter = 0
 //has to be 3 by default or game keeps going forever
 let gridSize = 3
+//changes when someone wins // helps with ties and AI
+let winner = false
 
 // This function runs after every turn and check for 3 win conditions: X wins, O wins, or Tie    
 const winCond = (num) => {
@@ -133,7 +135,6 @@ const winCond = (num) => {
     const squares = document.querySelectorAll('.square')
     const gameOver = document.querySelector('#game-over')
     const change = document.querySelector('#change')
-    let winner = false
     
     //looks through arrays and determines if a player has won
     // changed 9 to squares.length so I don't have to rewrite all this code
@@ -175,9 +176,15 @@ const winCond = (num) => {
 
 
 //This function is the actual gamplay // it runs the winCond function after every turn to see if the game is over // 2 players
-const play = (e) => {
-    const xTurn = (e) => e.target.classList.add('x', 'played')
-    const oTurn = (e) => e.target.classList.add('o','played')
+const twoPlayer = (e) => {
+    const xTurn = (e) => {
+        e.target.classList.add('x', 'played')
+        e.target.classList.remove('open')
+    }
+    const oTurn = (e) => {
+        e.target.classList.add('o','played')
+        e.target.classList.remove('open')
+    }
     const gameOver = document.querySelector('#game-over')
     if (counter % 2 === 0) {
         xTurn(e)
@@ -223,34 +230,52 @@ const onePlayer = (e) => {
         gameOver.innerText = 'o\'s turn!'
         // console.log(counter)
         winCond(gridSize)
-        setTimeout(oTurn,1200)
+        if (winner === false) setTimeout(oTurn,1200)
     }
 
 }
 
+const reset = () => {
+    let squares = document.querySelectorAll('.square')
+    squares.forEach(square => {
+        square.setAttribute('class','square')
+        square.classList.add('open')
+    })
+    document.querySelector('#change').classList.remove('disabled')
+    document.querySelector('#game-over').innerText = 'Click a square to start playing!'
+    counter = 0
+    winner = false
+}
+
 //This function sets the game up by adding event listeners to all the squares and running code for the reset button
 const ticTacToe = () => {
+    reset()
+    //If function here for 1p vs 2p
     let squares = document.querySelectorAll('.square')
-    for (var i = 0; i<squares.length;i++){
-//If function here for 1p vs 2p
-//      squares[i].addEventListener('click',play) // 2-player
+    let playerToggle = document.querySelector('#player-toggle')
+    //Default //2-player 3x3
+    if (playerToggle.checked) {
+        for (var i = 0; i<squares.length;i++){
+        squares[i].addEventListener('click',twoPlayer)
+        }
+    }
+    playerToggle.addEventListener('change',(e) => {
+        reset()
+        if (playerToggle.checked) { // 2-player
+            for (var i = 0; i<squares.length;i++){
+            squares[i].removeEventListener('click',onePlayer)
+            squares[i].addEventListener('click',twoPlayer)
+            }
+        } else { // 1-player
+            for (var i = 0; i<squares.length;i++){
+            squares[i].removeEventListener('click',twoPlayer)  
+            squares[i].addEventListener('click',onePlayer)
+            }
+       }
+   })
 
-        document.querySelectorAll('.square')
-        squares.forEach(square => square.classList.add('open'))
-        squares[i].addEventListener('click',onePlayer)
-    }  
-    
-    const reset = document.querySelector('#reset')
-    reset.addEventListener('click', () => {
-        squares.forEach(square => {
-            square.setAttribute('class','square')
-            square.classList.add('open')
-        })
-        document.querySelector('#change').classList.remove('disabled')
-        document.querySelector('#game-over').innerText = 'Click a square to start playing!'
-        counter = 0
-        winner = false
-    })
+    const resetButton = document.querySelector('#reset')
+    resetButton.addEventListener('click',reset)
 }
 
 //Create the playing grid with the DOM
@@ -264,7 +289,7 @@ const makeGrid = (num) => {
     const createDivs = (idName) => {
         let div = document.createElement('div')
         div.setAttribute('id',idName)
-        div.classList.add('square')
+        div.classList.add('square','open')
         div.innerHTML = '</br>'
         board.appendChild(div)
     }
@@ -313,6 +338,7 @@ const createGrid = () => {
     document.querySelector('form').addEventListener('submit', (e)=>{
         gridSize = parseInt(document.querySelector('input[name=grid-size]:checked').value)
         makeGrid(gridSize)
+        // reset()
         //document.querySelector('#change').classList.add('disabled')
         //run the game
         ticTacToe()

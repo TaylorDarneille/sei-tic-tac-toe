@@ -37,15 +37,107 @@ body {
     background: mediumvioletred;
 }
 
-#all {
-    text-align: center;
+
+.header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 25%;
+    padding-top: 10px;
+}
+
+.header_container {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+.ghost {
+    width: 21%
 }
 
 h1 {
     font-family: 'Lalezar', cursive;
-    margin: 5px;
     font-size: 40px;
+    text-align: center;
     color: lightgreen;
+}
+
+.container_toggle {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 38px;
+  }
+
+p {
+    font-size: 12px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600;
+    text-align: right;
+    color: mintcream;
+    margin: 10px;
+  }
+  .container_switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+  }
+  .container_switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .container_switch--slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: mintcream !important;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .container_switch--slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: mediumseagreen;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  input:checked + .container_switch--slider {
+    background: mintcream !important;
+  }
+  input:focus + .container_switch--slider {
+    box-shadow: 0 0 1px black;
+  }
+  input:checked + .container_switch--slider:before {
+    -webkit-transform: translateX(31px);
+    -ms-transform: translateX(31px);
+    transform: translateX(31px);
+  }
+  /* Rounded sliders */
+  .container_switch--slider.container_switch--round {
+    border-radius: 15px;
+  }
+  .container_switch--slider.container_switch--round:before {
+    border-radius: 50%;
+  }
+
+
+
+
+
+#all {
+    text-align: center;
 }
 
 .board {
