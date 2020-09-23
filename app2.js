@@ -26,6 +26,7 @@ const changeShape = () => {
 
 //
 const makeMove = (e) => {
+    //set event.target to a variable
     const boxClick = event.target
     let numBox = boxClick.id
     //if turn count is divisble by 2 then the box clicked should print 'o' and push it to the compMoveArr
