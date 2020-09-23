@@ -14,6 +14,16 @@ const winningOptions = [
 //declare commonly used query selectors as variables
 const status = document.querySelector('.status')
 const boxes = document.querySelectorAll('.box')
+const zero = document.getElementById(0)
+const one = document.getElementById(1)
+const two = document.getElementById(2)
+const three = document.getElementById(3)
+const four = document.getElementById(4)
+const five = document.getElementById(5)
+const six = document.getElementById(6)
+const seven = document.getElementById(7)
+const eight = document.getElementById(8)
+
 
 
 //player's turn function
@@ -27,12 +37,12 @@ const playerTurn = (event) => {
         clickedBox.innerText = gameSlots[boxNumber]
         status.innerText = ('Nice move!')
         //checkthe status after the turn
-        setTimeout(checkStatus, 1000)
+        setTimeout(checkStatus, 500)
     } else if(gameSlots[boxNumber] === 'X'){
         //if the box already has an x, restart the playerTurn function
         playerTurn()
     }
-    setTimeout(computerTurn, 1000)
+    setTimeout(computerTurn, 500)
 }
 //click event that invokes the playerTurn function
 document.querySelectorAll('.box').forEach(box => box.addEventListener('click', playerTurn))
@@ -58,6 +68,7 @@ const computerTurn = () => {
 const checkStatus = (event) => {
     for (let i=0; i<8; i++){
         //loop through the winning options array
+        //camille helped me with this function during a lab last week
         const winningCombo = winningOptions[i]
         const indexOne = gameSlots[winningCombo[0]]
         const indexTwo = gameSlots[winningCombo[1]]
@@ -77,8 +88,7 @@ const checkStatus = (event) => {
             }
             return computerTurn()
             return playerTurn()
-            
-        } else if (indexOne !== '' && indexTwo !== '' && indexThree !== '') {
+        } else if (one.innerText !== '' && two.innerText !== '' && three.innerText !== '' && four.innerText !== '' && five.innerText !== '' && six.innerText !== '' && seven.innerText !== '' && eight.innerText !== '') {
             status.innerText = 'It is a tie. Play again!'
         } else {
            status.innerText = 'Your turn!'
