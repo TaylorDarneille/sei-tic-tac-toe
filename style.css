@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+#container {
+    width: 320px;
+    height: 320px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+
+.cell {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 100px;
+}
+.cell:hover{
+    background-color: cyan;
+}
+
+.cell0, .cell1, .cell2, .cell3, .cell4, .cell5 {
+    border-bottom: 10px solid black;
+}
+
+.cell2, .cell5, .cell8, .cell1, .cell4, .cell7 {
+    border-left: 10px solid black;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 60px;
+    color: indianred;
+}
+
+.game-status{
+    margin-top: 200px;
+} 
+
+.x::after {
+    content: 'x'
+}
+
+.o::after {
+    content: 'o'
+}
