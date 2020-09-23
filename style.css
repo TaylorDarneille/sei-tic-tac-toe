@@ -1,6 +1,6 @@
 .square {
-    background-color:pink;
-    border:10px solid gray;
+    background-color: orchid;
+    border:10px solid black;
     display:inline-block;
     width:200px;
     height:200px;
@@ -12,7 +12,6 @@
     width:655px;
     justify-content: center;
     align-content: center;
-
 }
 body {
     margin: 0;
@@ -39,8 +38,7 @@ h1{
 p {
     text-align: center;
     font-size:70px ;
+}
 
-}
-.square :hover{
-    background-color: rebeccapurple;
-}
+
+
