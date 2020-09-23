@@ -75,7 +75,7 @@ body{
 
 }
 
-.square { 
+.square{ 
     width: 100px;
     height: 100px;
     background-color: silver;
@@ -111,11 +111,24 @@ body{
     border-bottom: none;
 }
 
+.square.x::after{
+    content: "X";
+}
+
+.square.o::after{
+    content: "O";
+}
+
 .square:hover{
     background-color: white;
     opacity: .75;
 }
 
+.square.square.x::after,
+.square.o::after{
+    cursor: not-allowed;
+    
+}
 .winner{
     color: black;
 }

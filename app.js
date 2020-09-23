@@ -9,10 +9,12 @@
 // }
 
 //HTML Elements
+const X_LETTER = 'x'
+const O_LETTER = 'o'
 let whoTurn = document.querySelector('.turn');
 const resetButton = document.querySelector('.reset');
 const gameDivs = document.querySelectorAll('[data-cell]')//used data-cell to pull them for js
-let xTurn = 1;
+let oTurn
 
 const playerWins = [ //ways to win the game
     [0, 1, 2],
@@ -34,17 +36,25 @@ let gameIsOn = true;
 
 //Functions
 function handleClicks(event) {
-    let mySquare = event.target //click on certain divs
-    console.log(mySquare.classList[1]) //grasp individual div
-    if (xTurn = 1) {
-        mySquare.innerText = "X"
-        whoTurn.innerText = 'O Turn'
-        xTurn -= 1
-    } if(xTurn < 1) {
-        mySquare.innerText = "O"
-        xTurn.innerText = 'X Turn'
-        xTurn += 1
-    }
+    let square = event.target //click on certain divs
+    const currentClass = oTurn ? O_LETTER : X_LETTER
+    placeLetter(square, currentClass)
+    switchTurns()
+    
+    //}
+    // console.log(mySquare.classList[1]) //grasp individual div
+    // if (xTurn = 1) {
+    //     mySquare.innerText = "X";
+    //     whoTurn.innerText = 'O Turn';
+    //     xTurn--;
+    //     //handleClicks()
+    // } else if(xTurn = 0) {
+    //     mySquare.innerText = "O";
+    //     whoTurn.innerText = 'X Turn';
+    //     xTurn++;
+    // }
+
+
         //const currentClass = oTurn ? OLETTER : XLETTER //if O turn get Oletter if not get Xletter
         //placeLetter(square, currentClass)
         //check for win 
@@ -53,7 +63,11 @@ function handleClicks(event) {
 }
 
 function placeLetter(square, currentClass) {
-    square.classList.add('x')
+    square.classList.add(currentClass)
+}
+
+function switchTurns() {
+    oTurn = !oTurn
 }
 
 function clickedReset(event) {
