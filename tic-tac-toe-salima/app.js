@@ -3,7 +3,11 @@ const turn = document.getElementById("turn")
 // boxes is the array of all the boxes in the gameboard
 let boxes = document.querySelectorAll("#gameboard div")
 let turnNumber = 0
+// turnNumber indicates whether it is player X or player O's turn
 
+// function to select the three winning boxes and check conditions. if met, the display message will say player X or O wins. it will also change the image of the winning boxes to stars!
+
+// it also changes the remaining boxes aka empty boxes to have an innerHTML of "block" which is then checked in a later function to not allow the user to click in these remaining boxes once the game ends.
 function selectWinnerBoxes(b1,b2,b3) {
     b1.classList.add("win")
     b2.classList.add("win")
@@ -20,9 +24,9 @@ function selectWinnerBoxes(b1,b2,b3) {
             boxes[i].innerHTML = "block"
         }
     }
-
 }
 
+// the function that checks the conditional statements of every box to determine every winning combination. if none of these conditions are met, then it checks if all the boxes are already filled and if yes, it displays that it is a tie. also changes every block to a sad cat pic :(
 function getWinner(){
     let box1 = document.getElementById("box1")
     let box2 = document.getElementById("box2")
@@ -37,10 +41,10 @@ function getWinner(){
     // conditional statements to get all the possibilities
     // this statement is saying if box1 is NOT blank AND if it is equal to box2 AND equal to box3, then run the selectWinnerBoxes function with these three boxes as the winning boxes
     // we will create this for all possible situations
-    // 1 2 3 -- horizontal 1
-    if(box1.innerHTML !== "" && box1.innerHTML === box2.innerHTML && box1.innerHTML === box3.innerHTML) {
-        selectWinnerBoxes(box1, box2, box3)
-    }
+        // 1 2 3 -- horizontal 1
+        if(box1.innerHTML !== "" && box1.innerHTML === box2.innerHTML && box1.innerHTML === box3.innerHTML) {
+            selectWinnerBoxes(box1, box2, box3)
+        }
         // 4 5 6 -- horizontal 2
         else if(box4.innerHTML !== "" && box4.innerHTML === box5.innerHTML && box4.innerHTML === box6.innerHTML) {
             selectWinnerBoxes(box4, box5, box6)
@@ -68,19 +72,16 @@ function getWinner(){
         // 3 5 7 -- diagonal 2
         else if(box3.innerHTML !== "" && box3.innerHTML === box5.innerHTML && box3.innerHTML === box7.innerHTML) {
             selectWinnerBoxes(box3, box5, box7)
+        } else if (box1.innerHTML !== "" && box2.innerHTML !== "" && box3.innerHTML !== "" && box4.innerHTML !== "" && box5.innerHTML !== "" && box6.innerHTML !== "" && box7.innerHTML !== "" && box8.innerHTML !== "" && box9.innerHTML !== "") {
+            turn.innerHTML = "it's a tie! play again?"
+            let allBoxes = document.querySelectorAll(".box")
+            for (let i = 0; i < allBoxes.length; i++) {
+                allBoxes[i].style.backgroundImage = "url(sad-cat.png)"
+            }
         }
     }
 
-    // TIE -- tried to make a for loop that will change the text to indicate a tie if the following condition is met: where the classes in all the divs contain either x or o && where the class does NOT contain "win" -- but it didn't work properly within the for loop
-
-    // i am thinking about putting these conditionals into an array so the code is easier to read? might also look into checking if all the divs include either "X" or "O" aka if all boxes are filled, then indicate is it a tie.
-
-    // for (let i = 0; i < boxes.length; i++) {
-    //     if ( (boxes[i].classList.contains("x") && (boxes[i].classList.contains("win") === false)) || (boxes[i].classList.contains("y") && (boxes[i].classList.contains("win") === false)) ) {
-    //         turn.innerText = "tie!"
-    //     }
-    // }
-
+    // this code is what determines whose turn it is when the user clicks a box. it also determines if the remaining boxes are unclickable -- from above, where it changed the innerHTML to "block"
 for (let i = 0; i < boxes.length; i++) {
     boxes[i].onclick = function() {
         if (this.innerHTML === "block") {
@@ -106,17 +107,21 @@ for (let i = 0; i < boxes.length; i++) {
 }
 
 // replay button
+// removes all classes "win, x, o"
+// makes all innerHTML be blank
+// removes the background of x or o or sad cat
+// turns the innerHTML to the initial message when the game just starts
+// sets the turnNumber back to 0 aka it always starts at player X's turn
 function replay(){
     for (let i = 0; i < boxes.length; i++){
         boxes[i].classList.remove("win")
         boxes[i].classList.remove("x", "o")
         boxes[i].innerHTML = ""
         boxes[i].style.background = ""
-        turn.innerHTML = "play"
+        turn.innerHTML = "press any square to play"
+        turnNumber = 0
     }
 }
 
-document.getElementById("replay").addEventListener("click", replay)
-
-// REQUIREMENTS TO WORK ON
-// make a condition for a tie -- not working
+// click add event listener for the replay button
+document.getElementById("replay").addEventListener("click", replay) 
