@@ -1,21 +1,27 @@
 //Gets all the squares
 const cats = document.getElementsByClassName("cat");
-
 //Variable for X
 let currentPlayer = "x";
-
+let computer = null;
 //Variable to store the game status
 let gameStatus = "Game On";
+// function to generate a random choice
+const randomChoice = () => {
+    let computer = Math.floor(Math.random() * cats.length);
+    return(randomChoice);
+};
 
+// Multiplayer game
 //loops through all the elements
 for (let i = 0; i < cats.length; i++) {
     //adds event listener to each square;
-    cats[i].addEventListener("click", function() {
+    cats[i].addEventListener("click", () => {
+       
       //checks if the square has an x or an o in it and also checks if the game is still on
-      if (cats[i].innerHTML.trim() == "" && gameStatus == "Game On") {
+      if (cats[i].innerHTML == "" && gameStatus == "Game On") {
         //adds x or o for the current play in their choosen square
         cats[i].innerHTML = currentPlayer;
-  
+        
         //Variable to change player turns
         currentPlayer = currentPlayer == "x" ? "o" : "x";
   
@@ -24,58 +30,96 @@ for (let i = 0; i < cats.length; i++) {
           "player"
         ).innerHTML = currentPlayer.toUpperCase();
   
-        //checks 3 matching x's or o's
+        //checks for the winning sequence(3 x's or 3 o's)
         if (
           cats[0].innerHTML == cats[1].innerHTML &&
           cats[1].innerHTML == cats[2].innerHTML &&
-          cats[0].innerHTML.trim() != ""
+          cats[0].innerHTML != ""
         ) {
-          displayWinner(0, 1, 2);
+          showWinner(0, 1, 2);
         } else if (
           cats[3].innerHTML == cats[4].innerHTML &&
           cats[4].innerHTML == cats[5].innerHTML &&
-          cats[3].innerHTML.trim() != ""
+          cats[3].innerHTML != ""
         ) {
-          displayWinner(3, 4, 5);
+          showWinner(3, 4, 5);
         } else if (
           cats[6].innerHTML == cats[7].innerHTML &&
           cats[7].innerHTML == cats[8].innerHTML &&
-          cats[6].innerHTML.trim() != ""
+          cats[6].innerHTML != ""
         ) {
-          displayWinner(6, 7, 8);
+          showWinner(6, 7, 8);
         } else if (
           cats[0].innerHTML == cats[3].innerHTML &&
           cats[3].innerHTML == cats[6].innerHTML &&
-          cats[0].innerHTML.trim() != ""
+          cats[0].innerHTML != ""
         ) {
-          displayWinnerr(0, 3, 6);
+          showWinner(0, 3, 6);
         } else if (
           cats[1].innerHTML == cats[4].innerHTML &&
           cats[4].innerHTML == cats[7].innerHTML &&
-          cats[1].innerHTML.trim() != ""
+          cats[1].innerHTML != ""
         ) {
-          displayWinner(1, 4, 7);
+          showWinner(1, 4, 7);
         } else if (
           cats[2].innerHTML == cats[5].innerHTML &&
           cats[5].innerHTML == cats[8].innerHTML &&
-          cats[2].innerHTML.trim() != ""
+          cats[2].innerHTML != ""
         ) {
-          displayWinner(2, 5, 8);
+          showWinner(2, 5, 8);
         } else if (
           cats[0].innerHTML == cats[4].innerHTML &&
           cats[4].innerHTML == cats[8].innerHTML &&
-          cats[0].innerHTML.trim() != ""
+          cats[0].innerHTML != ""
         ) {
-          displayWinner(0, 4, 8);
+          showWinner(0, 4, 8);
         } else if (
           cats[2].innerHTML == cats[4].innerHTML &&
           cats[4].innerHTML == cats[6].innerHTML &&
-          cats[2].innerHTML.trim() != ""
+          cats[2].innerHTML != ""
         ) {
-          displayWinner(2, 4, 6);
+          showWinner(2, 4, 6);
         }
       }
     });
-  }
+}
   
+//resets the game
+document.getElementById("reset").addEventListener("click", () => {
+    for (let i = 0; i < cats.length; i++) {
+      cats[i].innerHTML = "";
+      cats[i].style.backgroundColor = "white";
+      cats[i].style.color = "black";
+    
+    }
+    currentPlayer = "x";
+    document.getElementById("clair").style.display = "none";
+    document.getElementById("player").innerHTML = "X";
+    gameStatus = "Game On";
+});
   
+  //displays the winner
+const showWinner = (x, y, z) => {
+    cats[x].style.background = "purple";
+    cats[x].style.color = "white";
+    cats[y].style.background = "purple";
+    cats[y].style.color = "white";
+    cats[z].style.background = "purple";
+    cats[z].style.color = "white";
+    document.getElementById("winner").innerHTML =
+      currentPlayer == "x" ? "O" : "X";
+    document.getElementById("clair").style.display = "block";
+    gameStatus = "Game Over";
+}
+
+   // single player function
+document.getElementById("single").addEventListener("click", () => {
+   //loops through all the elements
+    for (let i = 0; i < cats.length; i++) {
+        //adds event listener to each square;
+        cats[i].addEventListener("click", () => {
+        })
+    }
+})   
+// i couldn't figure out the conditional. 
+//i wanted to create a new array to generate a choice from but i keep getting a bug  
