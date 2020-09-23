@@ -1,0 +1,35 @@
+.square {
+  background-color: gray;
+  border:10px solid black;
+  display:inline-block;
+  width:200px;
+  height:200px;
+  padding: 25px;
+}
+#container {
+  display:grid;
+  grid-template-columns: repeat(3,auto);
+  margin:100px auto;
+  width:700px;
+  justify-content: center;
+  align-content: center;
+}
+body {
+  margin: 0;
+} 
+
+h1{
+  text-align: center;
+}
+p {
+  text-align: center;
+  font-size:70px ;
+}
+
+h2 {
+  font-family: sans-serif;
+}
+
+/* p {
+  margin-top: 0;
+} */
