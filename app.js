@@ -90,6 +90,11 @@ const checkStatus = (event) => {
             return playerTurn()
         } else if (one.innerText !== '' && two.innerText !== '' && three.innerText !== '' && four.innerText !== '' && five.innerText !== '' && six.innerText !== '' && seven.innerText !== '' && eight.innerText !== '') {
             status.innerText = 'It is a tie. Play again!'
+            for(box of boxes) {
+                box.style.background = 'yellow'
+            }
+            return computerTurn()
+            return playerTurn()
         } else {
            status.innerText = 'Your turn!'
            continue
