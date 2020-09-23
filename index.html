@@ -9,20 +9,31 @@
 </head>
 <body>
     <!-- score boards -->
-    <div class = "userScoreBoard">
-        <h2 id = "symbolLeft">O</h2>
-        <!-- <div id = "lineLeft"></div> -->
-        <h2 id = "scoreLeft"> 0 </h2>
-        
-    </div>
-    <div class="computerScoreBoard">
-        <h2 id = "symbolRight">X</h2>
-        <h2 id = "scoreRight"> 0 </h2>
+    <div class ="scoreBoards">
+        <div class = "userScoreBoard" style="display:none">
+            <h2 id = "symbolLeft">0</h2>
+            <h2 id = "scoreLeft"> 0 </h2>
+         </div>
+    
+        <div class="computerScoreBoard" style="display:none">
+             <h2 id = "symbolRight">X</h2>
+            <h2 id = "scoreRight"> 0 </h2>
+        </div>
     </div>
     <h1>Tic Tac Toe</h1>
-
+    
+    <!-- initial screen -->
+    <div class ="initialContainer">
+        <h5>Choose Your Character</h5> 
+       <form>
+            <div id ="o"></div>
+            <div id ="x"></div>
+        </form>
+      </form>
+    </div>
+    
     <!-- tic-tac-toe board -->
-    <div id="container">
+    <div id="container" style="display:none">
         <div class="square">
             <div class="symbol" id = "one"></div>
         </div>
