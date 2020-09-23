@@ -1,0 +1,57 @@
+body {
+    background-color: rgb(235, 235, 255);
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+  }
+  h1 h2 h3 {
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 50px;
+    color: rgb(61, 61, 82);
+  }
+  h2 {
+    font-size: 20px;
+    color: rgb(61, 61, 82);
+  }
+  h3 {
+    font-size: 15px;
+    color: rgb(59, 67, 70);
+    align-items: center;
+  }
+  .flex-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .flex-column {
+      height: 100%;
+      width: 100%;
+      flex-direction: column;
+  }
+  
+  .flex-wrap {
+      flex-wrap: wrap;
+      height: 432px;
+      width: 432px;
+  }    
+  .square {
+      border: 2px solid rgba(182, 193, 255, 0.75);
+      height: 140px;
+      width: 140px;
+      font-size: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(61, 61, 82);
+  }
+  #reset{
+      text-align: center;
+      font-size: 15px;
+      border: 1px solid rgb(100, 100, 100);
+      background-color: rgb(207, 187, 216);
+      height: 40px;
+      width: 60px;
+      margin: 10px;
+  }
