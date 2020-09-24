@@ -10,11 +10,21 @@ Fork & Clone this repo. Open this file in your text editor and fill in the secti
 
 Write out a list of *all* the things you need to do to code this game. This can be as detailed or high-level, though we recommend the former. This is your first time planning an app, so just have fun and just see what you can come up with. There's no right way.
 
----
+1. Make a 3x3 grid
+2. Have player 1 and player 2 (or computer)
+3. Align 3 x's or o's in a row on the column, whether horizontally, vertically or diagonally
+4. If there are no empty tiles and a winner has not been chosen, a tie is declared.
+5. Have click button so each player can press to select where he/she wants their mark to land
+6. Declare a winner! 
+7. When a winner is chosen and the game is over, click to start new game.
 
-*Write TODO list here*
-
----
+1. The game is played on a grid that's 3 squares by 3 squares.
+2. You are X, your friend (or the computer) is O. Or vice versa.
+3. Players take turns putting their marks in empty squares on the grids.
+4. Part of your strategy is trying to figure out how to get three Xs in a row. 5.5. The other part is trying to figure out how to stop the other player or the computer from getting three Os in a row.
+6. If the other player or computer gets two Os in a row, you have to put your next X in the last empty square in that row to stop the player or the computer from winning. 
+7. The first player to get 3 of thier marks in a row (up, down, across, or diagonally) is the winner.
+8. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
 
 ### Optional Part 2: Pseudo-code your win-logic
 
@@ -22,6 +32,5 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 ---
 
-*Write psuedocode here*
 
 ---

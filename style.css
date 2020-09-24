@@ -1,0 +1,33 @@
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  } 
+h1 {
+    text-align: center;
+}
+body {
+    font-family: 'Dancing Script', cursive;
+    background-image: url('https://images.app.goo.gl/nvP2eZd67v6JNKcx6.jpg');
+    background-size: auto;
+}
+ h3 {
+    background:rgb(255, 255, 255)
+}
+#gameBoard {
+    display: grid;
+    grid-template-rows: 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px;
+}
+.box {
+    border: 1.5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    background: blueviolet
+}
+
+h3 {
+    text-align: center;
+} 
