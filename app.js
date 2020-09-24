@@ -22,6 +22,10 @@ let rightScore = document.querySelector("#scoreRight");
 let scoreOfLeft = 0;
 let scoreOfRight = 0;
 //-----------------------------------------------------------------------------------
+let symbolLeft = document.querySelector("#symbolLeft");
+let symbolRight = document.querySelector("#symbolRight");
+
+
 firstScreen = () => {
     let x = document.querySelector("#x");
     x.addEventListener("click", () => {
@@ -78,23 +82,27 @@ firstScreen = () => {
 const game = () =>{
   let symbols = document.querySelectorAll(".symbol");
       for(let i = 0; i<symbols.length;i++) {
-        symbols[i].addEventListener("click",()=>{ 
+        document.querySelector(".computerScoreBoard").style.backgroundColor = "#00FF00"
+      symbols[i].addEventListener("click",()=>{
         if (turn === "X"){
+                  document.querySelector(".computerScoreBoard").style.backgroundColor = "white"
+                  document.querySelector(".userScoreBoard").style.backgroundColor = "#00FF00"
                   symbols[i].setAttribute("class","cross")
                   console.log("hey")
                   turn = "O"
                   winning()
-   
-          }else if(turn === "O"){
+         } else if(turn === "O"){
+             document.querySelector(".computerScoreBoard").style.backgroundColor = "#00FF00"
+             document.querySelector(".userScoreBoard").style.backgroundColor = "white"
               console.log("get there")
-                 
-                  symbols[i].setAttribute("class","circle")
-                  turn = "X"
-                  winning()   
-          }
-  })
- }
-}
+              symbols[i].setAttribute("class","circle")
+               turn = "X"
+              winning() 
+            }
+      })
+    }
+  }
+
 const menu = () =>{
   let menuButton = document.querySelector(".menu")
   menuButton.addEventListener("mouseover", ()=>{
