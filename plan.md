@@ -10,9 +10,13 @@ Fork & Clone this repo. Open this file in your text editor and fill in the secti
 
 Write out a list of *all* the things you need to do to code this game. This can be as detailed or high-level, though we recommend the former. This is your first time planning an app, so just have fun and just see what you can come up with. There's no right way.
 
----
-
-*Write TODO list here*
+1. Make a 3x3 grid
+2. Have player 1 and player 2 (or computer)
+3. Align 3 x's or o's in a row on the column, whether horizontally, vertically or diagonally
+4. If there are no empty tiles and a winner has not been chosen, a tie is declared.
+5. Have click button so each player can press to select where he/she wants their mark to land
+6. Declare a winner! 
+7. When a winner is chosen and the game is over, click to start new game.
 
 1. The game is played on a grid that's 3 squares by 3 squares.
 2. You are X, your friend (or the computer) is O. Or vice versa.
@@ -28,6 +32,5 @@ Each time a player makes a move, your code will check to see if there is a game-
 
 ---
 
-*Write psuedocode here*
 
 ---
