@@ -27,6 +27,7 @@ firstScreen = () => {
     x.addEventListener("click", () => {
       console.log("running");
       document.querySelector(".btn").style.display = "block";
+      document.querySelector(".menu").style.display = "block";
       document.querySelector("h5").style.display = "none";
       document.querySelector("#o").style.display = "none";
       document.querySelector("#x").style.display = "none";
@@ -39,6 +40,7 @@ firstScreen = () => {
     let o = document.querySelector("#o");
     o.addEventListener("click", () => {
       console.log("running");
+      document.querySelector(".menu").style.display = "block";
       document.querySelector(".btn").style.display = "block";
       document.querySelector("h5").style.display = "none";
       document.querySelector("#o").style.display = "none";
@@ -72,32 +74,50 @@ firstScreen = () => {
       x.style.height = "100px";
     });
   };
-// const circle = () =>{
 
-// }
-// const cross = () =>{
-
-// }
 const game = () =>{
-    let symbols = document.querySelectorAll(".symbol");
-        for(let i = 0; i<symbols.length;i++) {
-          symbols[i].addEventListener("click",()=>{ 
-          if (turn === "X"){
-                    symbols[i].setAttribute("class","cross")
-                    console.log("hey")
-                    turn = "O"
-                    winning()
-     
-            }else if(turn === "O"){
-                console.log("get there")
-                    symbols[i].setAttribute("class","circle")
-                    turn = "X"
-                    winning()   
-            }
-    })
-  }
+  let symbols = document.querySelectorAll(".symbol");
+      for(let i = 0; i<symbols.length;i++) {
+        symbols[i].addEventListener("click",()=>{ 
+        if (turn === "X"){
+                  symbols[i].setAttribute("class","cross")
+                  console.log("hey")
+                  turn = "O"
+                  winning()
+   
+          }else if(turn === "O"){
+              console.log("get there")
+                 
+                  symbols[i].setAttribute("class","circle")
+                  turn = "X"
+                  winning()   
+          }
+  })
+ }
 }
-
+const menu = () =>{
+  let menuButton = document.querySelector(".menu")
+  menuButton.addEventListener("mouseover", ()=>{
+    menuButton.style.color = "white";
+    menuButton.style.border = "solid 2px white";
+  })
+  menuButton.addEventListener("mouseout", ()=>{
+    menuButton.style.color = "rgba(0,0,0,0.3)";
+    menuButton.style.border = "rgba(0,0,0,0.3) 2px solid";
+  })
+  menuButton.addEventListener("click",()=>{
+    document.querySelector(".btn").style.display = "none";
+      document.querySelector(".menu").style.display = "none";
+      document.querySelector("h5").style.display = "block";
+      document.querySelector("#o").style.display = "inline-block";
+      document.querySelector("#x").style.display = "inline-block";
+      document.querySelector("#container").style.display = "none";
+      document.querySelector(".computerScoreBoard").style.display =
+        "none";
+      document.querySelector(".userScoreBoard").style.display = "none";
+    
+  })
+}
 const restart = () =>{
   let restartButton = document.querySelector(".btn")
   restartButton.addEventListener("mouseover", ()=>{
@@ -156,5 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
     firstScreen();
     game()
     restart()
+    menu()
    
   });
