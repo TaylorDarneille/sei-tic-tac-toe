@@ -87,7 +87,7 @@ const gameStatus = () => {
 
 }
 
-
+//couldnt get the game to reset
 const handleReset = (e) => {
     // console.log(e)
     winner = null
@@ -95,10 +95,11 @@ const handleReset = (e) => {
         cellDivs.classList.remove('x')
         cellDivs.classList.remove('o')
     }
-
 }
 resetGame.addEventListener('click', handleReset)
 
+
+//this is keep tracked of each cell boc clicked
 const cellClicked = (e) => {
     const classList = e.target.classList
     // console.log(e.target.classList)
@@ -108,7 +109,7 @@ const cellClicked = (e) => {
     if(classList[2] === 'x' || classList[2] === 'o'){
         return
     }
-
+    //adding x and o to our game board
     if(currentPlayer === true){
     classList.add('x')
     gameStatus()
@@ -119,7 +120,7 @@ const cellClicked = (e) => {
     currentPlayer = !currentPlayer
     }
 }
-
+//event listener for our game board
 for(let cellDiv of cellDivs){
     cellDiv.addEventListener('click', cellClicked)
 }
