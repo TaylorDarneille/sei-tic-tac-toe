@@ -4,6 +4,8 @@ const addX = () => {
     x.innerText = "X";
     console.log(x);
     event.target.appendChild(x);
+    xIsNext = false;
+    updateGameStatus();
 }
 
 //create variable to add an o to a div when that div is clicked
@@ -12,6 +14,17 @@ const addO = () => {
     o.innerText = "O";
     console.log(o);
     event.target.appendChild(o);
+    xIsNext = true;
+    console.log(xIsNext);  
+    updateGameStatus();
+}
+
+const updateGameStatus = () =>{
+    if (xIsNext === true){
+        statusDiv.innerText = "X is next";
+    } else if (xIsNext === false) {
+        statusDiv.innerText = "O is next";
+    }
 }
 
 // variable for player moves
@@ -102,8 +115,34 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 findWin();
             }
         // }
-            // findWin();
+            // updateGameStatus()
 
 
     })
 }) 
+
+
+// making the status work
+const statusDiv = document.querySelector(".status");
+const resetDiv = document.querySelector(".reset");
+const cellDivs = document.querySelectorAll(".cells");
+
+// how to start the game
+let gameOn = true;
+let xIsNext = true;
+
+// game logic
+const handleReset = (e)=> {
+    
+}
+
+const handleCellClick = (e) => {
+
+}
+
+
+resetDiv.addEventListener("click", handleReset)
+
+for (const cellDiv of cellDivs) {
+    cellDiv.addEventListener("click", handleCellClick)
+}
