@@ -31,6 +31,10 @@ div {
     background-color: red;
     border-radius: 50%;
   } */
+body {
+    display: flex;
+    justify-content: center;
+}
 
 .rows {
     display: inline-block;
@@ -46,12 +50,39 @@ div {
 #gameboard {
     display: flex;
     font-family: sans-serif;
+    margin: 50px;
+    padding: 50px;
+    background: slateblue;
+    border-radius: 5%;
+    justify-content: ;
+}
+h1{
+    margin: 20px;
+    text-align: center;
 }
 
-button {
+.status-button {
+    text-align: center;
+    padding-top: 40px;;
+    padding-left: 20px; 
+}
+
+.reset {
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+.reset:hover {
+    color: white;
+}
+/* .status-button button {
+    margin: 10px;
+    
+} */
+/* button {
     max-height: 50px;
     margin-left: 10px;
-}
+} */
 
 /* -figure out how to use CSS to create my X's and O's */
   p {
