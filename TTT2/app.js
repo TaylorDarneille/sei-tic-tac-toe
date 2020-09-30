@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 }
     updateStatus();
 
+ 
+
     const handleWinner = (letter) => {
         gameIsLive = false;
         winner = letter;
@@ -117,7 +119,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 
 
-    document.addEventListener("click", clickOutcome)
+
+
+    const resetGame = () => {
+        xIsNext = true;
+        updateStatus();
+        winner = null;
+        for(const gameCell of gameCellDivs) {
+            gameCell.classList.remove("x");
+            gameCell.classList.remove("o");
+        }
+        }
+
+    document.addEventListener("click", clickOutcome);
+    resetBtn.addEventListener("click", resetGame);
 
     
     
