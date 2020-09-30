@@ -19,10 +19,13 @@ body {
 }
 
 .game-cells {
+    display: flex;
     height: 100px;
     width: 100px;
     border: solid 2px whitesmoke;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 
 .reset, .status {
@@ -38,4 +41,17 @@ body {
 
 .reset:hover, .status:hover {
     background: powderblue;
+}
+
+.x::before {
+    content: "x";
+    font-size: 50px;
+    color: whitesmoke;
+}
+
+.o::before {
+    content: "o";
+    font-size: 50px;
+    color: whitesmoke;
+
 }
