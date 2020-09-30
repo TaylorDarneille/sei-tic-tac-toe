@@ -79,6 +79,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
             handleWinner(topMiddle);
         } else if (topRight && topRight === middleRight && topRight === bottomRight){
             handleWinner(topRight);
+        } else if (topLeft && middleLeft && bottomLeft && topMiddle && middleMiddle && bottomMiddle && topRight && middleRight && bottomRight){
+            gameIsLive = false;
+            statusBar.innerHTML = "Game is a draw";
         }
         // for (gameCell of gameCellDivs) {
         //     if(gameCell && gameCell =)
