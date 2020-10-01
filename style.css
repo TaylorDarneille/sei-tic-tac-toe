@@ -1,0 +1,33 @@
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  } 
+h1 {
+    text-align: center;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    background-image: url('https://wallpaperaccess.com/full/1820596.jpg');
+    background-size: cover;
+}
+h1, h3 {
+    background:white
+}
+#gameBoard {
+    display: grid;
+    grid-template-rows: 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px;
+}
+.box {
+    border: 1.5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    background: white
+}
+
+h3 {
+    text-align: center;
+}
