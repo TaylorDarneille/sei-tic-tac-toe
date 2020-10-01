@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     const resetBtn = document.createElement("div");
     resetBtn.classList.add("reset");
-    resetBtn.innerText = "Stay Hard Mfer"
+    resetBtn.innerText = "Play Again"
     container.appendChild(resetBtn);
 
     // console.log(container)
