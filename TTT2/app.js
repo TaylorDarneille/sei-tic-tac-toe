@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const classList = e.target.classList
         console.log(e.target.classList)
 
-        if (e.target.classList[0] !== "game-cells" || e.target.classList[1] === "x" || e.target.classList[1] === "o") {
+        if (!gameIsLive || e.target.classList[0] !== "game-cells" || e.target.classList[1] === "x" || e.target.classList[1] === "o") {
             return;
         }
 
@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
     const resetGame = () => {
+        gameIsLive = true;
         xIsNext = true;
         updateStatus();
         winner = null;
@@ -133,14 +134,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     document.addEventListener("click", clickOutcome);
     resetBtn.addEventListener("click", resetGame);
-
-    
-    
-
-
-
-
-
-
-    
+   
 })
