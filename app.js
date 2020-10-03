@@ -1,96 +1,69 @@
-//start timer
-let time = 10;
-let timeOut = 0;
-const timeFunction = () => {
-  time--;
-  document.querySelector('#time').innerHTML = time;
-  clearTimeout(timeOut);
-  timeOut = setTimeout(timeFunction, 1000);
-  
+let turn = prompt('select your shape', 'triangle/circle');  
+
+const checkWinner = () => {
+  let squares = document.querySelectorAll('.square');
+  for (let i = 0; i < squares.length; i+=3) {
+    if (squares[i].classList.contains(turn) && 
+        squares[i+1].classList.contains(turn) &&
+        squares[i+2].classList.contains(turn)) {
+          alert(turn + ' wins')
+        }
+  }
+  for (let i = 0; i < 3; i++) {
+    if (squares[i].classList.contains(turn) &&
+        squares[i+3].classList.contains(turn) &&
+        squares[i+6].classList.contains(turn)) {
+          alert(turn + ' wins') 
+        }
+  }
+    if (squares[0].classList.contains(turn) &&
+        squares[4].classList.contains(turn) &&
+        squares[8].classList.contains(turn)) {
+          alert(turn + ' wins')
+        }
+    if (squares[2].classList.contains(turn) &&
+        squares[4].classList.contains(turn) &&
+        squares[6].classList.contains(turn)) {
+          alert(turn + ' wins')
+        }
 }
 
-const startTimer = () => {
-  time = 10;
-  timeFunction();
-  domLoaded();
-}
-//end timer
-
-//while(turn === playerOne )
-  //call function that uses triangle
-  //invoke setTimeout function that counts down and writes countdown into dom;
-  //after 10 seconds, invoke function switching to circle 
-  //if(time===0) {
-    //call switchPlayer function() //switch player function will also reset time 
-  //}
-  //the switchPlayer function will be called with a 'mouseout' event 
-  /*const switch (key) {
-    case value:
-      
-      break;
-  
-    default:
-      break;
-  }*/
-  let player = prompt('select your shape', 'triangle/circle');
-const domLoaded = () => {
-
-};
-startTimer('DomContentLoaded', domLoaded)
-
-
-
-let turn = document.querySelector('#turn');
-turn.innerHTML = player;
-  
-  
+const switchPlayer = () => {
+    if (turn === 'triangle') {
+      let changeTurn = document.querySelector('#turn');
+      changeTurn.innerHTML = 'circle';
+      turn = 'circle';
+    } else if (turn === 'circle') {
+      let changeTurn = document.querySelector('#turn');
+      changeTurn.innerHTML = 'triangle';
+      turn = 'triangle';
+    }
+  };
+    
+const placeShape = (e) => {
+  if (turn === 'triangle') {
+    e.target.classList.add('triangle');
+  } else {
+    e.target.classList.add('circle');
+  }
+  checkWinner();
+  switchPlayer();
+};  
   
 const mainFunction = () => {
-//let player = prompt('select your shape', //'triangle/circle');
-let turn = document.querySelector('#turn');
-turn.innerHTML = player;
+let squares = document.querySelectorAll('.square');
+for (let i = 0; i < squares.length; i++) {
+  squares[i].addEventListener('click', placeShape)
+}
+};
 
-if (player === 'triangle') {
-const changeTriangle = (e) => {
-  e.target.classList.add('triangle');
-  player === 'circle';
-  //e.target.removeAttribute('class', 'triangle');
-  //classList.add('')
-};
-let triangleClick = document.querySelectorAll('.square');
-for (let i = 0; i < triangleClick.length; i++) {
-  triangleClick[i].addEventListener('click', changeTriangle)
+const clearBoard = () => {
+let squares = document.querySelectorAll('.square');
+for (let i = 0; i < squares.length; i++) {
+  squares[i].classList.remove('triangle');
+  squares[i].classList.remove('circle');
 }
-} else if (player === 'circle') {
-  const changeCircle = (e) => {
-  e.target.classList.add('circle');
-  player === 'triangle';
-  //e.target.removeAttribute('class', 'triangle');
-  //classList.add('')
-};
-let circleClick = document.querySelectorAll('.square');
-for (let i = 0; i < circleClick.length; i++) {
-  circleClick[i].addEventListener('click', changeCircle)
-}
-}
-};
-mainFunction();
-
-  
-   const switchPlayer = () => {
-    if (player === 'triangle') {
-      let turn = document.querySelector('#turn');
-      turn.innerHTML = 'circle';
-      player = 'circle';
-    } else if (player === 'circle') {
-      let turn = document.querySelector('#turn');
-      turn.innerHTML = 'triangle';
-      player = 'triangle';
-    }
-    
-  }
-    let getContainer = document.querySelector('#container');
-    getContainer.addEventListener('click', switchPlayer);
+}; 
 
 
     
