@@ -127,5 +127,6 @@ document.getElementById("single").addEventListener("click", () => {
         })
     }
 })   
-// i couldn't figure out the conditional. 
+// i couldn't figure out the single player function conditional. 
 //i wanted to create a new array to generate a choice but i keep getting a bug  
+
