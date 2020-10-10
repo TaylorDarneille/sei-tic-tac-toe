@@ -1,0 +1,98 @@
+/*  
+    TO-DO AFTER IT WORKS:
+    - make center
+    - design lines
+    - design shapes
+    - FLEX-BOX?
+*/
+
+/* --------FOR REFERENCE----------------
+div {
+    cursor: pointer;
+  }
+  
+  .row {
+    text-align: center;
+  }
+  
+  .triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+  }
+  
+  .circle {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+  } */
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.rows {
+    display: inline-block;
+}
+
+.cells {
+    text-align: center;
+     height: 100px;
+     width: 100px;
+     border: 4px solid black;
+  }
+
+#gameboard {
+    display: flex;
+    font-family: sans-serif;
+    margin: 50px;
+    padding: 50px;
+    background: slateblue;
+    border-radius: 5%;
+    justify-content: ;
+}
+h1{
+    margin: 20px;
+    text-align: center;
+}
+
+.status-button {
+    text-align: center;
+    padding-top: 40px;;
+    padding-left: 20px; 
+}
+
+.reset {
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+.reset:hover {
+    color: white;
+}
+/* .status-button button {
+    margin: 10px;
+    
+} */
+/* button {
+    max-height: 50px;
+    margin-left: 10px;
+} */
+
+/* -figure out how to use CSS to create my X's and O's */
+  p {
+    font-size: 50px;
+    margin: auto;
+    line-height: 100px;
+  }
+  
+
+
+
+
+

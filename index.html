@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Make a 3x3 grid (of divs). Use `id` and `class` on clickable elements to manipulate using JS -->
+    <div id="gameboard">
+        <h1 class="title">Tic Tac Toe</h1>
+       
+        <div class="rows">
+            <div class="cells" id="1"></div>
+            <div class="cells" id="2"></div>
+            <div class="cells" id="3"></div>
+        </div>
+        
+        <div class="rows">
+            <div class="cells" id="4"></div>
+            <div class="cells" id="5"></div>
+            <div class="cells" id="6"></div> 
+        </div>
+        
+        <div class="rows">
+            <div class="cells" id="7"></div>
+            <div class="cells" id="8"></div>
+            <div class="cells" id="9"></div>
+        </div>
+        
+        <div class="status-button">
+            <!-- add status which shows which player should make a move -->
+            <div class="status">X is next</div>
+            <!-- add reset button.  -->
+            <!-- <button type="reset">Play Again</button> --> 
+            <!-- learned how to make a div react as a button so I replaced the button with a div and gave it a class of reset which I used to style -->
+            <div class="reset">Play Again</div>
+        </div>
+        
+        
+       
+    </div>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>
